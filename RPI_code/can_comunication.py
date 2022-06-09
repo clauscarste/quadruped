@@ -51,14 +51,14 @@ def set_idle(msg_axis_id):
                 print("Axis failed to enter idle")
             break
 
-def move_to(msg_axis_id,angle,ofsets):
+def move_to(msg_axis_id,angle,ofsets,angle_limit):
     #calculating angle with offset
     angle = angle - ofsets
     #check if angle is in bound - if its ouside bound bring it to bound border
     if angle < 0:
         angle = 0
-    elif angle > 180:
-        angle = 180
+    elif angle > angle_limit:
+        angle = angle_limit
     #covert angle to number
     ange_number = angle / 360
 
