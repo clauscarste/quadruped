@@ -14,7 +14,7 @@ temprature_limit = 70
 battery_voltage_lower_limit = 15
 battery_voltage_upper_limit = 22
 
-#servo_initial_angles and ofset (negative)
+#servo_initial_angles and ofset (negative defined)
 servo_1_inital_angle = 0
 servo_2_inital_angle = 0
 servo_3_inital_angle = 0
@@ -22,15 +22,18 @@ servo_ofset = [0, 0, 0]
 
 
 #motor inital angle and ofset (negative)
-motor_inital_angle = [0,0,0,0,0,0,0,0,0,0,0,0]
+motor_inital_xyz = [[0,0,0],[0,0,0],[0,0,0],[0,0,0]]
 motor_ofset = [0,0,0,0,0,0,0,0,0,0,0,0]
-leg_parameters = [1,1,1]
+angle_limit = [180,180,180,180,180,180,180,180,180,180,180,180]
+invert_axis = [False,False,False,False,False,False,False,False,False,False,False,False]
+leg_parameters = [0.1,0.6,0.6]
 #Servo setup
 servo.set_angle(servo_1_inital_angle, servo_2_inital_angle, servo_3_inital_angle, servo_ofset)
 #Motor_setup
 for i in range(13):
     can_comunication.set_closed_loop(i)
-    can_comunication.move_to(i, motor_inital_angle[i], motor_ofset[i])
+for i in range(4):
+    kinematics_legs.inverse_kinematics_legs(motor_inital_xyz[i],leg_parameters,motor_ofset,invert_axis)##++move to initial position with inverse kinematics
 
 #inverse kinematics
 kinematics_spine.inverse_kinematics_spine(1, 1, 1, servo_ofset)

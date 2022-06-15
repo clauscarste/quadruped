@@ -51,9 +51,12 @@ def set_idle(msg_axis_id):
                 print("Axis failed to enter idle")
             break
 
-def move_to(msg_axis_id,angle,ofsets,angle_limit):
+def move_to(msg_axis_id,angle,ofsets,angle_limit,invert_axis):
     #calculating angle with offset
+    if invert_axis: #inversion is there to make axis behave like defined
+        angle = -angle
     angle = angle - ofsets
+
     #check if angle is in bound - if its ouside bound bring it to bound border
     if angle < 0:
         angle = 0
@@ -61,7 +64,7 @@ def move_to(msg_axis_id,angle,ofsets,angle_limit):
         angle = angle_limit
     #covert angle to number
     gear_ratio = 6
-    ange_number = (angle / 360)*6
+    ange_number = (angle / 360)*gear_ratio
 
     data = db.encode_message('Set_Input_Pos', {'Input_Pos': ange_number, 'Vel_FF': 0.0, 'Torque_FF': 0.0})
     msg = can.Message(arbitration_id=msg_axis_id << 5 | 0x00C, data=data, is_extended_id=False)
@@ -103,6 +106,9 @@ def can_get_voltage(msg_axis_id, data=[], format='', RTR=True):
         if (msg.arbitration_id == (msg_axis_id << 5) + 0x17):
             msg = db.decode_message('Get_Vbus_Voltage', msg.data)
             return msg['Vbus_Voltage']
+        else: # recursive call in case the first time no data is recived - message will be sent again to retry.
+            print("no data recived")
+            return (can_get_voltage(msg_axis_id))
         break
 
 def get_encoder_estimate(msg_axis_id, data=[], format='', RTR=True):
@@ -118,4 +124,7 @@ def get_encoder_estimate(msg_axis_id, data=[], format='', RTR=True):
         if (msg.arbitration_id == (msg_axis_id << 5) + 0x009):
             msg = db.decode_message('Get_Encoder_Estimates', msg.data)
             return msg['Pos_Estimate'],msg['Vel_Estimate']
+        else: # recursive call in case the first time no data is recived - message will be sent again to retry.
+            print("no data recived")
+            return (get_encoder_estimate(msg_axis_id))
         break
