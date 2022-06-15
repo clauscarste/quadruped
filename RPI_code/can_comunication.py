@@ -60,7 +60,8 @@ def move_to(msg_axis_id,angle,ofsets,angle_limit):
     elif angle > angle_limit:
         angle = angle_limit
     #covert angle to number
-    ange_number = angle / 360
+    gear_ratio = 6
+    ange_number = (angle / 360)*6
 
     data = db.encode_message('Set_Input_Pos', {'Input_Pos': ange_number, 'Vel_FF': 0.0, 'Torque_FF': 0.0})
     msg = can.Message(arbitration_id=msg_axis_id << 5 | 0x00C, data=data, is_extended_id=False)
@@ -70,37 +71,6 @@ def move_to(msg_axis_id,angle,ofsets,angle_limit):
     except can.CanError:
         print("can_move_to NOT sent!")
 
-def set_limits(msg_axis_id,vel_limit,current_limit):
-    data = db.encode_message('Set_Limits', {'Velocity_Limit': vel_limit, 'Current_Limit': current_limit})
-    msg = can.Message(arbitration_id=msg_axis_id << 5 | 0x00F, is_extended_id=False, data=data)
-    try:
-        bus.send(msg)
-    except can.CanError:
-        print("can_set_limits NOT sent!")
-
-def set_pos_gain(msg_axis_id,pos_gain):
-    data = db.encode_message('Set_Pos_Gain', {'Pos_Gain': pos_gain})
-    msg = can.Message(arbitration_id=msg_axis_id << 5 | 0x1a, is_extended_id=False, data=data)
-    try:
-        bus.send(msg)
-    except can.CanError:
-        print("can_set_pos_gain NOT sent!")
-
-def set_vel_gains(msg_axis_id,vel_gain,vel_integ):
-    data = db.encode_message('Set_Vel_gains', {'Vel_Gain': vel_gain, 'Vel_Integrator_Gain': vel_integ})
-    msg = can.Message(arbitration_id=msg_axis_id << 5 | 0x1b, is_extended_id=False, data=data)
-    try:
-        bus.send(msg)
-    except can.CanError:
-        print("can_set_vel_gains NOT sent!")
-
-
-def encoder_estimates(msg_axis_id):
-    while (1):
-        msg = bus.recv()
-        if (msg.arbitration_id == (msg_axis_id << 5) + 0x9):
-            data = struct.unpack('ff', msg.data)
-            return data[0]
 
 def clear_errors(msg_axis_id, data=[], format=''):
     data_frame = struct.pack(format, *data)
@@ -110,12 +80,42 @@ def clear_errors(msg_axis_id, data=[], format=''):
     except can.CanError:
         print("can_clear_errors NOT sent!")
 
-def is_bus_voltage_in_limit(battery_voltage_lower_limit,battery_voltage_upper_limit):
-    msg_axis_id = 0
-    voltage = 0
-    if voltage(1) < battery_voltage_lower_limit | voltage(1) > battery_voltage_upper_limit:
-        save_operation = False
+def is_bus_voltage_in_limit(axis_id, battery_voltage_lower_limit,battery_voltage_upper_limit):
+    voltage = can_get_voltage(12)
+    if voltage < battery_voltage_lower_limit:
         print("battery voltage as gone outside of lower limit", battery_voltage_lower_limit,"V")
+        return False
+    elif voltage > battery_voltage_upper_limit:
         print("battery voltage as gone outside of upper limit", battery_voltage_upper_limit,"V")
         return False
     return True
+
+def can_get_voltage(msg_axis_id, data=[], format='', RTR=True):
+    data_frame = struct.pack(format, *data)
+    msg = can.Message(arbitration_id=((msg_axis_id << 5) | 0x17), data=data_frame)
+    msg.is_remote_frame = RTR
+    msg.is_extended_id = False
+    try:
+        bus.send(msg)
+    except can.CanError:
+        print("can_vbus NOT sent!")
+    for msg in bus:
+        if (msg.arbitration_id == (msg_axis_id << 5) + 0x17):
+            msg = db.decode_message('Get_Vbus_Voltage', msg.data)
+            return msg['Vbus_Voltage']
+        break
+
+def get_encoder_estimate(msg_axis_id, data=[], format='', RTR=True):
+    data_frame = struct.pack(format, *data)
+    msg = can.Message(arbitration_id=((msg_axis_id << 5) | 0x009), data=data_frame)
+    msg.is_remote_frame = RTR
+    msg.is_extended_id = False
+    try:
+        bus.send(msg)
+    except can.CanError:
+        print("encoder_request NOT sent!")
+    for msg in bus:
+        if (msg.arbitration_id == (msg_axis_id << 5) + 0x009):
+            msg = db.decode_message('Get_Encoder_Estimates', msg.data)
+            return msg['Pos_Estimate'],msg['Vel_Estimate']
+        break
