@@ -18,6 +18,8 @@ odrv0.axis0.controller.config.vel_gain = 0.5
 odrv0.axis0.controller.config.vel_integrator_gain = 0.0
 odrv0.axis0.config.can_node_id = x
 odrv0.axis0.controller.config.vel_limit = 10
+odrv0.axis0.config.can_heartbeat_rate_ms = 500
+odrv0.can.set_baud_rate = 500000
 odrv0.save_configuration()
 
 **Initial motor inductance and encoder offset calibration**
@@ -59,29 +61,30 @@ odrv0.config.dc_bus_undervoltage_trip_level = 15
 odrv0.config.dc_bus_overvoltage_trip_level = 21.2
 odrv0.config.dc_max_positive_current = 140
 odrv0.config.dc_max_negative_current = -12
-odrv0.axis0.motor.config.current_lim = 30
-odrv0.axis0.motor.config.motor_type = 0
-odrv0.axis0.motor.config.pole_pairs = 20
-odrv0.axis0.motor.config.torque_constant = 8.27 / 130
-odrv0.axis0.encoder.config.abs_spi_cs_gpio_pin = xxxx
-odrv0.axis0.encoder.config.mode = ENCODER_MODE_SPI_ABS_AMS
-odrv0.axis0.encoder.config.cpr = 2**14
-odrv0.axis0.controller.config.pos_gain = 30
-odrv0.axis0.controller.config.vel_gain = 0.5
-odrv0.axis0.controller.config.vel_integrator_gain = 0.0
-odrv0.axis0.config.can_node_id = x
-odrv0.axis0.controller.config.vel_limit = 10
+odrv0.axis1.motor.config.current_lim = 30
+odrv0.axis1.motor.config.motor_type = 0
+odrv0.axis1.motor.config.pole_pairs = 20
+odrv0.axis1.motor.config.torque_constant = 8.27 / 130
+odrv0.axis1.encoder.config.abs_spi_cs_gpio_pin = xxxx
+odrv0.axis1.encoder.config.mode = ENCODER_MODE_SPI_ABS_AMS
+odrv0.axis1.encoder.config.cpr = 2**14
+odrv0.axis1.controller.config.pos_gain = 30
+odrv0.axis1.controller.config.vel_gain = 0.5
+odrv0.axis1.controller.config.vel_integrator_gain = 0.0
+odrv0.axis1.config.can_heartbeat_rate_ms = 500
+odrv0.axis1.config.can_node_id = x
+odrv0.axis1.controller.config.vel_limit = 10
 odrv0.save_configuration()
 
 **Initial motor inductance and encoder offset calibration**
-odrv0.axis0.requested_state = AXIS_STATE_FULL_CALIBRATION_SEQUENCE
-odrv0.axis0.motor.config.pre_calibrated = True
-odrv0.axis0.encoder.config.pre_calibrated = True
+odrv0.axis1.requested_state = AXIS_STATE_FULL_CALIBRATION_SEQUENCE
+odrv0.axis1.motor.config.pre_calibrated = True
+odrv0.axis1.encoder.config.pre_calibrated = True
 odrv0.save_configuration()
 
 **Filter**
-odrv0.axis0.controller.config.input_mode = INPUT_MODE_POS_FILTER
-odrv0.axis0.controller.config.input_filter_bandwidth = 5
+odrv0.axis1.controller.config.input_mode = INPUT_MODE_POS_FILTER
+odrv0.axis1.controller.config.input_filter_bandwidth = 5
 odrv0.save_configuration()
 
 
@@ -90,15 +93,15 @@ odrv0.save_configuration()
 **Debug:**
 dump_errors(odrv0)
 odrv0.clear_errors()
-odrv0..axis0.clear_errors()
+odrv0..axis1.clear_errors()
 odrv0.vbus_voltage
-odrv0.axis0.motor.current_control.Iq_measured
+odrv0.axis1.motor.current_control.Iq_measured
 odrv0.save_configuration()
 
 **Testing movement**
-odrv0.axis0.motor.config.current_lim = 1
-odrv0.axis0.requested_state = AXIS_STATE_CLOSED_LOOP_CONTROL
-odrv0.axis0.controller.input_pos = 1
-odrv0.axis0.requested_state = AXIS_STATE_IDLE
+odrv0.axis1.motor.config.current_lim = 1
+odrv0.axis1.requested_state = AXIS_STATE_CLOSED_LOOP_CONTROL
+odrv0.axis1.controller.input_pos = 1
+odrv0.axis1.requested_state = AXIS_STATE_IDLE
 
 
