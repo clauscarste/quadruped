@@ -126,7 +126,7 @@ def get_encoder_estimate(msg_axis_id,get_encoder_estimate_attempt, data=[], form
     try:
         bus.send(msg)
     except can.CanError:
-        #print("encoder_request NOT sent!")
+        print("encoder_request NOT sent!")
     for msg in bus:
         if (msg.arbitration_id == (msg_axis_id << 5) + 0x009):
             msg = db.decode_message('Get_Encoder_Estimates', msg.data)

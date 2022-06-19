@@ -8,6 +8,12 @@ import can_comunication
 import kinematics_legs
 import kinematics_spine
 
+#Config File Import
+import configparser
+config_obj = configparser.ConfigParser()
+config_obj.read("C:\PythonTutorials\configfile.ini")
+dbparam = config_obj["postgresql"]
+print(dbparam)
 
 ######Config start#########
 
