@@ -136,3 +136,24 @@ def get_encoder_estimate(msg_axis_id,get_encoder_estimate_attempt, data=[], form
         if get_encoder_estimate_attempt <= 1:
             return(get_encoder_estimate(msg_axis_id, get_encoder_estimate_attempt - 1))
         break
+
+
+def get_iq(msg_axis_id,get_iq_attempt, data=[], format='', RTR=True):
+    data_frame = struct.pack(format, *data)
+    msg = can.Message(arbitration_id=((msg_axis_id << 5) | 0x014), data=data_frame)
+    msg.is_remote_frame = RTR
+    msg.is_extended_id = False
+    try:
+        bus.send(msg)
+    except can.CanError:
+        print("iq_request NOT sent!")
+    for msg in bus:
+        if (msg.arbitration_id == (msg_axis_id << 5) + 0x014):
+            msg = db.decode_message('Get_Iq', msg.data)
+            return msg['Iq_Measured'],msg['Iq_Setpoint']
+        else: # recursive call in case the first time no data is recived - message will be sent again to retry.
+            print("iq not recived- trying again", get_iq_attempt,"time(s)")
+        if get_iq_attempt <= 1:
+            return(get_iq(msg_axis_id, get_iq_attempt - 1))
+        break
+
