@@ -157,3 +157,10 @@ def get_iq(msg_axis_id,get_iq_attempt, data=[], format='', RTR=True):
             return(get_iq(msg_axis_id, get_iq_attempt - 1))
         break
 
+def set_limits(msg_axis_id,current_max,velocity_max):
+    data = db.encode_message('Set_Limits', {'Current_Limit': current_max, 'Velocity_Limit': velocity_max,})
+    msg = can.Message(arbitration_id=msg_axis_id << 5 | 0x00F, data=data, is_extended_id=False)
+    try:
+        bus.send(msg)
+    except can.CanError:
+        print("can_move_to NOT sent!")

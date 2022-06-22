@@ -13,3 +13,5 @@ def contact_detection(leg_id,get_iq_attempt,contact_f):
         #also if one motor the gears are slightly stuck it wont detect
         if force_calculation(leg_id*3+1, get_iq_attempt)>contact_f and force_calculation(leg_id*3+2, get_iq_attempt)>contact_f:
             return True
+
+###test that leg kinematics move leg to position until force is to high. Then it stops.
