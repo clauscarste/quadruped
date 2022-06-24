@@ -3,13 +3,6 @@ import numpy
 import numpy as np
 import time
 #import can_comunication
-#pip install configparser
-
-
-motor_ofset = [0,0,0,-16,-12.5,-305,0,0,0,0,0,0]
-angle_limit = [180,180,180,180,180,180,180,180,180,180,180,180]
-invert_axis = [False,False,False,True,True,True,False,False,False,False,False,False]
-leg_parameters = [0.1,0.15,0.15]
 
 def inverse_kinematics_legs(leg_id,x,y,z,leg_parameters,ofset,limit,invert_axis):
     motor_angle = [0,0,0]
