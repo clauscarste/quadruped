@@ -1,5 +1,7 @@
 **Configuring the Odrives is best done on a PC running Linux (Ubuntu) using a USB cable that has a ferrite ring to ensure good conection. Blocks of commands can be all sent together. After each block it is advised to restart the Odrive. **
 
+
+
 **Config:**
 **Config**
 odrv0.config.dc_bus_undervoltage_trip_level = 15

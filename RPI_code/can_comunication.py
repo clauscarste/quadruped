@@ -32,7 +32,7 @@ def set_closed_loop(msg_axis_id,closed_loop_attempt):
             else:
                 print("Axis failed to enter closed loop - clearing errors and trying again ",closed_loop_attempt,"time(s)")
                 clear_errors(msg_axis_id)
-                if closed_loop_attempt <= 1:
+                if closed_loop_attempt <= closed_loop_attempt:
                     set_closed_loop(msg_axis_id,closed_loop_attempt-1)
             break
 
@@ -52,7 +52,7 @@ def set_idle(msg_axis_id,set_idle_attempt):
                 print("Axis has entered idle")
             else:
                 print("Axis failed to enter set_idle - trying again ", set_idle_attempt,"time(s)")
-                if set_idle_attempt <= 1:
+                if set_idle_attempt <= set_idle_attempt:
                     set_idle(msg_axis_id, set_idle_attempt - 1)
             break
 
@@ -114,8 +114,9 @@ def can_get_voltage(msg_axis_id,can_get_voltage_attempt, data=[], format='', RTR
             return msg['Vbus_Voltage']
         else: # recursive call in case the first time no data is recived - message will be sent again to retry.
             print("no voltage data recived- trying again", can_get_voltage_attempt,"time(s)")
-        if can_get_voltage_attempt <= 1:
+        if can_get_voltage_attempt <= can_get_voltage_attempt:
             return(can_get_voltage(msg_axis_id, can_get_voltage_attempt - 1))
+        return -1
         break
 
 def get_encoder_estimate(msg_axis_id,get_encoder_estimate_attempt, data=[], format='', RTR=True):
@@ -133,8 +134,9 @@ def get_encoder_estimate(msg_axis_id,get_encoder_estimate_attempt, data=[], form
             return msg['Pos_Estimate'],msg['Vel_Estimate']
         else: # recursive call in case the first time no data is recived - message will be sent again to retry.
             print("no encoder data recived- trying again", get_encoder_estimate_attempt,"time(s)")
-        if get_encoder_estimate_attempt <= 1:
+        if get_encoder_estimate_attempt >= get_encoder_estimate_attempt:
             return(get_encoder_estimate(msg_axis_id, get_encoder_estimate_attempt - 1))
+        return [-1,-1]
         break
 
 
@@ -153,8 +155,9 @@ def get_iq(msg_axis_id,get_iq_attempt, data=[], format='', RTR=True):
             return msg['Iq_Measured'],msg['Iq_Setpoint']
         else: # recursive call in case the first time no data is recived - message will be sent again to retry.
             print("iq not recived- trying again", get_iq_attempt,"time(s)")
-        if get_iq_attempt <= 1:
+        if get_iq_attempt >= get_iq_attempt:
             return(get_iq(msg_axis_id, get_iq_attempt - 1))
+        return [-1,-1]
         break
 
 def set_limits(msg_axis_id,current_max,velocity_max):

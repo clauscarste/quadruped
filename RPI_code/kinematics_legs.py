@@ -30,9 +30,3 @@ def inverse_kinematics_legs(leg_id,x,y,z,leg_parameters,ofset,limit,invert_axis)
 
 
 
-i = 0
-while i<10000:
-    i= i+0.2
-    time.sleep(0.05)
-    #print(abs(math.sin(i)*0.2))
-    inverse_kinematics_legs(1,-0.1,abs(math.sin(i)*0.25),0,leg_parameters,motor_ofset,angle_limit,invert_axis)

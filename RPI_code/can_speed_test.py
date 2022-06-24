@@ -16,3 +16,4 @@ for i in range(0,10):
 
 print(average(timing_list))
 print(output_list)
+
