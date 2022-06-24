@@ -29,18 +29,17 @@ def define_curve(leg_id,step_lentgh,stance_max_height,flight_max_heigth,neutral_
         flight = -np.sin(time_flight * (flight_period) + numpy.pi / 2) / (flight_amplitude) - neutral_height
     return [stance,flight,time_stance,time_flight]
 
-
-def walk (leg_id,step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed):
+def walk_stance(leg_id,step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed):
     amplitude_and_time = define_curve(leg_id,step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed)
-    for (stance, flight, time) in zip(amplitude_and_time[0], amplitude_and_time[1], amplitude_and_time[2]):
+    for (stance, time) in zip(amplitude_and_time[0], amplitude_and_time[2]):
         kinematics_legs.inverse_kinematics_legs(leg_id, -0.1, stance, time, leg_parameters, motor_ofset, angle_limit, invert_axis)
         t.sleep(1 / speed)
-    t.sleep(0.5)
-    for (stance, flight, time) in zip(amplitude_and_time[0], amplitude_and_time[1], amplitude_and_time[3]):
+
+def walk_flight(leg_id,step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed):
+    amplitude_and_time = define_curve(leg_id,step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed)
+    for (flight, time) in zip(amplitude_and_time[1], amplitude_and_time[3]):
         kinematics_legs.inverse_kinematics_legs(leg_id, -0.1, flight, time, leg_parameters, motor_ofset, angle_limit, invert_axis)
         t.sleep(1/speed)
-
-
 
 
 def ploting(amplitude_and_time):
