@@ -88,20 +88,15 @@ def is_bus_voltage_in_limit(battery_voltage_lower_limit,battery_voltage_upper_li
         return False
     return True
 
-def can_get_voltage(msg_axis_id, data=[], format='', RTR=True):
-    temp = can_thread.bus_voltage
-
+def can_get_voltage(data=[], format='', RTR=True):
     data_frame = struct.pack(format, *data)
-    msg = can.Message(arbitration_id=((msg_axis_id << 5) | 0x17), data=data_frame)
+    msg = can.Message(arbitration_id=((5 << 5) | 0x17), data=data_frame)
     msg.is_remote_frame = RTR
     msg.is_extended_id = False
     try:
         bus.send(msg)
     except can.CanError:
         print("can_vbus NOT sent!")
-
-    while temp == can_thread.bus_voltage:
-        print("still the same")
     return can_thread.bus_voltage
 
 
