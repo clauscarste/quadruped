@@ -4,6 +4,7 @@ import cantools
 import time
 import os
 import struct
+import can_thread
 #config
 #in Odrive for all axis: odrv0.axisx.config.can.node_id = x
 #set baudrate be sure that Odrive has the same - <odrv>.can.config.baud_rate = 250000
@@ -23,20 +24,15 @@ def set_closed_loop(msg_axis_id,closed_loop_attempt):
     except can.CanError:
         print("can_set_closed_loop NOT sent!")
 
-    for msg in bus:
-        if msg.arbitration_id == 0x01 | msg_axis_id << 5:
-            msg = db.decode_message('Heartbeat', msg.data)
-            print(msg)
-            if msg['Axis_State'] == 0x8:
-                print("Axis has entered closed loop")
-            else:
-                print("Axis failed to enter closed loop - clearing errors and trying again ",closed_loop_attempt,"time(s)")
-                clear_errors(msg_axis_id)
-                if closed_loop_attempt <= closed_loop_attempt:
-                    set_closed_loop(msg_axis_id,closed_loop_attempt-1)
-            break
+    if can_thread.loop_state[msg_axis_id] == 0x8:
+        print("Axis has entered closed loop")
+    else:
+        print("Axis failed to enter closed loop - clearing errors and trying again ",closed_loop_attempt,"time(s)")
+        clear_errors(msg_axis_id)
+        if closed_loop_attempt >= closed_loop_attempt:
+            set_closed_loop(msg_axis_id,closed_loop_attempt-1)
 
-def set_idle(msg_axis_id,set_idle_attempt):
+def set_idle(msg_axis_id):
     data = db.encode_message('Set_Axis_State', {'Axis_Requested_State': 0x01})
     msg = can.Message(arbitration_id=0x07 | msg_axis_id << 5, is_extended_id=False, data=data)
 
@@ -44,17 +40,10 @@ def set_idle(msg_axis_id,set_idle_attempt):
         bus.send(msg)
     except can.CanError:
         print("can_set_idle NOT sent!")
-
-    for msg in bus:
-        if msg.arbitration_id == 0x01 | msg_axis_id << 5:
-            msg = db.decode_message('Heartbeat', msg.data)
-            if msg['Axis_State'] == 0x1:
-                print("Axis has entered idle")
-            else:
-                print("Axis failed to enter set_idle - trying again ", set_idle_attempt,"time(s)")
-                if set_idle_attempt <= set_idle_attempt:
-                    set_idle(msg_axis_id, set_idle_attempt - 1)
-            break
+    if can_thread.loop_state[msg_axis_id] == 0x1:
+        print("Axis has entered idle")
+    else:
+        print("Axis failed to enter set_idle")
 
 def move_to(msg_axis_id,angle,ofsets,angle_limit,invert_axis):
     #calculating angle with offset
@@ -99,7 +88,9 @@ def is_bus_voltage_in_limit(battery_voltage_lower_limit,battery_voltage_upper_li
         return False
     return True
 
-def can_get_voltage(msg_axis_id,can_get_voltage_attempt, data=[], format='', RTR=True):
+def can_get_voltage(msg_axis_id, data=[], format='', RTR=True):
+    temp = can_thread.bus_voltage
+
     data_frame = struct.pack(format, *data)
     msg = can.Message(arbitration_id=((msg_axis_id << 5) | 0x17), data=data_frame)
     msg.is_remote_frame = RTR
@@ -108,18 +99,13 @@ def can_get_voltage(msg_axis_id,can_get_voltage_attempt, data=[], format='', RTR
         bus.send(msg)
     except can.CanError:
         print("can_vbus NOT sent!")
-    for msg in bus:
-        if (msg.arbitration_id == (msg_axis_id << 5) + 0x17):
-            msg = db.decode_message('Get_Vbus_Voltage', msg.data)
-            return msg['Vbus_Voltage']
-        else: # recursive call in case the first time no data is recived - message will be sent again to retry.
-            print("no voltage data recived- trying again", can_get_voltage_attempt,"time(s)")
-        if can_get_voltage_attempt <= can_get_voltage_attempt:
-            return(can_get_voltage(msg_axis_id, can_get_voltage_attempt - 1))
-        return -1
-        break
 
-def get_encoder_estimate(msg_axis_id,get_encoder_estimate_attempt, data=[], format='', RTR=True):
+    while temp == can_thread.bus_voltage:
+        print("still the same")
+    return can_thread.bus_voltage
+
+
+def get_encoder_estimate(msg_axis_id, data=[], format='', RTR=True):
     data_frame = struct.pack(format, *data)
     msg = can.Message(arbitration_id=((msg_axis_id << 5) | 0x009), data=data_frame)
     msg.is_remote_frame = RTR
@@ -128,19 +114,11 @@ def get_encoder_estimate(msg_axis_id,get_encoder_estimate_attempt, data=[], form
         bus.send(msg)
     except can.CanError:
         print("encoder_request NOT sent!")
-    for msg in bus:
-        if (msg.arbitration_id == (msg_axis_id << 5) + 0x009):
-            msg = db.decode_message('Get_Encoder_Estimates', msg.data)
-            return msg['Pos_Estimate'],msg['Vel_Estimate']
-        else: # recursive call in case the first time no data is recived - message will be sent again to retry.
-            print("no encoder data recived- trying again", get_encoder_estimate_attempt,"time(s)")
-        if get_encoder_estimate_attempt >= get_encoder_estimate_attempt:
-            return(get_encoder_estimate(msg_axis_id, get_encoder_estimate_attempt - 1))
-        return [-1,-1]
-        break
+    return can_thread.encoder_estimate[msg_axis_id]
 
 
-def get_iq(msg_axis_id,get_iq_attempt, data=[], format='', RTR=True):
+
+def get_iq(msg_axis_id, data=[], format='', RTR=True):
     data_frame = struct.pack(format, *data)
     msg = can.Message(arbitration_id=((msg_axis_id << 5) | 0x014), data=data_frame)
     msg.is_remote_frame = RTR
@@ -149,16 +127,7 @@ def get_iq(msg_axis_id,get_iq_attempt, data=[], format='', RTR=True):
         bus.send(msg)
     except can.CanError:
         print("iq_request NOT sent!")
-    for msg in bus:
-        if (msg.arbitration_id == (msg_axis_id << 5) + 0x014):
-            msg = db.decode_message('Get_Iq', msg.data)
-            return msg['Iq_Measured'],msg['Iq_Setpoint']
-        else: # recursive call in case the first time no data is recived - message will be sent again to retry.
-            print("iq not recived- trying again", get_iq_attempt,"time(s)")
-        if get_iq_attempt >= get_iq_attempt:
-            return(get_iq(msg_axis_id, get_iq_attempt - 1))
-        return [-1,-1]
-        break
+    return can_thread.get_iq[msg_axis_id]
 
 def set_limits(msg_axis_id,current_max,velocity_max):
     data = db.encode_message('Set_Limits', {'Current_Limit': current_max, 'Velocity_Limit': velocity_max,})

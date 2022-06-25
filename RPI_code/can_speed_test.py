@@ -9,7 +9,7 @@ def average(lst):
 
 for i in range(0,10):
     start = time.time()
-    output_list.append(can_comunication.can_get_voltage(5,1))
+    output_list.append(can_comunication.can_get_voltage(5))
     end = time.time()
     print(end - start)
     timing_list.append(end - start)
