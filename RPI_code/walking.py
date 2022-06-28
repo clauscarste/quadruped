@@ -1,9 +1,10 @@
-import numpy
 import numpy as np
 import kinematics_legs
 import matplotlib.pyplot as plot
 import time as t
-import itertools
+
+from threading import Thread
+
 
 
 
@@ -54,3 +55,38 @@ def ploting(amplitude_and_time):
 
 ploting(define_curve(1,0.3,0.1,0.06,-0.2,500))
 #walk(1,0.3,0.1,0.06,-0.2,500)
+
+step_lentgh = 0.3
+stance_max_height = 0.1
+flight_max_heigth = 0.06
+neutral_height = -0.2
+speed = 500
+
+def walking_sequence(step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed):
+    t1 = Thread(target=walk_stance(1,step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed))
+    t2 = Thread(target=walk_stance(3,step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed))
+    t3 = Thread(target=walk_flight(0,step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed))
+    t4 = Thread(target=walk_flight(2,step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed))
+    t1.start()
+    t2.start()
+    t3.start()
+    t4.start()
+    t1.join()
+    t2.join()
+    t3.join()
+    t4.join()
+    t5 = Thread(target=walk_stance(0,step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed))
+    t6 = Thread(target=walk_stance(2,step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed))
+    t7 = Thread(target=walk_flight(3,step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed))
+    t8 = Thread(target=walk_flight(1,step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed))
+    t5.start()
+    t6.start()
+    t7.start()
+    t8.start()
+    t5.join()
+    t6.join()
+    t7.join()
+    t8.join()
+
+while True:
+    walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height,speed)

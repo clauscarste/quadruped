@@ -1,8 +1,5 @@
-import math
 import can
 import cantools
-import time
-import os
 import struct
 import can_thread
 #config

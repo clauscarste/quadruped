@@ -6,9 +6,6 @@ import cantools
 bus = can.Bus("can0", bustype="socketcan")
 db = cantools.database.load_file("odrive-cansimple.dbc")
 
-
-
-
 def get_all_updates():
     ###Dictionary###
     global loop_state
@@ -29,7 +26,7 @@ def get_all_updates():
                     msg_voltage = db.decode_message('Get_Vbus_Voltage', msg.data)
                     bus_voltage = msg_voltage['Vbus_Voltage']
                 except:
-                    x = 0
+                    pass
 
             for msg_axis_id in range(0,13):
                 if msg.arbitration_id == 0x01 | msg_axis_id << 5:
@@ -37,21 +34,21 @@ def get_all_updates():
                         msg_heart = db.decode_message('Heartbeat', msg.data)
                         loop_state[msg_axis_id] = msg_heart['Axis_State']
                     except:
-                        x = 0
+                        pass
 
                 if (msg.arbitration_id == (msg_axis_id << 5) + 0x009):
                     try:
                         msg_encoder = db.decode_message('Get_Encoder_Estimates', msg.data)
                         encoder_estimate[msg_axis_id] = [msg_encoder['Pos_Estimate'], msg_encoder['Vel_Estimate']]
                     except:
-                        x = 0
+                        pass
 
                 if (msg.arbitration_id == (msg_axis_id << 5) + 0x014):
                     try:
                         msg_iq = db.decode_message('Get_Iq', msg.data)
                         get_iq[msg_axis_id] = [msg_iq['Iq_Measured'], msg_iq['Iq_Setpoint']]
                     except:
-                        x = 0
+                        pass
             print("out of for msg")
             break
 

@@ -23,7 +23,7 @@ can_comunication.move_to(5,0,0,180,1)
 for i in (np.arange(0,90,0.1)):
     time.sleep(0.5)
     can_comunication.move_to(5, i, 0, 180, 1)
-    if contact_detection(1,1,0.1):
+    if contact_detection(1,0.1):
         print("contact")
         can_comunication.move_to(5, 0, 0, 180, 1)
         break

@@ -8,11 +8,11 @@ def average(lst):
     return sum(lst) / len(lst)
 
 for i in range(0,10):
-    start = time.time()
+    start = time.perf_counter()
     output_list.append(can_comunication.can_get_voltage(5))
-    end = time.time()
-    print(end - start)
-    timing_list.append(end - start)
+    elapsed = time.perf_counter() - start
+    print(elapsed)
+    timing_list.append(elapsed)
 
 print(average(timing_list))
 print(output_list)
