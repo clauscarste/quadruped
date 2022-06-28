@@ -76,7 +76,7 @@ def clear_errors(msg_axis_id, data=[], format=''):
         print("can_clear_errors NOT sent!")
 
 def is_bus_voltage_in_limit(battery_voltage_lower_limit,battery_voltage_upper_limit,can_get_voltage_attempt):
-    voltage = can_get_voltage(12,can_get_voltage_attempt)
+    voltage = can_get_voltage(12)
     if voltage < battery_voltage_lower_limit:
         print("battery voltage as gone outside of lower limit", battery_voltage_lower_limit,"V")
         return False

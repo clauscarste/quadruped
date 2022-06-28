@@ -60,3 +60,8 @@ def get_all_updates():
 t1 = Thread(target=get_all_updates)
 # start the threads
 t1.start()
+
+
+#used in can comunication cumunication for voltage
+#in for for curent
+#in setup halper für encoder
