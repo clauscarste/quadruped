@@ -94,7 +94,7 @@ def clear_errors(msg_axis_id, data=[], format=''):
     except can.CanError:
         print("can_clear_errors NOT sent!")
 
-def is_bus_voltage_in_limit(battery_voltage_lower_limit,battery_voltage_upper_limit,can_get_voltage_attempt):
+def is_bus_voltage_in_limit(battery_voltage_lower_limit,battery_voltage_upper_limit):
     voltage = can_get_voltage()
     if voltage == 0:
         return True
