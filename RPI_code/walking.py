@@ -17,7 +17,7 @@ def abs_fct(current_val,step_lentgh,accel):
 
 
 def define_curve(leg_id,step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed_stance,acceleration_stance,deceleration_stance,speed_flight,acceleration_flight,deceleration_flight):#neutral hight derined negative
-    stance_period = np.pi/step_lentgh
+    stance_period = np.pi/(step_lentgh/2)
     flight_period = stance_period
     stance_amplitude = 1/stance_max_height
     flight_amplitude = 1/flight_max_heigth
@@ -26,65 +26,78 @@ def define_curve(leg_id,step_lentgh,stance_max_height,flight_max_heigth,neutral_
     temp_output = -step_lentgh / 2
     imcrement_temp = 1/speed_stance
     output_array_stance_a = []
+    # first half of the stane curve
     while True:
-        output_array_stance_a.append(temp_output)
         imcrement_temp = imcrement_temp + abs_fct(temp_output, step_lentgh, acceleration_stance)
         temp_output = temp_output + imcrement_temp
         if temp_output + imcrement_temp >= 0:
             output_array_stance_a.append(0)
             break
+        output_array_stance_a.append(temp_output)
+    #other half of the stane curve
     temp_output = -step_lentgh / 2
     imcrement_temp = 1/speed_stance
     output_array_stance_b = []
     while True:
-        output_array_stance_b.append(temp_output)
         imcrement_temp = imcrement_temp + abs_fct(temp_output, step_lentgh, deceleration_stance)
         temp_output = temp_output + imcrement_temp
         if temp_output + imcrement_temp >= 0:
             output_array_stance_b.append(0)
             break
+        output_array_stance_b.append(temp_output)
+        #adding the two curves together
     for i in range(len(output_array_stance_b)):
-        output_array_stance_a.append(-output_array_stance_b[i])
+        output_array_stance_a.append(-output_array_stance_b[len(output_array_stance_b)-i-1])
     time_stance = np.array(output_array_stance_a)
+    #print(time_stance)
 # defining points for stance end
+
 # defining points for fligt
     temp_output = -step_lentgh / 2
     imcrement_temp = 1/speed_flight
-    output_array_stance_a = []
+    output_array_flight_a = []
+    # first half of the stane curve
     while True:
-        output_array_stance_a.append(temp_output)
         imcrement_temp = imcrement_temp + abs_fct(temp_output, step_lentgh, acceleration_flight)
         temp_output = temp_output + imcrement_temp
         if temp_output + imcrement_temp >= 0:
-            output_array_stance_a.append(0)
+            output_array_flight_a.append(0)
             break
+        output_array_flight_a.append(temp_output)
+    #other half of the stane curve
     temp_output = -step_lentgh / 2
     imcrement_temp = 1/speed_flight
-    output_array_stance_b = []
+    output_array_flight_b = []
     while True:
-        output_array_stance_b.append(temp_output)
-        imcrement_temp = imcrement_temp + abs_fct(temp_output, step_lentgh, deceleration_flight)
+        imcrement_temp = imcrement_temp + abs_fct(temp_output, step_lentgh, acceleration_flight)
         temp_output = temp_output + imcrement_temp
         if temp_output + imcrement_temp >= 0:
-            output_array_stance_b.append(0)
+            output_array_flight_b.append(0)
             break
-    for i in range(len(output_array_stance_b)):
-        output_array_stance_a.append(-output_array_stance_b[i])
-    time_flight = np.array(output_array_stance_a)
+        output_array_flight_b.append(temp_output)
+        #adding the two curves together
+
+    for i in range(len(output_array_flight_b)):
+        output_array_flight_a.append(-output_array_flight_b[len(output_array_flight_b)-i-1])
+    time_flight = np.array(output_array_flight_a)
+    print(time_flight)
 # defining points for fligt end
 
+#caclulating sin curves at the given time
     if leg_id == 0 or leg_id == 1:
-        stance = - np.sin(time_stance*(stance_period) + np.pi/2) / (stance_amplitude)-neutral_height
-        flight = np.sin(time_flight*(flight_period) + np.pi/2) / (flight_amplitude)-neutral_height
+        stance = - np.sin(time_stance*(stance_period) + np.pi/2) / (stance_amplitude)-(neutral_height+stance_max_height)
+        #print(stance)
+        flight = np.sin(time_flight*(flight_period) + np.pi/2) / (flight_amplitude)-(neutral_height-flight_max_heigth)
+        #print(flight)
     else:
-        stance = np.sin(time_stance * (stance_period) + np.pi / 2) / (stance_amplitude) - neutral_height
-        flight = -np.sin(time_flight * (flight_period) + np.pi / 2) / (flight_amplitude) - neutral_height
+        stance = np.sin(time_stance * (stance_period) + np.pi / 2) / (stance_amplitude) - (neutral_height+stance_amplitude)
+        flight = -np.sin(time_flight * (flight_period) + np.pi / 2) / (flight_amplitude) - (neutral_height-stance_amplitude)
     return [stance,flight,time_stance,time_flight]
 
 
 def ploting(amplitude_and_time):
     plot.scatter(amplitude_and_time[2], amplitude_and_time[0])
-    #plot.scatter(amplitude_and_time[3], amplitude_and_time[1])
+    plot.scatter(amplitude_and_time[3], amplitude_and_time[1])
     plot.title('Curve')
     plot.xlabel('Time')
     plot.ylabel('Amplitude = sin')
@@ -92,7 +105,7 @@ def ploting(amplitude_and_time):
     plot.axhline(y=0, color='k')
     plot.show()
 
-ploting(define_curve(1,1,0.1,0.06,-0.2,300,0.01,0.1,300,0.01,0.01))
+ploting(define_curve(1,0.3,0.1,0.06,-0.2,300,0.01,0.1,300,0.01,0.01))
 
 #walk(1,0.3,0.1,0.06,-0.2,500)
 
@@ -135,5 +148,5 @@ def walking_sequence(step_lentgh,stance_max_height,flight_max_heigth,neutral_hei
     t8.join()
 
 while True:
-    walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height,speed)
+    walking_sequence(step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed_stance,acceleration_stance,deceleration_stance,speed_flight,acceleration_flight,deceleration_flight)
 
