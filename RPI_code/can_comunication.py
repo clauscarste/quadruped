@@ -1,7 +1,11 @@
+import time
+
 import can
 import cantools
 import struct
 import can_thread
+from threading import Thread
+can_thread.dictionary()
 #config
 #in Odrive for all axis: odrv0.axisx.config.can.node_id = x
 #set baudrate be sure that Odrive has the same - <odrv>.can.config.baud_rate = 250000
@@ -25,7 +29,7 @@ def set_closed_loop(msg_axis_id,closed_loop_attempt):
 
     except can.CanError:
         print("can_set_closed_loop NOT sent!")
-
+    time.sleep(0.4)
     if can_thread.loop_state[msg_axis_id] == 0x8:
         print("Axis has entered closed loop")
     else:
@@ -45,6 +49,7 @@ def set_idle(msg_axis_id):
             bus2.send(msg)
     except can.CanError:
         print("can_set_idle NOT sent!")
+    time.sleep(0.4)
     if can_thread.loop_state[msg_axis_id] == 0x1:
         print("Axis has entered idle")
     else:
@@ -90,7 +95,9 @@ def clear_errors(msg_axis_id, data=[], format=''):
         print("can_clear_errors NOT sent!")
 
 def is_bus_voltage_in_limit(battery_voltage_lower_limit,battery_voltage_upper_limit,can_get_voltage_attempt):
-    voltage = can_get_voltage(12)
+    voltage = can_get_voltage()
+    if voltage == 0:
+        return True
     if voltage < battery_voltage_lower_limit:
         print("battery voltage as gone outside of lower limit", battery_voltage_lower_limit,"V")
         return False
@@ -105,10 +112,7 @@ def can_get_voltage(data=[], format='', RTR=True):
     msg.is_remote_frame = RTR
     msg.is_extended_id = False
     try:
-        if msg_axis_id in [3, 4, 5, 6, 7, 8]:
-            bus.send(msg)
-        else:
-            bus2.send(msg)
+        bus.send(msg)
     except can.CanError:
         print("can_vbus NOT sent!")
     return can_thread.bus_voltage
@@ -142,7 +146,7 @@ def get_iq(msg_axis_id, data=[], format='', RTR=True):
             bus2.send(msg)
     except can.CanError:
         print("iq_request NOT sent!")
-    return can_thread.get_iq[msg_axis_id]
+    return can_thread.iq[msg_axis_id]
 
 def set_limits(msg_axis_id,current_max,velocity_max):
     data = db.encode_message('Set_Limits', {'Current_Limit': current_max, 'Velocity_Limit': velocity_max,})
@@ -154,3 +158,17 @@ def set_limits(msg_axis_id,current_max,velocity_max):
             bus2.send(msg)
     except can.CanError:
         print("can_move_to NOT sent!")
+
+# create new threads
+t1 = Thread(target=can_thread.get_all_updates)
+#t2 = Thread(target=can_thread.get_all_updates2)
+
+# start the threads
+t1.start()
+#t2.start()
+
+while True:
+    print(get_encoder_estimate(5),"est")
+    print(can_get_voltage(),"volt")
+    print(get_iq(5),"iq")
+    time.sleep(0.5)
