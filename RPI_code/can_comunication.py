@@ -10,6 +10,7 @@ import can_thread
 
 db = cantools.database.load_file("odrive-cansimple.dbc")
 bus = can.Bus("can0", bustype="socketcan")
+bus2 = can.Bus("can1", bustype="socketcan")
 
 
 def set_closed_loop(msg_axis_id,closed_loop_attempt):
@@ -17,7 +18,11 @@ def set_closed_loop(msg_axis_id,closed_loop_attempt):
     msg = can.Message(arbitration_id=0x07 | msg_axis_id << 5, is_extended_id=False, data=data)
 
     try:
-        bus.send(msg)
+        if msg_axis_id in [3,4,5,6,7,8]:
+            bus.send(msg)
+        else:
+            bus2.send(msg)
+
     except can.CanError:
         print("can_set_closed_loop NOT sent!")
 
@@ -34,7 +39,10 @@ def set_idle(msg_axis_id):
     msg = can.Message(arbitration_id=0x07 | msg_axis_id << 5, is_extended_id=False, data=data)
 
     try:
-        bus.send(msg)
+        if msg_axis_id in [3, 4, 5, 6, 7, 8]:
+            bus.send(msg)
+        else:
+            bus2.send(msg)
     except can.CanError:
         print("can_set_idle NOT sent!")
     if can_thread.loop_state[msg_axis_id] == 0x1:
@@ -62,7 +70,10 @@ def move_to(msg_axis_id,angle,ofsets,angle_limit,invert_axis):
     msg = can.Message(arbitration_id=msg_axis_id << 5 | 0x00C, data=data, is_extended_id=False)
 
     try:
-        bus.send(msg)
+        if msg_axis_id in [3, 4, 5, 6, 7, 8]:
+            bus.send(msg)
+        else:
+            bus2.send(msg)
     except can.CanError:
         print("can_move_to NOT sent!")
 
@@ -71,7 +82,10 @@ def clear_errors(msg_axis_id, data=[], format=''):
     data_frame = struct.pack(format, *data)
     msg = can.Message(arbitration_id=((msg_axis_id << 5) | 0x018), data=data_frame, is_extended_id=False)
     try:
-        bus.send(msg)
+        if msg_axis_id in [3, 4, 5, 6, 7, 8]:
+            bus.send(msg)
+        else:
+            bus2.send(msg)
     except can.CanError:
         print("can_clear_errors NOT sent!")
 
@@ -91,7 +105,10 @@ def can_get_voltage(data=[], format='', RTR=True):
     msg.is_remote_frame = RTR
     msg.is_extended_id = False
     try:
-        bus.send(msg)
+        if msg_axis_id in [3, 4, 5, 6, 7, 8]:
+            bus.send(msg)
+        else:
+            bus2.send(msg)
     except can.CanError:
         print("can_vbus NOT sent!")
     return can_thread.bus_voltage
@@ -103,7 +120,10 @@ def get_encoder_estimate(msg_axis_id, data=[], format='', RTR=True):
     msg.is_remote_frame = RTR
     msg.is_extended_id = False
     try:
-        bus.send(msg)
+        if msg_axis_id in [3, 4, 5, 6, 7, 8]:
+            bus.send(msg)
+        else:
+            bus2.send(msg)
     except can.CanError:
         print("encoder_request NOT sent!")
     return can_thread.encoder_estimate[msg_axis_id]
@@ -116,7 +136,10 @@ def get_iq(msg_axis_id, data=[], format='', RTR=True):
     msg.is_remote_frame = RTR
     msg.is_extended_id = False
     try:
-        bus.send(msg)
+        if msg_axis_id in [3, 4, 5, 6, 7, 8]:
+            bus.send(msg)
+        else:
+            bus2.send(msg)
     except can.CanError:
         print("iq_request NOT sent!")
     return can_thread.get_iq[msg_axis_id]
@@ -125,6 +148,9 @@ def set_limits(msg_axis_id,current_max,velocity_max):
     data = db.encode_message('Set_Limits', {'Current_Limit': current_max, 'Velocity_Limit': velocity_max,})
     msg = can.Message(arbitration_id=msg_axis_id << 5 | 0x00F, data=data, is_extended_id=False)
     try:
-        bus.send(msg)
+        if msg_axis_id in [3, 4, 5, 6, 7, 8]:
+            bus.send(msg)
+        else:
+            bus2.send(msg)
     except can.CanError:
         print("can_move_to NOT sent!")
