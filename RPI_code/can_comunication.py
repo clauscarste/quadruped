@@ -174,9 +174,3 @@ t2 = Thread(target=can_thread.get_all_updates2)
 t1.start()
 t2.start()
 
-#some testing
-#while True:
- #   print(get_encoder_estimate(5),"est")
-  #  print(can_get_voltage(),"volt")
-   # print(get_iq(5),"iq")
-    #time.sleep(0.5)
