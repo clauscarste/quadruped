@@ -10,13 +10,25 @@ current_position = 0
 invert_axis = False
 
  #motor position is captured
-current_position = can_comunication.get_encoder_estimate(rang,100)[0]
+current_position = can_comunication.get_encoder_estimate(rang)[0]
+current_position = can_comunication.get_encoder_estimate(rang)[0]
+current_position = can_comunication.get_encoder_estimate(rang)[0]
+current_position = can_comunication.get_encoder_estimate(rang)[0]
+
+current_position = can_comunication.get_encoder_estimate(rang)[0]
 gear_ratio = 6
 angle = current_position/gear_ratio*360
 print("the ofset value is:",-angle)
+print(can_comunication.get_encoder_estimate(rang)[0], "this value should not be cloase to 0 or 1, as then user error could ause a problem during setup")
 print("now please move in positive direction my any amount")
 time.sleep(5)
-if can_comunication.get_encoder_estimate(rang,100)[0] < current_position:
+can_comunication.get_encoder_estimate(rang)[0]
+can_comunication.get_encoder_estimate(rang)[0]
+can_comunication.get_encoder_estimate(rang)[0]
+can_comunication.get_encoder_estimate(rang)[0]
+can_comunication.get_encoder_estimate(rang)[0]
+
+if can_comunication.get_encoder_estimate(rang)[0] < current_position:
     invert_axis = True
 print("the inversion value is:",invert_axis )
 

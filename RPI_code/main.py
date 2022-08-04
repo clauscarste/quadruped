@@ -61,22 +61,19 @@ closed_loop_attempt = int(can_retry_amount["closed_loop_attempt"])
 #Servo setup
 #servo.set_angle(servo_1_inital_angle, servo_2_inital_angle, servo_3_inital_angle, servo_ofset)
 #Motor_setup
-for i in range(13):
-    can_comunication.set_closed_loop(i,closed_loop_attempt)
+can_comunication.setall_closed(closed_loop_attempt)
 for i in range(4):
     kinematics_legs.inverse_kinematics_legs(i,motor_inital_x,motor_inital_y,motor_inital_z,leg_parameters,motor_ofset,angle_limit,invert_axis)##++move to initial position with inverse kinematics
-#inverse kinematics
 
 while True:
     #chck for save operation (temprature and battery voltage)
     if can_comunication.is_bus_voltage_in_limit(battery_voltage_lower_limit, battery_voltage_upper_limit) is False or temprature_readout.is_temp_in_limit(temprature_limit) is False:
         save_operation = False
+        print("not save")
 
     #Shut down if save operation is no longer granted or if shut down is wanted- by setting all axis to idle
     if (save_operation == False):
-        for i in range(13):
-            can_comunication.set_idle(i)
-
+        can_comunication.setall_idle()
 
 
 

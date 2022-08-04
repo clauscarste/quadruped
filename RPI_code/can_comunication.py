@@ -159,16 +159,24 @@ def set_limits(msg_axis_id,current_max,velocity_max):
     except can.CanError:
         print("can_move_to NOT sent!")
 
+def setall_idle():
+    for i in [3,4,5,6,7,8]:
+        set_idle(i)
+def setall_closed(attempts):
+    for i in [3, 4, 5, 6, 7, 8]:
+        set_closed_loop(i,attempts)
+
 # create new threads
 t1 = Thread(target=can_thread.get_all_updates)
-#t2 = Thread(target=can_thread.get_all_updates2)
+t2 = Thread(target=can_thread.get_all_updates2)
 
 # start the threads
 t1.start()
-#t2.start()
+t2.start()
 
-while True:
-    print(get_encoder_estimate(5),"est")
-    print(can_get_voltage(),"volt")
-    print(get_iq(5),"iq")
-    time.sleep(0.5)
+#some testing
+#while True:
+ #   print(get_encoder_estimate(5),"est")
+  #  print(can_get_voltage(),"volt")
+   # print(get_iq(5),"iq")
+    #time.sleep(0.5)

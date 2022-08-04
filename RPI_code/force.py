@@ -17,6 +17,7 @@ def contact_detection(leg_id,contact_f):
             return True
 
 ###test that leg kinematics move leg to position until force is to high. Then it stops.
+
 #can_comunication.set_closed_loop(5,1)
 #can_comunication.set_idle(5,1)
 #can_comunication.get_encoder_estimate(5,1)
