@@ -59,7 +59,7 @@ def get_all_updates():
 
 
 def get_all_updates2():
-    bus = can.Bus("can0", bustype="socketcan")
+    bus = can.Bus("can1", bustype="socketcan")
 
     while True:
         # Decoding messages and saving to Dictionary
