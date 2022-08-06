@@ -35,7 +35,7 @@ def set_closed_loop(msg_axis_id,closed_loop_attempt):
     else:
         print("Axis failed to enter closed loop - clearing errors and trying again ",closed_loop_attempt,"time(s)")
         clear_errors(msg_axis_id)
-        if closed_loop_attempt >= closed_loop_attempt:
+        if closed_loop_attempt >= 1:
             set_closed_loop(msg_axis_id,closed_loop_attempt-1)
 
 def set_idle(msg_axis_id):
@@ -108,14 +108,14 @@ def is_bus_voltage_in_limit(battery_voltage_lower_limit,battery_voltage_upper_li
 
 def can_get_voltage(data=[], format='', RTR=True):
     data_frame = struct.pack(format, *data)
-    msg = can.Message(arbitration_id=((5 << 5) | 0x17), data=data_frame)
+    msg = can.Message(arbitration_id=((4 << 5) | 0x17), data=data_frame)
     msg.is_remote_frame = RTR
     msg.is_extended_id = False
     try:
         bus.send(msg)
     except can.CanError:
         print("can_vbus NOT sent!")
-    return can_thread.bus_voltage
+    return can_thread.loop_state[13]
 
 
 def get_encoder_estimate(msg_axis_id, data=[], format='', RTR=True):

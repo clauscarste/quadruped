@@ -29,6 +29,11 @@ servo_1_inital_angle = float(servo_config["servo_1_inital_angle"])
 servo_2_inital_angle = float(servo_config["servo_2_inital_angle"])
 servo_3_inital_angle = float(servo_config["servo_3_inital_angle"])
 servo_ofset = list(map(float, (servo_config["servo_ofset"]).split()))
+distance_center_of_spine_to_rope_m = int(servo_config["distance_center_of_spine_to_rope_mm"])
+spine_length = float(servo_config["spine_length"])
+max_angle = float(servo_config["max_angle"])
+pully_radius = float(servo_config["pully_radius"])
+norma_rope_length = float(servo_config["norma_rope_length"])
 
 # Motor parameters
 motor_inital_x = list(map(float, (motor_config["motor_inital_x"]).split()))
