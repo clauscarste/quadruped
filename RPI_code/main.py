@@ -2,6 +2,8 @@
 from __future__ import division
 
 # created .py files
+import time
+
 import servo
 import temprature_readout
 import can_comunication
@@ -13,13 +15,14 @@ import configparser
 
 config_obj = configparser.ConfigParser()
 config_obj.read("configfile.ini")
+
 save_operation_limits = config_obj["save_operation_limits"]
 servo_config = config_obj["servo_config"]
 motor_config = config_obj["motor_config"]
 can_retry_amount = config_obj["can_retry_amount"]
 
 # Temprature and Voltage limits of motors and battery
-save_operation = config_obj.getboolean('save_operation_limits', 'save_operation')
+save_operation = True
 temprature_limit = float(save_operation_limits["temprature_limit"])
 battery_voltage_lower_limit = float(save_operation_limits["battery_voltage_lower_limit"])
 battery_voltage_upper_limit = float(save_operation_limits["battery_voltage_upper_limit"])
@@ -61,16 +64,28 @@ closed_loop_attempt = int(can_retry_amount["closed_loop_attempt"])
 ######Config end #######
 
 
-# Servo setup
-# servo.set_angle(servo_1_inital_angle, servo_2_inital_angle, servo_3_inital_angle, servo_ofset)
-# Motor_setup
-######can_comunication.setall_closed(closed_loop_attempt)
+
+# Servo setup to zero position
+kinematics_spine.inverse_kinematics_spine(0,0,distance_center_of_spine_to_rope_m,servo_ofset,max_angle,spine_length,pully_radius,norma_rope_length)
+
+# test that can works and encoders give good reading - also fill in libary
+time.sleep(0.5)
+can_comunication.can_get_voltage()
+for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
+    can_comunication.get_encoder_estimate(i)
+for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
+    print(can_comunication.get_encoder_estimate(i), "     this is ", i)
+
+# set motor closed loop
+can_comunication.setall_closed(closed_loop_attempt)
+time.sleep(5)
+# Set motor to inital positon
 for i in range(4):
     kinematics_legs.inverse_kinematics_legs(i, motor_inital_x, motor_inital_y, motor_inital_z, leg_parameters,
                                             motor_ofset, angle_limit,
-                                            invert_axis)  ##++move to initial position with inverse kinematics
+                                            invert_axis)
 
-while 1 == 0:  # True:
+while save_operation == True:
     # chck for save operation (temprature and battery voltage)
     if can_comunication.is_bus_voltage_in_limit(battery_voltage_lower_limit,
                                                 battery_voltage_upper_limit) is False or temprature_readout.is_temp_in_limit(
@@ -82,20 +97,7 @@ while 1 == 0:  # True:
     if (save_operation == False):
         can_comunication.setall_idle()
 
-# testing can
-while True:
-    time.sleep(0.5)
-    for i in [0,1,2,3,4,5,6,7,8,9,10,11,12]:
-        print(can_comunication.get_encoder_estimate(i),"     this is ",i)
+    ###place walking or jumping or spine movement calls here.
 
-    # chck for save operation (temprature and battery voltage)
-    if can_comunication.is_bus_voltage_in_limit(battery_voltage_lower_limit,
-                                                battery_voltage_upper_limit) is False or temprature_readout.is_temp_in_limit(
-            temprature_limit) is False:
-        save_operation = False
-        print("not save")
-
-    # Shut down if save operation is no longer granted or if shut down is wanted- by setting all axis to idle
-    if (save_operation == False):
-        can_comunication.setall_idle()
+    ###
 
