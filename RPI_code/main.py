@@ -9,6 +9,7 @@ import temprature_readout
 import can_comunication
 import kinematics_legs
 import kinematics_spine
+import walking
 
 # Config File Import
 import configparser

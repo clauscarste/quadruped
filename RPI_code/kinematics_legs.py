@@ -4,6 +4,11 @@ import numpy as np
 import time
 #import can_comunication
 
+invert_axis =  [15.8,-27.56,-7,-21.2,-15.6,193,10.3,17.9,-194,-51,24,1.4]
+limit = [300,300,300,300,300,300,300,300,300,300,300]
+ofset = [True,False,True,False,True,True,False,True,True,False,False,True]
+leg_parameters = [0.1,0.15,0.15]
+
 def inverse_kinematics_legs(leg_id,x,y,z,leg_parameters,ofset,limit,invert_axis):
     motor_angle = [0,0,0]
     motor_angle[0] = -math.atan2(-y, x) - math.atan2(math.sqrt(x * x + y * y - leg_parameters[0] * leg_parameters[0]), -leg_parameters[0])
@@ -22,4 +27,4 @@ def inverse_kinematics_legs(leg_id,x,y,z,leg_parameters,ofset,limit,invert_axis)
      #   can_comunication.move_to(i, motor_angle[i-3*leg_id], ofset[i],limit[i],invert_axis[i]) #i-3*leg_id always gives 0,1,2 what equals the first secound and third entry from motor_angle
 
 
-
+inverse_kinematics_legs(0,-0.1,0.15,0.15,leg_parameters,ofset,limit,invert_axis)

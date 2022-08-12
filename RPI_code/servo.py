@@ -31,6 +31,7 @@ def set_angle(servo_angle1, servo_angle2, servo_angle3,ofsets):
     kit.servo[1].angle = servo_angle2 #links
     kit.servo[2].angle = servo_angle3#top
 
+#Test
 #set_angle(10,10,10,[0,0,0])
 
 
