@@ -49,6 +49,7 @@ invert_axis = (list(map(int, (motor_config["invert_axis"]).split())))
 leg_parameters = list(map(float, (motor_config["leg_parameters"]).split()))
 contact_f = float(motor_config["contact_f"])
 
+leg_config = float(motor_config["leg_config"])
 step_lentgh = float(motor_config["step_lentgh"])
 stance_max_height = float(motor_config["stance_max_height"])
 flight_max_heigth = float(motor_config["flight_max_heigth"])
@@ -84,7 +85,7 @@ time.sleep(5)
 for i in range(4):
     kinematics_legs.inverse_kinematics_legs(i, motor_inital_x, motor_inital_y, motor_inital_z, leg_parameters,
                                             motor_ofset, angle_limit,
-                                            invert_axis)
+                                            invert_axis,leg_config)
 
 while save_operation == True:
     # chck for save operation (temprature and battery voltage)

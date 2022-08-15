@@ -1,14 +1,15 @@
 import time
-
 import can
 import cantools
 import struct
 import can_thread
 from threading import Thread
 can_thread.dictionary()
-#config
+
+#config necesary for Odirve
 #in Odrive for all axis: odrv0.axisx.config.can.node_id = x
 #set baudrate be sure that Odrive has the same - <odrv>.can.config.baud_rate = 250000
+#config necesary for RPI
 #os.system("sudo ip link set can0 up type can bitrate 250000")
 #os.system("sudo ifconfig can0 txqueuelen 65536")
 
