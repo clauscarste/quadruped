@@ -205,5 +205,5 @@ deceleration_flight = 0.01
 # walk_flight(1,step_lentgh,flight_max_heigth,neutral_height,speed_flight,acceleration_flight,deceleration_flight,leg_parameters,ofset,limit,invert_axis,leg_config)
 
 # walking_sequence(step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed_stance,acceleration_stance,deceleration_stance,speed_flight,acceleration_flight,deceleration_flight)
-
+#.
 ######Testimg end
