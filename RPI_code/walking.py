@@ -174,8 +174,6 @@ def walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_
     t8.join()
 
 
-# while True:
-#   walking_sequence(step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed_stance,acceleration_stance,deceleration_stance,speed_flight,acceleration_flight,deceleration_flight)
 
 ######Testimg
 invert_axis = [15.8, -27.56, -7, -21.2, -15.6, 193, 10.3, 17.9, -14, -51, 24, 1.4]
@@ -196,9 +194,14 @@ deceleration_stance = 0.01
 acceleration_flight = 0.01
 deceleration_flight = 0.01
 
-ploting(curve_stance(1,step_lentgh,stance_max_height,neutral_height,speed_stance,acceleration_stance,deceleration_stance))
-ploting(curve_flight(1,step_lentgh,flight_max_heigth,neutral_height,speed_flight,acceleration_flight,deceleration_flight))
+##plot curves
+#ploting(curve_stance(1,step_lentgh,stance_max_height,neutral_height,speed_stance,acceleration_stance,deceleration_stance))
+#ploting(curve_flight(1,step_lentgh,flight_max_heigth,neutral_height,speed_flight,acceleration_flight,deceleration_flight))
 
+#use walking for one leg
 # walk_stance(1,step_lentgh,stance_max_height,neutral_height,speed_stance,acceleration_stance,deceleration_stance,leg_parameters,ofset,limit,invert_axis,leg_config)
 # walk_flight(1,step_lentgh,flight_max_heigth,neutral_height,speed_flight,acceleration_flight,deceleration_flight,leg_parameters,ofset,limit,invert_axis,leg_config)
+
+#walking_sequence(step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed_stance,acceleration_stance,deceleration_stance,speed_flight,acceleration_flight,deceleration_flight)
+
 ######Testimg end

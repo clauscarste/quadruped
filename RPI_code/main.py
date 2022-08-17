@@ -67,6 +67,8 @@ closed_loop_attempt = int(can_retry_amount["closed_loop_attempt"])
 
 
 
+
+
 # Servo setup to zero position
 kinematics_spine.inverse_kinematics_spine(0,0,distance_center_of_spine_to_rope_m,servo_ofset,max_angle,spine_length,pully_radius,norma_rope_length)
 
@@ -78,10 +80,12 @@ for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
 for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
     print(can_comunication.get_encoder_estimate(i), "     this is ", i)
 
+
 # set motor closed loop
 can_comunication.setall_closed(closed_loop_attempt)
 time.sleep(5)
 # Set motor to inital positon
+
 for i in range(4):
     kinematics_legs.inverse_kinematics_legs(i, motor_inital_x, motor_inital_y, motor_inital_z, leg_parameters,
                                             motor_ofset, angle_limit,
@@ -100,6 +104,8 @@ while save_operation == True:
         can_comunication.setall_idle()
 
     ###place walking or jumping or spine movement calls here.
-
+    while True:
+        walking.walking_sequence(step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed_stance,acceleration_stance
+                                 ,deceleration_stance,speed_flight,acceleration_flight,deceleration_flight)
     ###
 
