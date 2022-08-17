@@ -54,12 +54,12 @@ def curve_stance(leg_id, step_lentgh, stance_max_height, neutral_height, speed_s
     # defining points for stance end
 
     # caclulating sin curves at the given time
-    if leg_id == 0 or leg_id == 1:
+    if leg_id == 2 or leg_id == 3:
         stance = - np.sin(time_stance * (stance_period) + np.pi / 2) / (stance_amplitude) - (
                     neutral_height + stance_max_height)
     else:
-        stance = np.sin(time_stance * (stance_period) + np.pi / 2) / (stance_amplitude) - (
-                    neutral_height + stance_amplitude)
+        stance = -(-np.sin(time_stance * (stance_period) + np.pi / 2) / (stance_amplitude) - (
+                    neutral_height + stance_max_height))
     return [stance, time_stance]
 
 
@@ -99,12 +99,12 @@ def curve_flight(leg_id, step_lentgh, flight_max_heigth, neutral_height, speed_f
     # defining points for fligt end
 
     # caclulating sin curves at the given time
-    if leg_id == 0 or leg_id == 1:
+    if leg_id == 2 or leg_id == 3:
         flight = np.sin(time_flight * (flight_period) + np.pi / 2) / (flight_amplitude) - (
                     neutral_height - flight_max_heigth)
     else:
-        flight = -np.sin(time_flight * (flight_period) + np.pi / 2) / (flight_amplitude) - (
-                    neutral_height - stance_amplitude)
+        flight = -(np.sin(time_flight * (flight_period) + np.pi / 2) / (flight_amplitude) - (
+                    neutral_height - flight_max_heigth))
     return [flight, time_flight]
 
 
@@ -186,7 +186,7 @@ leg_config = 1
 
 step_lentgh = 0.2
 stance_max_height = 0.1
-flight_max_heigth = 0.06
+flight_max_heigth = 0.05
 neutral_height = 0.15
 
 speed_stance = 300
@@ -196,8 +196,8 @@ deceleration_stance = 0.01
 acceleration_flight = 0.01
 deceleration_flight = 0.01
 
-# ploting(curve_stance(1,step_lentgh,stance_max_height,neutral_height,speed_stance,acceleration_stance,deceleration_stance))
-# ploting(curve_flight(1,step_lentgh,flight_max_heigth,neutral_height,speed_flight,acceleration_flight,deceleration_flight))
+ploting(curve_stance(1,step_lentgh,stance_max_height,neutral_height,speed_stance,acceleration_stance,deceleration_stance))
+ploting(curve_flight(1,step_lentgh,flight_max_heigth,neutral_height,speed_flight,acceleration_flight,deceleration_flight))
 
 # walk_stance(1,step_lentgh,stance_max_height,neutral_height,speed_stance,acceleration_stance,deceleration_stance,leg_parameters,ofset,limit,invert_axis,leg_config)
 # walk_flight(1,step_lentgh,flight_max_heigth,neutral_height,speed_flight,acceleration_flight,deceleration_flight,leg_parameters,ofset,limit,invert_axis,leg_config)
