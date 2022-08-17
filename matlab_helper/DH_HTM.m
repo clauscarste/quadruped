@@ -1,0 +1,23 @@
+%this fct is created by Gautam Chettiar "DH Table Solver"
+%to downlaod at: https://de.mathworks.com/matlabcentral/fileexchange/103050-dh-table-solver?s_tid=FX_rc2_behav
+
+function [DH_HTM] = DH_HTM(Matrix,angtype)
+% Input Matrix: DH Table of (n,4) Dimension, else throw error
+% Output matrix: Homogenous transformation: Dimension (4,4)
+if size(Matrix,2) ~= 4
+    error("Matrix must have 4 columns");
+end
+output = eye(4);
+len = size(Matrix,1); % Number of Rows
+for i = 1 : len
+    params = Matrix(i,:);
+    theta = params(1);
+    alpha = params(2);
+    rx = params(3);
+    dz = params(4);
+    next = dh_link(theta,alpha,rx,dz,angtype);
+    output = output * next;
+end
+output = simplify(output);
+DH_HTM = output;
+end

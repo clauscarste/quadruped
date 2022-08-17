@@ -47,6 +47,8 @@ motor_ofset = list(map(float, (motor_config["motor_ofset"]).split()))
 angle_limit = list(map(float, (motor_config["angle_limit"]).split()))
 invert_axis = (list(map(int, (motor_config["invert_axis"]).split())))
 leg_parameters = list(map(float, (motor_config["leg_parameters"]).split()))
+robot_length = float(motor_config["robot_length"])
+robot_with = float(motor_config["robot_with"])
 contact_f = float(motor_config["contact_f"])
 
 leg_config = float(motor_config["leg_config"])
