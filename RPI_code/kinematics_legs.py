@@ -1,7 +1,7 @@
 import math
 import numpy
 import numpy as np
-#import can_comunication
+import can_comunication
 
 # add roll_pich_yaw controll and ajust for the diferent orientation of the leg cordinate frames
 def yaw_pich_roll(yaw, pich, roll, xm, ym, zm, robot_length,robot_with, leg_id, x, y, z):
@@ -125,56 +125,15 @@ def inverse_kinematics_legs(leg_id, x, y, z, leg_parameters, ofset, limit, inver
         else:
             motor_angle[2] = math.atan2(math.sqrt(1 - D * D), D)
     else:
-        motor_angle[2] = math.atan2(-math.sqrt(abs(1 - D * D)), D)
+        motor_angle[2] = math.atan2(math.sqrt(1 - D * D), D)
     motor_angle[1] = math.atan2(z, math.sqrt(x * x + y * y - leg_parameters[0] * leg_parameters[0])) - math.atan2(
         leg_parameters[2] * math.sin(motor_angle[2]), leg_parameters[1] + leg_parameters[2] * math.cos(motor_angle[2]))
     motor_angle[0] = math.degrees(motor_angle[
-                                      0])  # +30 #+10,+100,+140 are necesarry to ajust for the difference in the zero degree position of the motors that also represent the absolute limit in one direction. And the zero degree position of the kinematic model.
-    motor_angle[1] = math.degrees(motor_angle[1])  # +120
-    motor_angle[2] = math.degrees(motor_angle[2])  # +160
+                                      0])   +30 #+10,+100,+140 are necesarry to ajust for the difference in the zero degree position of the motors that also represent the absolute limit in one direction. And the zero degree position of the kinematic model.
+    motor_angle[1] = math.degrees(motor_angle[1])   +120
+    motor_angle[2] = math.degrees(motor_angle[2])   -160
 
     print(motor_angle[0], motor_angle[1], motor_angle[2])
-#    for i in range(3*leg_id, 3+(3*leg_id)): #takes 3 of the 12motors that belong to the leg id
-        #can_comunication.move_to(i, motor_angle[i-3*leg_id], ofset[i],limit[i],invert_axis[i]) #i-3*leg_id always gives 0,1,2 what equals the first secound and third entry from motor_angle
+    for i in range(3*leg_id, 3+(3*leg_id)): #takes 3 of the 12motors that belong to the leg id
+        can_comunication.move_to(i, motor_angle[i-3*leg_id], ofset[i],limit[i],invert_axis[i]) #i-3*leg_id always gives 0,1,2 what equals the first secound and third entry from motor_angle
 
-
-####Testing
-#can_comunication.set_closed_loop(0,1)
-#can_comunication.set_idle(0)
-#can_comunication.set_idle(0)
-#can_comunication.set_idle(0)
-ofset =  [15.8,-27.56,-7,-21.2,-15.6,14.2,10.3,17.9,-14,9,24,1.4]
-limit = [300,300,300,300,300,300,300,300,300,300,300,300]
-invert_axis = [False,True,True,True,True,True,False,True,True,True,True,True]
-leg_parameters = [0.1,0.15,0.15]
-leg_id= 2
-x = 0
-y = -0.29999
-z = 0.1
-yaw = 0
-pich= 0
-roll= 0
-xm = 0
-ym = 0
-zm = 0
-robot_length = 0.4
-robot_with = 0.2
-leg_config = 1
-
-step_lentgh = 0.2
-stance_max_height = 0.1
-flight_max_heigth = 0.05
-neutral_height = 0.15
-
-speed_stance = 300
-speed_flight = 300
-acceleration_stance = 0.1
-deceleration_stance = 0.001
-acceleration_flight = 0.1
-deceleration_flight = 0.001
-
-print(yaw_pich_roll(yaw, pich, roll, xm, ym, zm, robot_length,robot_with, leg_id, x, y, z))
-inverse_kinematics_legs(leg_id, x, y, z, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
-                            ym, zm, robot_length,robot_with)
-
-####Testing end

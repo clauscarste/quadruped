@@ -1,3 +1,5 @@
+import time
+
 import kinematics_legs
 import matplotlib.pyplot as plot
 import numpy as np
@@ -116,6 +118,7 @@ def walk_stance(leg_id, step_lentgh, stance_max_height, neutral_height, speed_st
     position = curve_stance(leg_id, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,
                             deceleration_stance)
     for i in range(0, len(position[0])):
+        time.sleep(0.2)
         kinematics_legs.inverse_kinematics_legs(leg_id, position[1][i], position[0][i], 0.1, leg_parameters, ofset,
                                                 limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                                                 robot_length,robot_with)
@@ -127,6 +130,7 @@ def walk_flight(leg_id, step_lentgh, flight_max_heigth, neutral_height, speed_fl
     position = curve_flight(leg_id, step_lentgh, flight_max_heigth, neutral_height, speed_flight, acceleration_flight,
                             deceleration_flight)
     for i in range(0, len(position[0])):
+        time.sleep(0.2)
         kinematics_legs.inverse_kinematics_legs(leg_id, position[1][i], position[0][i], 0.1, leg_parameters, ofset,
                                                 limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                                                 robot_length,robot_with)
@@ -177,33 +181,3 @@ def walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_
     t8.join()
 
 
-######Testimg
-invert_axis = [15.8, -27.56, -7, -21.2, -15.6, 193, 10.3, 17.9, -14, -51, 24, 1.4]
-limit = [300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300]
-ofset = [False, True, True, True, True, True, False, True, True, True, True, True]
-leg_parameters = [0.1, 0.15, 0.15]
-leg_config = 1
-
-step_lentgh = 0.2
-stance_max_height = 0.1
-flight_max_heigth = 0.05
-neutral_height = 0.15
-
-speed_stance = 300
-speed_flight = 300
-acceleration_stance = 0.1
-deceleration_stance = 0.001
-acceleration_flight = 0.1
-deceleration_flight = 0.001
-
-##plot curves
-#ploting(curve_stance(1,step_lentgh,stance_max_height,neutral_height,speed_stance,acceleration_stance,deceleration_stance))
-#ploting(curve_flight(1,step_lentgh,flight_max_heigth,neutral_height,speed_flight,acceleration_flight,deceleration_flight))
-
-# use walking for one leg
-# walk_stance(1,step_lentgh,stance_max_height,neutral_height,speed_stance,acceleration_stance,deceleration_stance,leg_parameters,ofset,limit,invert_axis,leg_config)
-# walk_flight(1,step_lentgh,flight_max_heigth,neutral_height,speed_flight,acceleration_flight,deceleration_flight,leg_parameters,ofset,limit,invert_axis,leg_config)
-
-# walking_sequence(step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed_stance,acceleration_stance,deceleration_stance,speed_flight,acceleration_flight,deceleration_flight)
-#.
-######Testimg end
