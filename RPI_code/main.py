@@ -6,7 +6,7 @@ import time
 
 #import servo
 #import temprature_readout
-#import can_comunication
+import can_comunication
 import kinematics_legs
 import walking
 #import kinematics_spine
@@ -102,7 +102,7 @@ roll= 0
 
 # Set motor to inital positon
 #for i in range(4):
-#    kinematics_legs.inverse_kinematics_legs(leg_id, x, y, z, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
+#    kinematics_legs.inverse_kinematics_legs(leg_id, motor_inital_x[i], motor_inital_y[i], motor_inital_z[i], leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
 #                            ym, zm, robot_length,robot_with)
 
 # while save_operation == True:
@@ -132,14 +132,20 @@ roll= 0
 #walking.ploting(walking.curve_flight(1,step_lentgh,flight_max_heigth,neutral_height,speed_flight,acceleration_flight,deceleration_flight))
 
 #test inverse kinematics
-#print(kinematics_legs.yaw_pich_roll(yaw, pich, roll, xm, ym, zm, robot_length,robot_with, leg_id, x, y, z))
-#kinematics_legs.inverse_kinematics_legs(leg_id, x, y, z, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
-#                            ym, zm, robot_length,robot_with)
+print(kinematics_legs.yaw_pich_roll(yaw, pich, roll, xm, ym, zm, robot_length,robot_with, leg_id, x, y, z))
+kinematics_legs.inverse_kinematics_legs(leg_id, x, y, z, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
+                            ym, zm, robot_length,robot_with)
 
 #test walking
-walking.walk_stance(leg_id, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,
-                deceleration_stance, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
-                robot_length,robot_with)
-walk_flight(leg_id, step_lentgh, flight_max_heigth, neutral_height, speed_flight, acceleration_flight,
-                deceleration_flight, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
-                robot_length,robot_with)
+#walking.walk_stance(leg_id, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,
+ #               deceleration_stance, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
+  #              robot_length,robot_with)
+#walking.walk_flight(leg_id, step_lentgh, flight_max_heigth, neutral_height, speed_flight, acceleration_flight,
+ #               deceleration_flight, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
+  #              robot_length,robot_with)
+
+#test walking sequence
+#walking.walking_sequence()
+#walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
+#                     acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,
+#                     yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)

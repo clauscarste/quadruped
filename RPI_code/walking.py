@@ -7,6 +7,7 @@ import time as t
 from threading import Thread
 
 
+
 # for walking
 # 1: define curve in the "curve_stance" and "curve_flight" fct for stance and flight, that give the y/z
 # position of the foot at indicidual points for these two movments the movement is defined by many parameters such as
@@ -63,6 +64,9 @@ def curve_stance(leg_id, step_lentgh, stance_max_height, neutral_height, speed_s
 
 def curve_flight(leg_id, step_lentgh, flight_max_heigth, neutral_height, speed_flight, acceleration_flight,
                  deceleration_flight):
+    tempp = deceleration_flight
+    deceleration_flight = acceleration_flight
+    acceleration_flight = tempp
     flight_max_heigth = flight_max_heigth / 2
     flight_period = np.pi / (step_lentgh / 2)
     flight_amplitude = 1 / flight_max_heigth
@@ -98,6 +102,11 @@ def curve_flight(leg_id, step_lentgh, flight_max_heigth, neutral_height, speed_f
 
     # caclulating sin curves at the given time
     flight = np.sin(time_flight * (flight_period) + np.pi / 2) / (flight_amplitude) - (neutral_height - flight_max_heigth)
+    #reverting the arrays so the movement is right - start point of flight is end point of stance
+    print(time_flight)
+    flight = np.flip(flight)
+    time_flight = np.flip(time_flight)
+    print(time_flight)
     return [flight, time_flight]
 
 
@@ -138,7 +147,7 @@ def walk_flight(leg_id, step_lentgh, flight_max_heigth, neutral_height, speed_fl
 
 def walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
                      acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,
-                     yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config,):
+                     yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config):
     t1 = Thread(target=walk_stance(1, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,
                                    deceleration_stance, leg_parameters, ofset, limit, invert_axis, leg_config, yaw,
                                    pich, roll, xm, ym, zm, robot_length,robot_with))
