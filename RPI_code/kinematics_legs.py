@@ -144,9 +144,9 @@ can_comunication.setall_closed(0,1)
 can_comunication.set_idle(0)
 can_comunication.set_idle(0)
 can_comunication.set_idle(0)
-invert_axis =  [15.8,-27.56,-7,-21.2,-15.6,193,10.3,17.9,-14,-51,24,1.4]
+ofset =  [15.8,-27.56,-7,-21.2,-15.6,193,10.3,17.9,-14,-51,24,1.4]
 limit = [300,300,300,300,300,300,300,300,300,300,300]
-ofset = [False,True,True,True,True,True,False,True,True,True,True,True]
+invert_axis = [False,True,True,True,True,True,False,True,True,True,True,True]
 leg_parameters = [0.1,0.15,0.15]
 leg_id= 2
 x = 0
@@ -161,6 +161,19 @@ zm = 0
 robot_length = 0.4
 robot_with = 0.2
 leg_config = 1
+
+step_lentgh = 0.2
+stance_max_height = 0.1
+flight_max_heigth = 0.05
+neutral_height = 0.15
+
+speed_stance = 300
+speed_flight = 300
+acceleration_stance = 0.1
+deceleration_stance = 0.001
+acceleration_flight = 0.1
+deceleration_flight = 0.001
+
 print(yaw_pich_roll(yaw, pich, roll, xm, ym, zm, robot_length,robot_with, leg_id, x, y, z))
 inverse_kinematics_legs(leg_id, x, y, z, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
                             ym, zm, robot_length,robot_with)
