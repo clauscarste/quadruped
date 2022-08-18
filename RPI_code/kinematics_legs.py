@@ -1,7 +1,7 @@
 import math
 import numpy
 import numpy as np
-import can_comunication
+#import can_comunication
 
 # add roll_pich_yaw controll and ajust for the diferent orientation of the leg cordinate frames
 def yaw_pich_roll(yaw, pich, roll, xm, ym, zm, robot_length,robot_with, leg_id, x, y, z):
@@ -134,6 +134,6 @@ def inverse_kinematics_legs(leg_id, x, y, z, leg_parameters, ofset, limit, inver
     motor_angle[2] = math.degrees(motor_angle[2])   -160
 
     print(motor_angle[0], motor_angle[1], motor_angle[2])
-    for i in range(3*leg_id, 3+(3*leg_id)): #takes 3 of the 12motors that belong to the leg id
-        can_comunication.move_to(i, motor_angle[i-3*leg_id], ofset[i],limit[i],invert_axis[i]) #i-3*leg_id always gives 0,1,2 what equals the first secound and third entry from motor_angle
+    #for i in range(3*leg_id, 3+(3*leg_id)): #takes 3 of the 12motors that belong to the leg id
+     #   can_comunication.move_to(i, motor_angle[i-3*leg_id], ofset[i],limit[i],invert_axis[i]) #i-3*leg_id always gives 0,1,2 what equals the first secound and third entry from motor_angle
 

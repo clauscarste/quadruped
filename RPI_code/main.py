@@ -10,7 +10,6 @@ import time
 import kinematics_legs
 import walking
 #import kinematics_spine
-#import walking
 
 # Config File Import
 import configparser
@@ -140,4 +139,7 @@ roll= 0
 #test walking
 walking.walk_stance(leg_id, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,
                 deceleration_stance, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
+                robot_length,robot_with)
+walk_flight(leg_id, step_lentgh, flight_max_heigth, neutral_height, speed_flight, acceleration_flight,
+                deceleration_flight, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                 robot_length,robot_with)

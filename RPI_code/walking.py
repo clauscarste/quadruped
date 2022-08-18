@@ -118,7 +118,7 @@ def walk_stance(leg_id, step_lentgh, stance_max_height, neutral_height, speed_st
     position = curve_stance(leg_id, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,
                             deceleration_stance)
     for i in range(0, len(position[0])):
-        time.sleep(0.2)
+        time.sleep(0.02)
         kinematics_legs.inverse_kinematics_legs(leg_id, position[1][i], position[0][i], 0.1, leg_parameters, ofset,
                                                 limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                                                 robot_length,robot_with)
@@ -130,7 +130,7 @@ def walk_flight(leg_id, step_lentgh, flight_max_heigth, neutral_height, speed_fl
     position = curve_flight(leg_id, step_lentgh, flight_max_heigth, neutral_height, speed_flight, acceleration_flight,
                             deceleration_flight)
     for i in range(0, len(position[0])):
-        time.sleep(0.2)
+        time.sleep(0.02)
         kinematics_legs.inverse_kinematics_legs(leg_id, position[1][i], position[0][i], 0.1, leg_parameters, ofset,
                                                 limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                                                 robot_length,robot_with)
@@ -138,7 +138,7 @@ def walk_flight(leg_id, step_lentgh, flight_max_heigth, neutral_height, speed_fl
 
 def walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
                      acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,
-                     yaw, pich, roll, xm, ym, zm, robot_length,robot_with):
+                     yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config,):
     t1 = Thread(target=walk_stance(1, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,
                                    deceleration_stance, leg_parameters, ofset, limit, invert_axis, leg_config, yaw,
                                    pich, roll, xm, ym, zm, robot_length,robot_with))
