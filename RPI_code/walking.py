@@ -116,7 +116,7 @@ def walk_stance(leg_id, step_lentgh, stance_max_height, neutral_height, speed_st
     position = curve_stance(leg_id, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,
                             deceleration_stance)
     for i in range(0, len(position[0])):
-        kinematics_legs.inverse_kinematics_legs(leg_id, -0.1, position[0][i], position[1][i], leg_parameters, ofset,
+        kinematics_legs.inverse_kinematics_legs(leg_id, position[1][i], position[0][i], 0.1, leg_parameters, ofset,
                                                 limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                                                 robot_length,robot_with)
 
@@ -127,7 +127,7 @@ def walk_flight(leg_id, step_lentgh, flight_max_heigth, neutral_height, speed_fl
     position = curve_flight(leg_id, step_lentgh, flight_max_heigth, neutral_height, speed_flight, acceleration_flight,
                             deceleration_flight)
     for i in range(0, len(position[0])):
-        kinematics_legs.inverse_kinematics_legs(leg_id, -0.1, position[0][i], position[1][i], leg_parameters, ofset,
+        kinematics_legs.inverse_kinematics_legs(leg_id, position[1][i], position[0][i], 0.1, leg_parameters, ofset,
                                                 limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                                                 robot_length,robot_with)
 
@@ -191,14 +191,14 @@ neutral_height = 0.15
 
 speed_stance = 300
 speed_flight = 300
-acceleration_stance = 0.01
-deceleration_stance = 0.01
-acceleration_flight = 0.01
-deceleration_flight = 0.01
+acceleration_stance = 0.1
+deceleration_stance = 0.001
+acceleration_flight = 0.1
+deceleration_flight = 0.001
 
 ##plot curves
-#ploting(curve_stance(3,step_lentgh,stance_max_height,neutral_height,speed_stance,acceleration_stance,deceleration_stance))
-#ploting(curve_flight(3,step_lentgh,flight_max_heigth,neutral_height,speed_flight,acceleration_flight,deceleration_flight))
+#ploting(curve_stance(1,step_lentgh,stance_max_height,neutral_height,speed_stance,acceleration_stance,deceleration_stance))
+#ploting(curve_flight(1,step_lentgh,flight_max_heigth,neutral_height,speed_flight,acceleration_flight,deceleration_flight))
 
 # use walking for one leg
 # walk_stance(1,step_lentgh,stance_max_height,neutral_height,speed_stance,acceleration_stance,deceleration_stance,leg_parameters,ofset,limit,invert_axis,leg_config)
