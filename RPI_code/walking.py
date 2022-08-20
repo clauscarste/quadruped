@@ -103,10 +103,8 @@ def curve_flight(leg_id, step_lentgh, flight_max_heigth, neutral_height, speed_f
     # caclulating sin curves at the given time
     flight = np.sin(time_flight * (flight_period) + np.pi / 2) / (flight_amplitude) - (neutral_height - flight_max_heigth)
     #reverting the arrays so the movement is right - start point of flight is end point of stance
-    print(time_flight)
     flight = np.flip(flight)
     time_flight = np.flip(time_flight)
-    print(time_flight)
     return [flight, time_flight]
 
 
@@ -144,49 +142,44 @@ def walk_flight(leg_id, step_lentgh, flight_max_heigth, neutral_height, speed_fl
                                                 limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                                                 robot_length,robot_with)
 
+def step(stance1,stance2,flight1,flight2,flight_max_heigth,acceleration_flight,deceleration_flight,
+         speed_flight, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,
+         deceleration_stance, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
+         robot_length,robot_with):
+    position1 = curve_stance(stance1, step_lentgh, stance_max_height, neutral_height, speed_stance,
+                             acceleration_stance,deceleration_stance)
+    position2 = curve_stance(stance2, step_lentgh, stance_max_height, neutral_height, speed_stance,
+                             acceleration_stance,deceleration_stance)
+    position3 = curve_flight(flight1, step_lentgh, flight_max_heigth, neutral_height, speed_flight,
+                             acceleration_flight,deceleration_flight)
+    position4 = curve_flight(flight2, step_lentgh, flight_max_heigth, neutral_height, speed_flight,
+                             acceleration_flight,deceleration_flight)
+    for i in range(0, len(position1[0])):
+        time.sleep(0.02)
+        kinematics_legs.inverse_kinematics_legs(stance1, position1[1][i], position1[0][i], 0.1, leg_parameters, ofset,
+                                                limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
+                                                robot_length,robot_with)
+        kinematics_legs.inverse_kinematics_legs(stance2, position2[1][i], position2[0][i], 0.1, leg_parameters, ofset,
+                                                limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
+                                                robot_length,robot_with)
+        kinematics_legs.inverse_kinematics_legs(flight1, position3[1][i], position3[0][i], 0.1, leg_parameters, ofset,
+                                                limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
+                                                robot_length,robot_with)
+        kinematics_legs.inverse_kinematics_legs(flight2, position4[1][i], position4[0][i], 0.1, leg_parameters, ofset,
+                                                limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
+                                                robot_length,robot_with)
+
 
 def walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
                      acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,
-                     yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config):
-    t1 = Thread(target=walk_stance(1, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,
-                                   deceleration_stance, leg_parameters, ofset, limit, invert_axis, leg_config, yaw,
-                                   pich, roll, xm, ym, zm, robot_length,robot_with))
-    t2 = Thread(target=walk_stance(3, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,
-                                   deceleration_stance, leg_parameters, ofset, limit, invert_axis, leg_config, yaw,
-                                   pich, roll, xm, ym, zm, robot_length,robot_with))
-    t3 = Thread(target=walk_flight(0, step_lentgh, flight_max_heigth, neutral_height, speed_flight, acceleration_flight,
-                                   deceleration_flight, leg_parameters, ofset, limit, invert_axis, leg_config, yaw,
-                                   pich, roll, xm, ym, zm, robot_length,robot_with))
-    t4 = Thread(target=walk_flight(2, step_lentgh, flight_max_heigth, neutral_height, speed_flight, acceleration_flight,
-                                   deceleration_flight, leg_parameters, ofset, limit, invert_axis, leg_config, yaw,
-                                   pich, roll, xm, ym, zm, robot_length,robot_with))
-    t1.start()
-    t2.start()
-    t3.start()
-    t4.start()
-    t1.join()
-    t2.join()
-    t3.join()
-    t4.join()
-    t5 = Thread(target=walk_stance(0, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,
-                                   deceleration_stance, leg_parameters, ofset, limit, invert_axis, leg_config, yaw,
-                                   pich, roll, xm, ym, zm, robot_length,robot_with))
-    t6 = Thread(target=walk_stance(2, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,
-                                   deceleration_stance, leg_parameters, ofset, limit, invert_axis, leg_config, yaw,
-                                   pich, roll, xm, ym, zm, robot_length,robot_with))
-    t7 = Thread(target=walk_flight(3, step_lentgh, flight_max_heigth, neutral_height, speed_flight, acceleration_flight,
-                                   deceleration_flight, leg_parameters, ofset, limit, invert_axis, leg_config, yaw,
-                                   pich, roll, xm, ym, zm, robot_length,robot_with))
-    t8 = Thread(target=walk_flight(1, step_lentgh, flight_max_heigth, neutral_height, speed_flight, acceleration_flight,
-                                   deceleration_flight, leg_parameters, ofset, limit, invert_axis, leg_config, yaw,
-                                   pich, roll, xm, ym, zm, robot_length,robot_with))
-    t5.start()
-    t6.start()
-    t7.start()
-    t8.start()
-    t5.join()
-    t6.join()
-    t7.join()
-    t8.join()
+                     yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit,
+                     invert_axis, leg_config):
 
-
+    step(1, 3, 0, 2,flight_max_heigth,acceleration_flight,deceleration_flight,
+         speed_flight, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,
+         deceleration_stance, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
+         robot_length,robot_with)
+    step(0, 2, 1, 3,flight_max_heigth,acceleration_flight,deceleration_flight,
+         speed_flight, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,
+         deceleration_stance, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
+         robot_length,robot_with)
