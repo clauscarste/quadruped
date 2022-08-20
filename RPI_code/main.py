@@ -6,7 +6,7 @@ import time
 
 #import servo
 #import temprature_readout
-#import can_comunication
+import can_comunication
 import kinematics_legs
 import walking
 #import kinematics_spine
