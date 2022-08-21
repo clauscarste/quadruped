@@ -6,7 +6,7 @@ import time
 
 #import servo
 #import temprature_readout
-import can_comunication
+#import can_comunication
 import kinematics_legs
 import walking
 #import kinematics_spine
@@ -132,8 +132,8 @@ roll= 0
 #can_comunication.set_closed_loop(4,2)
 #can_comunication.set_closed_loop(5,2)
 #can_comunication.setall_idle()
-#walking.ploting(walking.curve_stance(1,step_lentgh,stance_max_height,neutral_height,speed_stance,acceleration_stance,deceleration_stance))
-#walking.ploting(walking.curve_flight(1,step_lentgh,flight_max_heigth,neutral_height,speed_flight,acceleration_flight,deceleration_flight))
+walking.ploting(walking.curve_stance(1,step_lentgh,stance_max_height,neutral_height,speed_stance,acceleration_stance,deceleration_stance))
+walking.ploting(walking.curve_flight(1,step_lentgh,flight_max_heigth,neutral_height,speed_flight,acceleration_flight,deceleration_flight))
 
 #test inverse kinematics
 #print(kinematics_legs.yaw_pich_roll(yaw, pich, roll, xm, ym, zm, robot_length,robot_with, leg_id, x, y, z))
