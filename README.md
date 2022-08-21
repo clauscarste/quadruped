@@ -2,7 +2,8 @@
 Project is part of my bachelor's thesis at the technical university Munich
 
 Repostory inclues: 
-- code running on raspbery pi (python3) 
+- code running on raspbery pi (python3)
+  - matlab scripts used to help create python code
 - configuration of Odrive 
 - STL files o 3D print and CNC/Laser cut 
 - schematics for electronics 
