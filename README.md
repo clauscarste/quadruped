@@ -1,4 +1,4 @@
-# quadruped build 
+# high performance quadruped with fully actuated spine  
 Project is part of my bachelor's thesis at the technical university Munich
 
 Repostory inclues: 
