@@ -1,4 +1,4 @@
-# high performance quadruped with fully actuated spine  
+# high performance quadruped with fully actuated spine and brushless motors 
 Project is part of my bachelor's thesis at the technical university Munich
 
 Repostory inclues: 
