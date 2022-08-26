@@ -9,6 +9,7 @@ import time
 #import can_comunication
 import kinematics_legs
 import walking
+import jumping
 #import kinematics_spine
 
 # Config File Import
@@ -132,8 +133,11 @@ roll= 0
 #can_comunication.set_closed_loop(4,2)
 #can_comunication.set_closed_loop(5,2)
 #can_comunication.setall_idle()
-walking.ploting(walking.curve_stance(1,step_lentgh,stance_max_height,neutral_height,speed_stance,acceleration_stance,deceleration_stance))
-walking.ploting(walking.curve_flight(1,step_lentgh,flight_max_heigth,neutral_height,speed_flight,acceleration_flight,deceleration_flight))
+
+
+#Plot walking curve
+#walking.ploting(walking.curve_stance(1,step_lentgh,stance_max_height,neutral_height,speed_stance,acceleration_stance,deceleration_stance))
+#walking.ploting(walking.curve_flight(1,step_lentgh,flight_max_heigth,neutral_height,speed_flight,acceleration_flight,deceleration_flight))
 
 #test inverse kinematics
 #print(kinematics_legs.yaw_pich_roll(yaw, pich, roll, xm, ym, zm, robot_length,robot_with, leg_id, x, y, z))
@@ -149,6 +153,12 @@ walking.ploting(walking.curve_flight(1,step_lentgh,flight_max_heigth,neutral_hei
   #              robot_length,robot_with)
 
 #test walking sequence
-walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
-                     acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,
-                     yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
+#walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
+ #                    acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,
+  #                   yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
+
+#Test Jump
+upper = -0.2999
+lower = -0.1
+delay = 10
+jumping.jump(upper,lower,delay,leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm, robot_length, robot_with)
