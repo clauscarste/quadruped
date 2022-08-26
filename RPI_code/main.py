@@ -159,6 +159,7 @@ roll= 0
 
 #Test Jump
 upper = -0.2999
+land = -0.2
 lower = -0.1
-delay = 10
-jumping.jump(upper,lower,delay,leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm, robot_length, robot_with)
+delay = 0.01
+jumping.jump(land,upper,lower,delay,leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm, robot_length, robot_with)
