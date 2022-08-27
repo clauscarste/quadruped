@@ -141,11 +141,13 @@ roll= 0
 
 #test inverse kinematics
 #print(kinematics_legs.yaw_pich_roll(yaw, pich, roll, xm, ym, zm, robot_length,robot_with, leg_id, x, y, z))
+print(kinematics_legs.yaw_pich_roll(yaw, pich, roll, xm, ym, zm, robot_length,robot_with, 0, x, y, z))
+print(kinematics_legs.yaw_pich_roll(yaw, pich, roll, xm, ym, zm, robot_length,robot_with, 3, x, y, z))
 
-kinematics_legs.inverse_kinematics_legs(0, x, y, z, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
-                            ym, zm, robot_length,robot_with)
-kinematics_legs.inverse_kinematics_legs(2, x, y, z, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
-                            ym, zm, robot_length,robot_with)
+#kinematics_legs.inverse_kinematics_legs(0, x, y, z, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
+ #                           ym, zm, robot_length,robot_with)
+#kinematics_legs.inverse_kinematics_legs(2, x, y, z, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
+ #                           ym, zm, robot_length,robot_with)
 
 #test walking
 #walking.walk_stance(leg_id, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,
@@ -156,9 +158,9 @@ kinematics_legs.inverse_kinematics_legs(2, x, y, z, leg_parameters, ofset, limit
   #              robot_length,robot_with)
 
 #test walking sequence
-walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
-                     acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,
-                     yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
+#walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
+ #                    acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,
+  #                   yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
 
 #Test Jump
 upper = -0.2999

@@ -55,6 +55,7 @@ def yaw_pich_roll(yaw, pich, roll, xm, ym, zm, robot_length,robot_with, leg_id, 
     elif leg_id == 2:
         y = -y
         z = -z
+        x = -x
     #T2
         T2 = np.array([[np.sin(yaw), -np.cos(yaw) * np.sin(pich), -np.cos(pich) * np.cos(yaw),
                         zm * np.sin(yaw) - (robot_with * np.sin(yaw)) / 2 + (
@@ -81,6 +82,7 @@ def yaw_pich_roll(yaw, pich, roll, xm, ym, zm, robot_length,robot_with, leg_id, 
     elif leg_id == 3:
         y = -y
         z = -z
+        x = -x
         #T3
         T3 = np.array([[np.sin(yaw), -np.cos(yaw) * np.sin(pich), -np.cos(pich) * np.cos(yaw),
                         zm * np.sin(yaw) - (robot_with * np.sin(yaw)) / 2 - (
