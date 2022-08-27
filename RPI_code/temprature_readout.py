@@ -11,9 +11,6 @@ def is_temp_in_limit(limit_temp):
     # if thermistor loses conection R goes to 0, to avoid overheating and show tat something is wrong and also avoid a devide by zero error value 10(equates to more than 1000°) is replaced to trip the limit.
     return(out)
 
-print(is_temp_in_limit(30))
-
-
 
 
 

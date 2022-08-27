@@ -4,9 +4,8 @@ from __future__ import division
 # created .py files
 import time
 
-#import servo
-#import temprature_readout
-#import can_comunication
+import temprature_readout
+import can_comunication
 import kinematics_legs
 import walking
 import jumping
@@ -67,16 +66,10 @@ deceleration_flight = float(motor_config["deceleration_flight"])
 # Number of times to retry after failing to send message over can bus
 closed_loop_attempt = int(can_retry_amount["closed_loop_attempt"])
 
-
+#fixed values for now
 xm = 0
 ym = 0
 zm = 0
-
-leg_id= 0
-x = 0.08499999999999999
-y = -0.2006076898795117
-z = 0.1
-
 yaw = 0
 pich= 0
 roll= 0
@@ -88,51 +81,48 @@ roll= 0
 #kinematics_spine.inverse_kinematics_spine(0,0,distance_center_of_spine_to_rope_m,servo_ofset,max_angle,spine_length,pully_radius,norma_rope_length)
 
 # test that can works and encoders give good reading - also fill in libary
-# time.sleep(0.5)
-# can_comunication.can_get_voltage()
-# for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
-#     can_comunication.get_encoder_estimate(i)
-# for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
-#     print(can_comunication.get_encoder_estimate(i), "     this is ", i)
-#
+#for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
+#    can_comunication.get_encoder_estimate(i)
+#for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
+#    print(can_comunication.get_encoder_estimate(i), "     this is ", i)
+
 
 # set motor closed loop
 #can_comunication.setall_closed(closed_loop_attempt)
-#can_comunication.set_closed_loop(0,1)
-#time.sleep(5)
 
-# Set motor to inital positon
+#Set motor to inital positon
 #for i in range(4):
-#    kinematics_legs.inverse_kinematics_legs(leg_id, motor_inital_x[i], motor_inital_y[i], motor_inital_z[i], leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
-#                            ym, zm, robot_length,robot_with)
+ #   kinematics_legs.inverse_kinematics_legs(i, motor_inital_x[i], motor_inital_y[i], motor_inital_z[i], leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
+  #                          ym, zm, robot_length,robot_with)
 
-# while save_operation == True:
-#     # chck for save operation (temprature and battery voltage)
-#     if can_comunication.is_bus_voltage_in_limit(battery_voltage_lower_limit,
-#                                                 battery_voltage_upper_limit) is False or temprature_readout.is_temp_in_limit(
-#             temprature_limit) is False:
-#         save_operation = False
-#         print("not save")
-#
-#     # Shut down if save operation is no longer granted or if shut down is wanted- by setting all axis to idle
-#     if (save_operation == False):
-#         can_comunication.setall_idle()
-#
+while save_operation == True:
+     # chck for save operation (temprature and battery voltage)
+    if can_comunication.is_bus_voltage_in_limit(battery_voltage_lower_limit,battery_voltage_upper_limit) is False or temprature_readout.is_temp_in_limit(temprature_limit) is False:
+        save_operation = False
+        can_comunication.setall_idle()
+        print("not save")
+
 #     ###place walking or jumping or spine movement calls here.
-#     while True:
-#         walking.walking_sequence(step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed_stance,acceleration_stance
-#                                  ,deceleration_stance,speed_flight,acceleration_flight,deceleration_flight)
-#     ###
-#
+    #walking.walking_sequence(step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed_stance,acceleration_stance,deceleration_stance,speed_flight,acceleration_flight,deceleration_flight)
 
 
-##Testinf fuctionality
 
-#plotting walkinc curves
+
+
+
+
+
+
+
+
+##Testing fuctionality
+
+#setting closed and idle
 #can_comunication.set_closed_loop(3,2)
 #can_comunication.set_closed_loop(4,2)
 #can_comunication.set_closed_loop(5,2)
 #can_comunication.setall_idle()
+#can_comunication.setall_closed(5)
 
 
 #Plot walking curve
@@ -141,13 +131,6 @@ roll= 0
 
 #test inverse kinematics
 #print(kinematics_legs.yaw_pich_roll(yaw, pich, roll, xm, ym, zm, robot_length,robot_with, leg_id, x, y, z))
-print(kinematics_legs.yaw_pich_roll(yaw, pich, roll, xm, ym, zm, robot_length,robot_with, 0, x, y, z))
-print(kinematics_legs.yaw_pich_roll(yaw, pich, roll, xm, ym, zm, robot_length,robot_with, 3, x, y, z))
-
-#kinematics_legs.inverse_kinematics_legs(0, x, y, z, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
- #                           ym, zm, robot_length,robot_with)
-#kinematics_legs.inverse_kinematics_legs(2, x, y, z, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
- #                           ym, zm, robot_length,robot_with)
 
 #test walking
 #walking.walk_stance(leg_id, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,

@@ -114,7 +114,7 @@ def can_get_voltage(data=[], format='', RTR=True):
         bus.send(msg)
     except can.CanError:
         print("can_vbus NOT sent!")
-    return can_thread.loop_state[13]
+    return can_thread.loop_state[12]
 
 
 def get_encoder_estimate(msg_axis_id, data=[], format='', RTR=True):
