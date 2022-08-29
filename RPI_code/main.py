@@ -101,9 +101,8 @@ while save_operation == True:
         save_operation = False
         can_comunication.setall_idle()
         print("not save")
-
 #     ###place walking or jumping or spine movement calls here.
-    #walking.walking_sequence(step_lentgh,stance_max_height,flight_max_heigth,neutral_height,speed_stance,acceleration_stance,deceleration_stance,speed_flight,acceleration_flight,deceleration_flight)
+    #walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
 
 
 
