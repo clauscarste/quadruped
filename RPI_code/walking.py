@@ -156,19 +156,15 @@ def step(stance1,stance2,flight1,flight2,flight_max_heigth,acceleration_flight,d
                              acceleration_flight,deceleration_flight)
     for i in range(0, len(position1[0])):
         time.sleep(0.5)
-        print(position1[0][i])
         kinematics_legs.inverse_kinematics_legs(stance1, position1[1][i], position1[0][i], 0.1, leg_parameters, ofset,
                                                 limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                                                 robot_length,robot_with)
-        print(position2[0][i])
         kinematics_legs.inverse_kinematics_legs(stance2, position2[1][i], position2[0][i], 0.1, leg_parameters, ofset,
                                                 limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                                                 robot_length,robot_with)
-        print(position3[0][i])
         kinematics_legs.inverse_kinematics_legs(flight1, position3[1][i], position3[0][i], 0.1, leg_parameters, ofset,
                                                 limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                                                 robot_length,robot_with)
-        print(position4[0][i])
         kinematics_legs.inverse_kinematics_legs(flight2, position4[1][i], position4[0][i], 0.1, leg_parameters, ofset,
                                                 limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                                                 robot_length,robot_with)

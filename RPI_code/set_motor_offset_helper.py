@@ -11,11 +11,15 @@ rang = 10
 invert_axis = False
 
 # motor position is captured
-for i in [0,1,2,3,4,5,6,7,8,9,10,11]:
+for i in [0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11]:
     (can_comunication.get_encoder_estimate(i)[0])
-
 for i in [0,1,2,3,4,5,6,7,8,9,10,11]:
     print(can_comunication.get_encoder_estimate(i)[0])
+can_comunication.can_get_voltage()
+can_comunication.can_get_voltage()
+can_comunication.can_get_voltage()
+can_comunication.can_get_voltage()
+print(can_comunication.can_get_voltage())
 
 current_position = can_comunication.get_encoder_estimate(rang)[0]
 gear_ratio = 6
