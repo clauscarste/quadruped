@@ -111,6 +111,13 @@ for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]:
 #can_comunication.set_closed_loop(1,2)
 #can_comunication.set_closed_loop(2,2)
 #Test force response
+
+while True:
+    angle = np.array([can_comunication.get_encoder_estimate(0)[0] / 6 * 360,
+                      can_comunication.get_encoder_estimate(0)[0] / 6 * 360,
+                      can_comunication.get_encoder_estimate(0)[0] / 6 * 360])
+    print(angle)
+
 for i in np.arange(-0.15, -0.299, -0.001):
     #time.sleep(0.001)
     kinematics_legs.inverse_kinematics_legs(0, 0, i, 0.1, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
