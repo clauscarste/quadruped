@@ -1,17 +1,10 @@
 import math
 import numpy as np
-
-
-# import can_comunication
+import can_comunication
 
 
 def inverse_and_transpose(m):
     return np.transpose(np.linalg.inv(m))
-
-
-def can_testing_simulation(a):
-    return 1 + a * 0.1
-
 
 def force_calculation(leg_id, leg_parameters):
     # convert leg id to msg axis
@@ -19,12 +12,12 @@ def force_calculation(leg_id, leg_parameters):
 
     # get angle and current
     gear_ratio = 6
-    angle = np.array([can_testing_simulation(msg_axis_id[0]) / gear_ratio * 360,
-                      can_testing_simulation(msg_axis_id[1]) / gear_ratio * 360,
-                      can_testing_simulation(msg_axis_id[2]) / gear_ratio * 360])
+    angle = np.array([can_comunication.get_encoder_estimate(msg_axis_id[0])[0] / gear_ratio * 360,
+                      can_comunication.get_encoder_estimate(msg_axis_id[1])[0] / gear_ratio * 360,
+                      can_comunication.get_encoder_estimate(msg_axis_id[2])[0] / gear_ratio * 360])
     # position = np.array([can_comunication.get_encoder_estimate(msg_axis_id[0])[0]/gear_ratio*360, can_comunication.get_encoder_estimate(msg_axis_id[1])[0]/gear_ratio*360,can_comunication.get_encoder_estimate(msg_axis_id[2])[0]/gear_ratio*360])
-    current = np.array([can_testing_simulation(msg_axis_id[0]), can_testing_simulation(msg_axis_id[1]),
-                        can_testing_simulation(msg_axis_id[2])])
+    current = np.array([can_comunication.get_iq(msg_axis_id[0])[0], can_comunication.get_iq(msg_axis_id[1])[0],
+                        can_comunication.get_iq(msg_axis_id[2])[0]])
     # current = np.array([can_comunication.get_iq(msg_axis_id[0])[1], can_comunication.get_iq(msg_axis_id[1])[1],can_comunication.get_iq(msg_axis_id[1])[1]])
 
     # caclulate torque and current
@@ -56,18 +49,3 @@ def contact_detection(leg_id, contact_f):
         return True
 
 
-###test that leg kinematics move leg to position until force is to high. Then it stops.
-leg_parameters = [0.1, 0.15, 0.15]
-print(force_calculation(1, leg_parameters))
-# can_comunication.set_closed_loop(5,1)
-# can_comunication.set_idle(5,1)
-# can_comunication.get_encoder_estimate(5,1)
-# can_comunication.move_to(5,0,0,180,1)
-# for i in (np.arange(0,90,0.1)):
-#    time.sleep(0.5)
-#    can_comunication.move_to(5, i, 0, 180, 1)
-#    if contact_detection(1,0.1):
-#        print("contact")
-#        can_comunication.move_to(5, 0, 0, 180, 1)
-#        break
-###test end

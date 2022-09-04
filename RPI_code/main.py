@@ -4,10 +4,12 @@ from __future__ import division
 # created .py files
 import time
 
+import numpy as np
 import temprature_readout
 import can_comunication
 import kinematics_legs
 import walking
+import force
 import jumping
 #import kinematics_spine
 
@@ -91,23 +93,28 @@ for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]:
 #can_comunication.setall_closed(closed_loop_attempt)
 
 #Set motor to inital positon
-for i in range(4):
-    kinematics_legs.inverse_kinematics_legs(i, motor_inital_x[i], motor_inital_y[i], motor_inital_z[i], leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
-                            ym, zm, robot_length,robot_with)
+#for i in range(4):
+ #   kinematics_legs.inverse_kinematics_legs(i, motor_inital_x[i], motor_inital_y[i], motor_inital_z[i], leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
+  #                          ym, zm, robot_length,robot_with)
 
-while save_operation == True:
+#while save_operation == True:
      # chck for save operation (temprature and battery voltage)
-    if can_comunication.is_bus_voltage_in_limit(battery_voltage_lower_limit,battery_voltage_upper_limit) is False or temprature_readout.is_temp_in_limit(temprature_limit) is False:
-        save_operation = False
-        can_comunication.setall_idle()
-        print("not save")
+ #   if can_comunication.is_bus_voltage_in_limit(battery_voltage_lower_limit,battery_voltage_upper_limit) is False or temprature_readout.is_temp_in_limit(temprature_limit) is False:
+  #      save_operation = False
+   #     can_comunication.setall_idle()
+    #    print("not save")
 #     ###place walking or jumping or spine movement calls here.
     #walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
 
 
 
-
-
+#Test force response
+for i in np.arange(0.15, 0.299, 0.001):
+    #time.sleep(0.001)
+    kinematics_legs.inverse_kinematics_legs(0, 0, i, 0.1, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
+                            ym, zm, robot_length,robot_with)
+    if force.contact_detection(0,1):
+        break
 
 
 
@@ -132,12 +139,6 @@ while save_operation == True:
 #print(kinematics_legs.yaw_pich_roll(yaw, pich, roll, xm, ym, zm, robot_length,robot_with, leg_id, x, y, z))
 
 #test walking
-#walking.walk_stance(leg_id, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,
- #               deceleration_stance, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
-  #              robot_length,robot_with)
-#walking.walk_flight(leg_id, step_lentgh, flight_max_heigth, neutral_height, speed_flight, acceleration_flight,
- #               deceleration_flight, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
-  #              robot_length,robot_with)
 
 #test walking sequence
 #walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
