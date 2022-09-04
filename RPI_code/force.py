@@ -15,10 +15,7 @@ def force_calculation(leg_id, leg_parameters):
     angle = np.array([can_comunication.get_encoder_estimate(msg_axis_id[0])[0] / gear_ratio * 360,
                       can_comunication.get_encoder_estimate(msg_axis_id[1])[0] / gear_ratio * 360,
                       can_comunication.get_encoder_estimate(msg_axis_id[2])[0] / gear_ratio * 360])
-    # position = np.array([can_comunication.get_encoder_estimate(msg_axis_id[0])[0]/gear_ratio*360, can_comunication.get_encoder_estimate(msg_axis_id[1])[0]/gear_ratio*360,can_comunication.get_encoder_estimate(msg_axis_id[2])[0]/gear_ratio*360])
-    current = np.array([can_comunication.get_iq(msg_axis_id[0])[0], can_comunication.get_iq(msg_axis_id[1])[0],
-                        can_comunication.get_iq(msg_axis_id[2])[0]])
-    # current = np.array([can_comunication.get_iq(msg_axis_id[0])[1], can_comunication.get_iq(msg_axis_id[1])[1],can_comunication.get_iq(msg_axis_id[1])[1]])
+    current = np.array([can_comunication.get_iq(msg_axis_id[0])[1], can_comunication.get_iq(msg_axis_id[1])[1],can_comunication.get_iq(msg_axis_id[1])[1]])
 
     # caclulate torque and current
     torque = -0.00221823 * current * current + 0.27497038 * current + 0.09294292
@@ -44,8 +41,8 @@ def force_calculation(leg_id, leg_parameters):
     return inverse_and_transpose(jacobian).dot(torque)
 
 
-def contact_detection(leg_id, contact_f):
-    if abs(force_calculation(leg_id)[1]) > contact_f:
+def contact_detection(leg_id, contact_f,leg_parameters):
+    if abs(force_calculation(leg_id,leg_parameters)[1]) > contact_f:
         return True
 
 

@@ -109,11 +109,11 @@ for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]:
 
 
 #Test force response
-for i in np.arange(0.15, 0.299, 0.001):
+for i in np.arange(-0.15, -0.299, -0.001):
     #time.sleep(0.001)
     kinematics_legs.inverse_kinematics_legs(0, 0, i, 0.1, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
                             ym, zm, robot_length,robot_with)
-    if force.contact_detection(0,1):
+    if force.contact_detection(0,1,leg_parameters):
         break
 
 
