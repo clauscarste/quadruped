@@ -107,15 +107,14 @@ for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]:
     #walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
 
 
-
+#can_comunication.set_closed_loop(0,2)
+#can_comunication.set_closed_loop(1,2)
+#can_comunication.set_closed_loop(2,2)
 #Test force response
 for i in np.arange(-0.15, -0.299, -0.001):
     #time.sleep(0.001)
     kinematics_legs.inverse_kinematics_legs(0, 0, i, 0.1, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
                             ym, zm, robot_length,robot_with)
-    if force.contact_detection(0,1,leg_parameters):
-        break
-
 
 
 
