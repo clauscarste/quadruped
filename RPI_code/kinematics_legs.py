@@ -166,7 +166,7 @@ def force_calculation(leg_id, leg_parameters,angle1,angle2,angle3):
             temp = -temp
         current[array_temp] = temp
         array_temp = array_temp+1
-
+        print(current,current)
     # caclulate torque and current
     torque = -0.00221823 * current * current + 0.27497038 * current + 0.09294292
     l1 = leg_parameters[0]
