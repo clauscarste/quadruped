@@ -11,7 +11,7 @@ import kinematics_legs
 import walking
 import force
 import jumping
-#import kinematics_spine
+import kinematics_spine
 
 # Config File Import
 import configparser
@@ -80,7 +80,7 @@ roll= 0
 
 
 # Servo setup to zero position
-#kinematics_spine.inverse_kinematics_spine(0,0,distance_center_of_spine_to_rope_m,servo_ofset,max_angle,spine_length,pully_radius,norma_rope_length)
+kinematics_spine.inverse_kinematics_spine(0,0,distance_center_of_spine_to_rope_m,servo_ofset,max_angle,spine_length,pully_radius,norma_rope_length)
 
 # test that can works and encoders give good reading - also fill in libary
 for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]:

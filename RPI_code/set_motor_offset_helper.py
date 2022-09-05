@@ -1,6 +1,9 @@
 import time
 import can_comunication
 
+
+can_comunication.setall_idle()
+
 # results below should be copied into the main.py
 
 rang = 10

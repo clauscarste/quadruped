@@ -159,22 +159,22 @@ def force_calculation(leg_id, leg_parameters,angle1,angle2,angle3):
     msg_axis_id = [leg_id * 3, leg_id * 3 + 1, leg_id * 3 + 2]
     # get current and ajust for roation direction
     array_temp = 0
-    current = np.array(0.0,0.0,0.0)
+    current = np.array([0.0,0.0,0.0])
     for i in msg_axis_id:
         temp =can_comunication.get_iq(i)[1]
-        if i [1,2,3,4,5,9]:
+        if i in [1,2,3,4,5,9]:
             temp = -temp
         current[array_temp] = temp
         array_temp = array_temp+1
-        print(current,current)
+        print(current,"current")
     # caclulate torque and current
     torque = -0.00221823 * current * current + 0.27497038 * current + 0.09294292
     l1 = leg_parameters[0]
     l2 = leg_parameters[1]
     l3 = leg_parameters[2]
-    o1 = np.radians(angle1)
-    o2 = np.radians(angle2)
-    o3 = np.radians(angle3)
+    o1 = angle1
+    o2 = angle2
+    o3 = angle3
     # jacobian calcualted with matlab
     jacobian = np.array([[l2 * np.cos(o1) * np.cos(o2) - l1 * np.sin(o1) + l3 * np.cos(o1) * np.cos(o2) * np.cos(
         o3) - 1.0 * l3 * np.cos(o1) * np.sin(o2) * np.sin(o3),
@@ -191,6 +191,6 @@ def force_calculation(leg_id, leg_parameters,angle1,angle2,angle3):
     return inverse_and_transpose(jacobian).dot(torque)
 
 
-def contact_detection(leg_id, contact_f,leg_parameters,o1,o2,o3):
-    if abs(force_calculation(leg_id,leg_parameters)[1]) > contact_f:
+def contact_detection(leg_id, contact_f,leg_parameters,angle1,angle2,angle3):
+    if abs(force_calculation(leg_id,leg_parameters,angle1,angle2,angle3)[1]) > contact_f:
         return True
