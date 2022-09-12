@@ -155,7 +155,7 @@ def step(stance1,stance2,flight1,flight2,flight_max_heigth,acceleration_flight,d
     position4 = curve_flight(flight2, step_lentgh, flight_max_heigth, neutral_height, speed_flight,
                              acceleration_flight,deceleration_flight)
     for i in range(len(position1[0]), 0, -1):
-        time.sleep(0.5)
+        time.sleep(0.05)
         kinematics_legs.inverse_kinematics_legs(stance1, position1[1][i], position1[0][i], 0.1, leg_parameters, ofset,
                                                 limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                                                 robot_length,robot_with)
