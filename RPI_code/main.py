@@ -90,7 +90,7 @@ for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]:
 
 
 # set motor closed loop
-#can_comunication.setall_closed(closed_loop_attempt)
+can_comunication.setall_closed(closed_loop_attempt)
 
 #Set motor to inital positon
 #for i in range(4):
@@ -104,24 +104,10 @@ for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]:
    #     can_comunication.setall_idle()
     #    print("not save")
 #     ###place walking or jumping or spine movement calls here.
-    #walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
+walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
 
 
-#can_comunication.set_closed_loop(0,2)
-#can_comunication.set_closed_loop(1,2)
-#can_comunication.set_closed_loop(2,2)
-#Test force response
 
-while True:
-    angle = np.array([can_comunication.get_encoder_estimate(0)[0] / 6 * 360,
-                      can_comunication.get_encoder_estimate(0)[0] / 6 * 360,
-                      can_comunication.get_encoder_estimate(0)[0] / 6 * 360])
-    print(angle)
-
-for i in np.arange(-0.15, -0.299, -0.001):
-    #time.sleep(0.001)
-    kinematics_legs.inverse_kinematics_legs(0, 0, i, 0.1, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
-                            ym, zm, robot_length,robot_with)
 
 
 
@@ -141,19 +127,27 @@ for i in np.arange(-0.15, -0.299, -0.001):
 #walking.ploting(walking.curve_stance(1,step_lentgh,stance_max_height,neutral_height,speed_stance,acceleration_stance,deceleration_stance))
 #walking.ploting(walking.curve_flight(1,step_lentgh,flight_max_heigth,neutral_height,speed_flight,acceleration_flight,deceleration_flight))
 
+
 #test inverse kinematics
 #print(kinematics_legs.yaw_pich_roll(yaw, pich, roll, xm, ym, zm, robot_length,robot_with, leg_id, x, y, z))
 
-#test walking
 
 #test walking sequence
 #walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
  #                    acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,
   #                   yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
 
+
 #Test Jump
-upper = -0.2999
-land = -0.2
-lower = -0.1
-delay = 0.01
+#upper = -0.2999
+#land = -0.2
+#lower = -0.1
+#delay = 0.01
 #jumping.jump(land,upper,lower,delay,leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm, robot_length, robot_with)
+
+
+#Test force response
+#for i in np.arange(-0.15, -0.299, -0.001):
+#   #time.sleep(0.001)
+#    kinematics_legs.inverse_kinematics_legs(0, 0, i, 0.1, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
+#                            ym, zm, robot_length,robot_with)
