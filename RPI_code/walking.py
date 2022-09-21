@@ -125,8 +125,8 @@ def walk_stance(leg_id, step_lentgh, stance_max_height, neutral_height, speed_st
                 robot_length,robot_with):
     position = curve_stance(leg_id, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,
                             deceleration_stance)
-    for i in range(0, len(position[0])):
-        time.sleep(0.005)
+    for i in range(len(position[0])-1,0, -1):
+        time.sleep(0.05)
         kinematics_legs.inverse_kinematics_legs(leg_id, position[1][i], position[0][i], 0.1, leg_parameters, ofset,
                                                 limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                                                 robot_length,robot_with)
@@ -137,8 +137,8 @@ def walk_flight(leg_id, step_lentgh, flight_max_heigth, neutral_height, speed_fl
                 robot_length,robot_with):
     position = curve_flight(leg_id, step_lentgh, flight_max_heigth, neutral_height, speed_flight, acceleration_flight,
                             deceleration_flight)
-    for i in range(0, len(position[0])):
-        time.sleep(0.005)
+    for i in range(len(position[0])-1,0, -1):
+        time.sleep(0.05)
         kinematics_legs.inverse_kinematics_legs(leg_id, position[1][i], position[0][i], 0.1, leg_parameters, ofset,
                                                 limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                                                 robot_length,robot_with)
@@ -151,15 +151,15 @@ def step(stance1,stance2,flight1,flight2,flight_max_heigth,acceleration_flight,d
                              acceleration_stance,deceleration_stance)
     position2 = curve_stance(stance2, step_lentgh, stance_max_height, neutral_height, speed_stance,
                              acceleration_stance,deceleration_stance)
-    position3 = curve_flight(flight1, step_lentgh, flight_max_heigth, neutral_height, speed_flight,
+    position3 = curve_stance(flight1, step_lentgh, flight_max_heigth, neutral_height, speed_flight,
                              acceleration_flight,deceleration_flight)
-    position4 = curve_flight(flight2, step_lentgh, flight_max_heigth, neutral_height, speed_flight,
+    position4 = curve_stance(flight2, step_lentgh, flight_max_heigth, neutral_height, speed_flight,
                              acceleration_flight,deceleration_flight)
-    for i in range(len(position1[0]), 0, -1):
-        time.sleep(0.05)
+    for i in range(len(position1[0])-2,0, -1):
         for a in [4,10]:
             if can_thread.loop_state[a] != 0x8:
-                can_comunication.set_closed_loop(a)
+                can_comunication.set_closed_loop(a,2)
+        time.sleep(0.05)
         kinematics_legs.inverse_kinematics_legs(stance1, position1[1][i], position1[0][i], 0.1, leg_parameters, ofset,
                                                 limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                                                 robot_length,robot_with)
@@ -178,7 +178,7 @@ def walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_
                      acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,
                      yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit,
                      invert_axis, leg_config):
-    for i in range(0,5):
+    for i in range(0,2):
         step(1, 3, 0, 2,flight_max_heigth,acceleration_flight,deceleration_flight,
              speed_flight, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,
             deceleration_stance, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
@@ -190,10 +190,13 @@ def walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_
 
 
 
-def one_step_at_a_time(stance1,stance2,flight1,flight2,flight_max_heigth,acceleration_flight,deceleration_flight,
-         speed_flight, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,
-         deceleration_stance, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
-         robot_length,robot_with):
+def one_step_at_a_time(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
+                     acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,
+                     yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit,
+                     invert_axis, leg_config):
+    for a in [4, 10]:
+        if can_thread.loop_state[a] != 0x8:
+            can_comunication.set_closed_loop(a, 2)
     walk_flight(3, step_lentgh, flight_max_heigth, neutral_height, speed_flight, acceleration_flight,
                 deceleration_flight, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                 robot_length, robot_with)
@@ -201,20 +204,24 @@ def one_step_at_a_time(stance1,stance2,flight1,flight2,flight_max_heigth,acceler
     walk_flight(1, step_lentgh, flight_max_heigth, neutral_height, speed_flight, acceleration_flight,
                 deceleration_flight, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                 robot_length, robot_with)
-    time.sleep(0.5)
-    position1 = curve_stance(0, step_lentgh, stance_max_height, neutral_height, speed_stance,
+    time.sleep(2)
+    stance1 = 0
+    stance2 = 1
+    flight1 = 2
+    flight2 = 3
+    position1 = curve_stance(stance1, step_lentgh, stance_max_height, neutral_height, speed_stance,
                              acceleration_stance,deceleration_stance)
-    position2 = curve_stance(1, step_lentgh, stance_max_height, neutral_height, speed_stance,
+    position2 = curve_stance(stance2, step_lentgh, stance_max_height, neutral_height, speed_stance,
                              acceleration_stance,deceleration_stance)
-    position3 = curve_stance(2, step_lentgh, flight_max_heigth, neutral_height, speed_flight,
-                             acceleration_flight,deceleration_flight)
-    position4 = curve_stance(3, step_lentgh, flight_max_heigth, neutral_height, speed_flight,
-                             acceleration_flight,deceleration_flight)
-    for i in range(len(position1[0]), 0, -1):
-        time.sleep(0.05)
-        for a in [4,10]:
+    position3 = curve_stance(stance1, step_lentgh, stance_max_height, neutral_height, speed_stance,
+                             acceleration_stance, deceleration_stance)
+    position4 = curve_stance(stance2, step_lentgh, stance_max_height, neutral_height, speed_stance,
+                             acceleration_stance, deceleration_stance)
+    for i in range(0, len(position1[0])-2, -1):
+        for a in [4, 10]:
             if can_thread.loop_state[a] != 0x8:
-                can_comunication.set_closed_loop(a)
+                can_comunication.set_closed_loop(a, 2)
+        time.sleep(0.05)
         kinematics_legs.inverse_kinematics_legs(stance1, position1[1][i], position1[0][i], 0.1, leg_parameters, ofset,
                                                 limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                                                 robot_length,robot_with)
@@ -227,7 +234,7 @@ def one_step_at_a_time(stance1,stance2,flight1,flight2,flight_max_heigth,acceler
         kinematics_legs.inverse_kinematics_legs(flight2, position4[1][i], position4[0][i], 0.1, leg_parameters, ofset,
                                                 limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                                                 robot_length,robot_with)
-
+    time.sleep(2)
     walk_flight(0, step_lentgh, flight_max_heigth, neutral_height, speed_flight, acceleration_flight,
                     deceleration_flight, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym,
                     zm,robot_length, robot_with)

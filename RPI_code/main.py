@@ -106,6 +106,7 @@ can_comunication.setall_closed(closed_loop_attempt)
     #    print("not save")
 #     ###place walking or jumping or spine movement calls here.
 walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
+walking.one_step_at_a_time(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
 
 for a in [4, 10]:
     if can_thread.loop_state[a] != 0x8:
