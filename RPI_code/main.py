@@ -94,25 +94,19 @@ for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]:
 can_comunication.setall_closed(closed_loop_attempt)
 
 #Set motor to inital positon
-#for i in range(4):
- #   kinematics_legs.inverse_kinematics_legs(i, motor_inital_x[i], motor_inital_y[i], motor_inital_z[i], leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
-  #                          ym, zm, robot_length,robot_with)
+for i in range(4):
+    kinematics_legs.inverse_kinematics_legs(i, motor_inital_x[i], motor_inital_y[i], motor_inital_z[i], leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
+                            ym, zm, robot_length,robot_with)
 
-#while save_operation == True:
+while save_operation == True:
      # chck for save operation (temprature and battery voltage)
- #   if can_comunication.is_bus_voltage_in_limit(battery_voltage_lower_limit,battery_voltage_upper_limit) is False or temprature_readout.is_temp_in_limit(temprature_limit) is False:
-  #      save_operation = False
-   #     can_comunication.setall_idle()
-    #    print("not save")
-#     ###place walking or jumping or spine movement calls here.
-walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
-walking.one_step_at_a_time(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
-
-for a in [4, 10]:
-    if can_thread.loop_state[a] != 0x8:
-        can_comunication.set_closed_loop(a)
-
-
+    if can_comunication.is_bus_voltage_in_limit(battery_voltage_lower_limit,battery_voltage_upper_limit) is False or temprature_readout.is_temp_in_limit(temprature_limit) is False:
+        save_operation = False
+        can_comunication.setall_idle()
+        print("not save")
+     ###place walking or jumping or spine movement calls here.
+    walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
+    walking.one_step_at_a_time(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
 
 
 
