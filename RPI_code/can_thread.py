@@ -22,11 +22,11 @@ def get_all_updates():
         # Decoding messages and saving to Dictionary
         start_time = perf_counter()
         for msg in bus:
-            if (msg.arbitration_id == (5 << 5) + 0x17):
+            if (msg.arbitration_id == (4 << 5) + 0x17):
                 try:
                     msg_voltage = db.decode_message('Get_Vbus_Voltage', msg.data)
                     #bus_voltage = msg_voltage['Vbus_Voltage']
-                    loop_state[13] = msg_voltage['Vbus_Voltage']
+                    loop_state[12] = msg_voltage['Vbus_Voltage']
 
                 except ValueError:
                     pass
@@ -83,7 +83,7 @@ def get_all_updates2():
                 if (msg.arbitration_id == (msg_axis_id << 5) + 0x014):
                     try:
                         msg_iq = db.decode_message('Get_Iq', msg.data)
-                        get_iq[msg_axis_id] = [msg_iq['Iq_Measured'], msg_iq['Iq_Setpoint']]
+                        iq[msg_axis_id] = [msg_iq['Iq_Measured'], msg_iq['Iq_Setpoint']]
                     except ValueError:
                         pass
             break

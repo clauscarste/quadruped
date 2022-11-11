@@ -58,9 +58,7 @@ def set_idle(msg_axis_id):
 
 def move_to(msg_axis_id,angle,ofsets,angle_limit,invert_axis):
     #calculating angle with offset
-    if angle < 0:
-        angle = 0
-    elif angle > angle_limit:
+    if angle > angle_limit:
         angle = angle_limit
     if invert_axis: #inversion is there to make axis behave like defined
         angle = -angle
@@ -116,7 +114,7 @@ def can_get_voltage(data=[], format='', RTR=True):
         bus.send(msg)
     except can.CanError:
         print("can_vbus NOT sent!")
-    return can_thread.loop_state[13]
+    return can_thread.loop_state[12]
 
 
 def get_encoder_estimate(msg_axis_id, data=[], format='', RTR=True):
@@ -161,10 +159,10 @@ def set_limits(msg_axis_id,current_max,velocity_max):
         print("can_move_to NOT sent!")
 
 def setall_idle():
-    for i in [3,4,5,6,7,8]:
+    for i in [0,1,2,3,4,5,6,7,8,9,10,11]:
         set_idle(i)
 def setall_closed(attempts):
-    for i in [3, 4, 5, 6, 7, 8]:
+    for i in [0,1,2,3,4,5,6,7,8,9,10,11]:
         set_closed_loop(i,attempts)
 
 # create new threads

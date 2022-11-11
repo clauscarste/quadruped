@@ -1,16 +1,16 @@
 import kinematics_legs
 import time
 
-def jump(leg_parameters, ofset, limit, invert_axis,leg_config):
-    kinematics_legs.inverse_kinematics_legs(1,1,1,1,leg_parameters,ofset,limit,invert_axis,leg_config)
-    kinematics_legs.inverse_kinematics_legs(2, 1, 1, 1, leg_parameters, ofset, limit, invert_axis,leg_config)
-    kinematics_legs.inverse_kinematics_legs(3, 1, 1, 1, leg_parameters, ofset, limit, invert_axis,leg_config)
-    kinematics_legs.inverse_kinematics_legs(4, 1, 1, 1, leg_parameters, ofset, limit, invert_axis,leg_config)
-
-    time.sleep(0.5)
-    kinematics_legs.inverse_kinematics_legs(1, 1, 1, 1, leg_parameters, ofset, limit, invert_axis,leg_config)
-    kinematics_legs.inverse_kinematics_legs(2, 1, 1, 1, leg_parameters, ofset, limit, invert_axis,leg_config)
-    kinematics_legs.inverse_kinematics_legs(3, 1, 1, 1, leg_parameters, ofset, limit, invert_axis,leg_config)
-    kinematics_legs.inverse_kinematics_legs(4, 1, 1, 1, leg_parameters, ofset, limit, invert_axis,leg_config)
-
-jump()
+def jump(land,upper,lower,delay,leg_parameters, ofset, limit, invert_axis, leg_config, yawm,
+                                            pich, roll, xm, ym, zm, robot_length, robot_with):
+    for i in [0,1,2,3]:
+        kinematics_legs.inverse_kinematics_legs(i, 0, lower, 0.1, leg_parameters, ofset, limit, invert_axis, leg_config, yawm,
+                                                pich, roll, xm, ym, zm, robot_length, robot_with)
+    time.sleep(100*delay)
+    for i in [0,1,2,3]:
+        kinematics_legs.inverse_kinematics_legs(i, 0, upper, 0.1, leg_parameters, ofset, limit, invert_axis, leg_config, yawm,
+                                                pich, roll, xm, ym, zm, robot_length, robot_with)
+    time.sleep(delay)
+    for i in [0,1,2,3]:
+        kinematics_legs.inverse_kinematics_legs(i, 0, land, 0.1, leg_parameters, ofset, limit, invert_axis, leg_config, yawm,
+                                                pich, roll, xm, ym, zm, robot_length, robot_with)

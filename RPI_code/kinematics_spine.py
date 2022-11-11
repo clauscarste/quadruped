@@ -33,7 +33,6 @@ def inverse_kinematics_spine(omega,theta,d,ofset,max_angle,spine_length,pully_ra
 
     #Move servo
     servo.set_angle(angle[0], angle[1], angle[2],ofset)
-    return angle
 
 #Test
 #print(inverse_kinematics_spine(90+120,0,0.07,[-25,-25,-60],20,0.13,0.023,0.13))
