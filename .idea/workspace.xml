@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="477a793e-8cf6-4fb7-9de7-23aaff3ff473" name="Changes" comment="add yaw pich and ajustments for cordinate frames.&#10;Also added matlab files" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="29cBfc5icHH67oKOSyHtleRiNYb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/RPI_code" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.diff_drive">
+    <configuration name="diff_drive" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="quadruped" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/simulation/test/yt_car" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/simulation/test/yt_car/diff_drive.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="force_backup" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="quadruped" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RPI_code" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RPI_code/force_backup.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="kinematics_legs" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="quadruped" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RPI_code" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RPI_code/kinematics_legs.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="quadruped" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RPI_code" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RPI_code/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="walking" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="quadruped" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RPI_code" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RPI_code/walking.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.diff_drive" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.walking" />
+        <item itemvalue="Python.kinematics_legs" />
+        <item itemvalue="Python.force_backup" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="477a793e-8cf6-4fb7-9de7-23aaff3ff473" name="Changes" comment="" />
+      <created>1653402597542</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1653402597542</updated>
+    </task>
+    <task id="LOCAL-00001" summary="first tests with CAN comunication, servo controll, temprature readout and some kinematics">
+      <created>1653402965084</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1653402965084</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added a folder">
+      <created>1653403325426</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1653403325426</updated>
+    </task>
+    <task id="LOCAL-00003" summary="adding config for Odirve and some small changes to servo.py, kinematics and the can comunication fixing issues seen after doing testing">
+      <created>1654767989931</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1654767989931</updated>
+    </task>
+    <task id="LOCAL-00004" summary="solved problems with can bus and added mpu and first walking code">
+      <created>1655287971337</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1655287971337</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added helper funktion for setting up ofsets and made some changes to can">
+      <created>1655294447345</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1655294447345</updated>
+    </task>
+    <task id="LOCAL-00006" summary="small fix">
+      <created>1655318821763</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1655318821763</updated>
+    </task>
+    <task id="LOCAL-00007" summary="- added automatic retry if can comunication fails&#10;- changes to kinematics &#10;- added all variables in config section in main &#10;- changed the baud rate of the Odrive in the manual config txt">
+      <created>1655392830378</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1655392830378</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added configfile and other small changes">
+      <created>1655646146726</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1655646146726</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added way to measure the speed of the CAN bus. And added can function to get the currently used current to then calculate the force from that.">
+      <created>1655815206916</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1655815206916</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added way to set current limit. And small changes to can speed testing.">
+      <created>1655887081716</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1655887081716</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added walking.py that is based on alterin a sin curve and sending that to the kinematics.py. Also some imporvements to force measurement were made.">
+      <created>1656060845310</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1656060845310</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fixed kinematics and walking after real world testing">
+      <created>1656068933647</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1656068933647</updated>
+    </task>
+    <task id="LOCAL-00013" summary="added walking parameters to config file and seperated fct for stance and flight">
+      <created>1656094788423</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1656094788423</updated>
+    </task>
+    <task id="LOCAL-00014" summary="changes can to use a seperate thread">
+      <created>1656149355387</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1656149355387</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fixed thread problems after real world testing">
+      <created>1656153627045</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1656153627045</updated>
+    </task>
+    <task id="LOCAL-00016" summary="-">
+      <created>1656411776469</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1656411776469</updated>
+    </task>
+    <task id="LOCAL-00017" summary="added acceleration for interpolation">
+      <created>1656419840656</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1656419840656</updated>
+    </task>
+    <task id="LOCAL-00018" summary="added dual can support">
+      <created>1656490829325</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1656490829325</updated>
+    </task>
+    <task id="LOCAL-00019" summary="added dual can support">
+      <created>1656490866373</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1656490866373</updated>
+    </task>
+    <task id="LOCAL-00020" summary="added dual can support">
+      <created>1656497558091</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1656497558091</updated>
+    </task>
+    <task id="LOCAL-00021" summary="added dual can support">
+      <created>1656497807631</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1656497807631</updated>
+    </task>
+    <task id="LOCAL-00022" summary="chagned that the walking plot is more smooth">
+      <created>1656504281668</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1656504281668</updated>
+    </task>
+    <task id="LOCAL-00023" summary="added config to main">
+      <created>1656526976866</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1656526976866</updated>
+    </task>
+    <task id="LOCAL-00024" summary="added comments to config">
+      <created>1657725888130</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1657725888130</updated>
+    </task>
+    <task id="LOCAL-00025" summary="added comments to config">
+      <created>1657747981346</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1657747981346</updated>
+    </task>
+    <task id="LOCAL-00026" summary="folder">
+      <created>1658226784698</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1658226784698</updated>
+    </task>
+    <task id="LOCAL-00027" summary="folder">
+      <created>1658226819234</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1658226819234</updated>
+    </task>
+    <task id="LOCAL-00028" summary="folder">
+      <created>1658226866692</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1658226866692</updated>
+    </task>
+    <task id="LOCAL-00029" summary=" -">
+      <created>1659623158035</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1659623158035</updated>
+    </task>
+    <task id="LOCAL-00030" summary=" -">
+      <created>1659624332914</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1659624332914</updated>
+    </task>
+    <task id="LOCAL-00031" summary=" -">
+      <created>1659683066875</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1659683066875</updated>
+    </task>
+    <task id="LOCAL-00032" summary="added spine inverse kinematics, totaly changed the servo interface. And added some varaibels to the config and the main that are important for the spine inverse kinematics. &#10;Also samll changes to can protocoll after some issues were found">
+      <created>1659770817500</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1659770817500</updated>
+    </task>
+    <task id="LOCAL-00033" summary="small change to calibarate">
+      <created>1660043109647</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1660043109647</updated>
+    </task>
+    <task id="LOCAL-00034" summary=".">
+      <created>1660049586612</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1660049586612</updated>
+    </task>
+    <task id="LOCAL-00035" summary="added test fct and small changes">
+      <created>1660307214981</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1660307214981</updated>
+    </task>
+    <task id="LOCAL-00036" summary="mainly changes to walking fct, and small ajustments to rest">
+      <created>1660572052050</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1660572052050</updated>
+    </task>
+    <task id="LOCAL-00037" summary="small fix to corect for cordinate frame orientation">
+      <created>1660720902390</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1660720902390</updated>
+    </task>
+    <task id="LOCAL-00038" summary="redone the force detection model">
+      <created>1660731236737</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1660731236737</updated>
+    </task>
+    <task id="LOCAL-00039" summary="redone the force detection model">
+      <created>1660736328937</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1660736328937</updated>
+    </task>
+    <task id="LOCAL-00040" summary=".">
+      <created>1660736536332</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1660736536332</updated>
+    </task>
+    <task id="LOCAL-00041" summary="add yaw pich and ajustments for cordinate frames.">
+      <created>1660748519197</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1660748519197</updated>
+    </task>
+    <task id="LOCAL-00042" summary="add yaw pich and ajustments for cordinate frames.&#10;Also added matlab files">
+      <created>1660748549513</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1660748549513</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added configfile and other small changes" />
+    <MESSAGE value="added way to measure the speed of the CAN bus. And added can function to get the currently used current to then calculate the force from that." />
+    <MESSAGE value="added way to set current limit. And small changes to can speed testing." />
+    <MESSAGE value="added walking.py that is based on alterin a sin curve and sending that to the kinematics.py. Also some imporvements to force measurement were made." />
+    <MESSAGE value="fixed kinematics and walking after real world testing" />
+    <MESSAGE value="added walking parameters to config file and seperated fct for stance and flight" />
+    <MESSAGE value="changes can to use a seperate thread" />
+    <MESSAGE value="fixed thread problems after real world testing" />
+    <MESSAGE value="-" />
+    <MESSAGE value="added acceleration for interpolation" />
+    <MESSAGE value="added dual can support" />
+    <MESSAGE value="chagned that the walking plot is more smooth" />
+    <MESSAGE value="added config to main" />
+    <MESSAGE value="added comments to config" />
+    <MESSAGE value="folder" />
+    <MESSAGE value=" -" />
+    <MESSAGE value="added spine inverse kinematics, totaly changed the servo interface. And added some varaibels to the config and the main that are important for the spine inverse kinematics. &#10;Also samll changes to can protocoll after some issues were found" />
+    <MESSAGE value="small change to calibarate" />
+    <MESSAGE value="added test fct and small changes" />
+    <MESSAGE value="mainly changes to walking fct, and small ajustments to rest" />
+    <MESSAGE value="small fix to corect for cordinate frame orientation" />
+    <MESSAGE value="redone the force detection model" />
+    <MESSAGE value="." />
+    <MESSAGE value="add yaw pich and ajustments for cordinate frames." />
+    <MESSAGE value="add yaw pich and ajustments for cordinate frames.&#10;Also added matlab files" />
+    <option name="LAST_COMMIT_MESSAGE" value="add yaw pich and ajustments for cordinate frames.&#10;Also added matlab files" />
+  </component>
+</project>
