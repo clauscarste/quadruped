@@ -3,57 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="477a793e-8cf6-4fb7-9de7-23aaff3ff473" name="Changes" comment="simulation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPI_code/t.py" beforeDir="false" afterPath="$PROJECT_DIR$/RPI_code/t.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/simulation/quadruped_simulation/quadruped.xml" beforeDir="false" afterPath="$PROJECT_DIR$/simulation/quadruped_simulation/quadruped.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/-59.659 -26.904 45.452.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/1223.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/47.041 -26.904 45.452.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/73.041 -23.904 5.852.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/Screenshot 2022-11-12 at 16.33.55.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/Screenshot 2022-11-12 at 17.13.55.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/Screenshot 2022-11-12 at 17.14.51.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/Screenshot 2022-11-12 at 17.16.23.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/Screenshot 2022-11-12 at 17.19.13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/Screenshot 2022-11-12 at 17.22.45.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/Screenshot 2022-11-12 at 17.25.14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/Screenshot 2022-11-12 at 18.41.52.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/Screenshot 2022-11-12 at 18.44.25.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/Screenshot 2022-11-12 at 18.44.53.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/Screenshot 2022-11-12 at 19.33.13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/Screenshot 2022-11-13 at 10.09.50.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/Screenshot 2022-11-13 at 10.13.20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/Screenshot 2022-11-13 at 10.16.14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/Screenshot 2022-11-13 at 10.17.14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/Screenshot 2022-11-13 at 10.17.50.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/Screenshot 2022-11-13 at 10.26.11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/Screenshot 2022-11-13 at 10.27.40.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/Screenshot 2022-11-13 at 10.32.48.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/Screenshot 2022-11-13 at 10.33.34.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/mesh_data_fusion360/Screenshot 2022-11-13 at 10.52.03.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/-59.659 -26.904 45.452.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/1223.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/47.041 -26.904 45.452.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/73.041 -23.904 5.852.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/Screenshot 2022-11-12 at 16.33.55.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/Screenshot 2022-11-12 at 17.13.55.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/Screenshot 2022-11-12 at 17.14.51.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/Screenshot 2022-11-12 at 17.16.23.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/Screenshot 2022-11-12 at 17.19.13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/Screenshot 2022-11-12 at 17.22.45.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/Screenshot 2022-11-12 at 17.25.14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/Screenshot 2022-11-12 at 18.41.52.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/Screenshot 2022-11-12 at 18.44.25.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/Screenshot 2022-11-12 at 18.44.53.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/Screenshot 2022-11-12 at 19.33.13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/Screenshot 2022-11-13 at 10.09.50.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/Screenshot 2022-11-13 at 10.13.20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/Screenshot 2022-11-13 at 10.16.14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/Screenshot 2022-11-13 at 10.17.14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/Screenshot 2022-11-13 at 10.17.50.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/Screenshot 2022-11-13 at 10.26.11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/Screenshot 2022-11-13 at 10.27.40.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/Screenshot 2022-11-13 at 10.32.48.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/Screenshot 2022-11-13 at 10.33.34.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/testing/quadruped_simulation_working_bad_cog/mesh_data_fusion360/Screenshot 2022-11-13 at 10.52.03.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +20,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -98,7 +50,7 @@
       <recent name="$PROJECT_DIR$/RPI_code" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.2D_manipulator">
+  <component name="RunManager" selected="Python.t">
     <configuration name="2D_manipulator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="quadruped" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -141,7 +93,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="kinematics_legs" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="t" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="quadruped" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -153,7 +105,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RPI_code/kinematics_legs.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RPI_code/t.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -207,17 +159,17 @@
     <list>
       <item itemvalue="Python.2D_manipulator" />
       <item itemvalue="Python.diff_drive" />
-      <item itemvalue="Python.kinematics_legs" />
       <item itemvalue="Python.test" />
       <item itemvalue="Python.walking" />
+      <item itemvalue="Python.t" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.t" />
         <item itemvalue="Python.2D_manipulator" />
         <item itemvalue="Python.diff_drive" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.walking" />
-        <item itemvalue="Python.kinematics_legs" />
       </list>
     </recent_temporary>
   </component>
@@ -559,7 +511,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668497240484</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="simulation">
+      <created>1668500387968</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1668500387968</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
