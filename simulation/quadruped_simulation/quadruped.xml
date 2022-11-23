@@ -35,14 +35,18 @@
                         <body name="front_alu_3" pos="0.023 -0.072 0.06" euler="0 0 -1.5707963">
                     <geom name="front_alu_3" type="mesh" mesh="front_alu_3" pos="0 0 0" material="aluminium" />
                     <inertial pos="0 0.054215 -0.061065" mass="0.124065" fullinertia="0.001253 0.001031 0.0006775 0 0 0.0004275"/>
-                        <body name="battery" pos="-0.04 -0.016 -0.048" euler="-1.5707963 0 1.5707963">
+                        <body name="battery" pos="-0.05 -0.046 -0.038" euler="-1.5707963 0 1.5707963">
                     <geom name="battery" type="mesh" mesh="battery" pos="0 0 0" material="carbon"/>
                     <inertial pos="0.069942 -0.006256 0.035746" mass="0.870023" fullinertia="0.00225 0.007884 0.006258 0.00038 -0.002177 0.0001947"/>
+                        <body name="case1" pos="-0.06 -0.12 0.03" euler="0 0 1.5707963">
+                    <geom name="case1" type="mesh" mesh="case1" pos="0 0 0" material="aluminium"/>
+                    <inertial pos="0.0702010 0.0795480 0.0475770" mass="0.0909370" fullinertia="0.0010910 0.0013470 0.0018780 -0.0005078 -0.0003037 -0.0003572"/>
                         </body>
                         </body>
                         </body>
                         </body>
                         </body>
+                            </body>
 
                         <body name="spacer_spine" pos="-0.141 -0.056 -0.006">
                     <geom name="spacer_spine" type="mesh" mesh="spacer_spine" pos="0 0 0" material="petg" euler="0 0 0"/>
@@ -57,8 +61,11 @@
                         <body name="logic2" pos="-0.0024 0.0237 -0.007" euler="1.5707963 0 1.5707963">
                     <geom name="logic2" type="mesh" mesh="logic2" pos="0 0 0" material="pcb" />
                     <inertial pos="0.037 -0.0692 -0.0318" mass="0.215" fullinertia="0.001698 0.0006263 0.001756 0.0005497 0.0002479 -0.0004718"/>
-
+                        <body name="case2" pos="0.01 -0.14 0.037" euler="0 1.5707963 1.5707963">
+                    <geom name="case2" type="mesh" mesh="case2" pos="0 0 0" material="aluminium"/>
+                    <inertial pos="0.0702010 0.0795480 0.0475770" mass="0.0909370" fullinertia="0.0010910 0.0013470 0.0018780 -0.0005078 -0.0003037 -0.0003572"/>
                         </body>
+                            </body>
                         </body>
                         </body>
 
