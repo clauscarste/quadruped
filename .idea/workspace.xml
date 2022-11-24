@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="477a793e-8cf6-4fb7-9de7-23aaff3ff473" name="Changes" comment="simulation">
+    <list default="true" id="477a793e-8cf6-4fb7-9de7-23aaff3ff473" name="Changes" comment="made changes to current control to make testing for simulation possible - main now only outputs angles from walking and there is no need for any inputs">
+      <change afterPath="$PROJECT_DIR$/RPI_code/siminterface.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/simulation/leg_only/manipulator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RPI_code/configfile.ini" beforeDir="false" afterPath="$PROJECT_DIR$/RPI_code/configfile.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RPI_code/kinematics_legs.py" beforeDir="false" afterPath="$PROJECT_DIR$/RPI_code/kinematics_legs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RPI_code/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/RPI_code/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RPI_code/walking.py" beforeDir="false" afterPath="$PROJECT_DIR$/RPI_code/walking.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,8 +50,8 @@
       <recent name="$PROJECT_DIR$/RPI_code" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main (1)">
-    <configuration name="2D_manipulator (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.test">
+    <configuration name="dataoo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="quadruped" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -64,7 +63,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/2D_manipulator/2D_manipulator.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/2D_manipulator/dataoo.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -115,7 +114,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="t" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="quadruped" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -123,11 +122,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RPI_code" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/simulation/quadruped_simulation" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RPI_code/t.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/simulation/quadruped_simulation/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -158,19 +157,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.t" />
-      <item itemvalue="Python.2D_manipulator (1)" />
       <item itemvalue="Python.main" />
       <item itemvalue="Python.walking" />
       <item itemvalue="Python.main (1)" />
+      <item itemvalue="Python.dataoo" />
+      <item itemvalue="Python.test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.dataoo" />
         <item itemvalue="Python.main (1)" />
         <item itemvalue="Python.walking" />
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.2D_manipulator (1)" />
-        <item itemvalue="Python.t" />
       </list>
     </recent_temporary>
   </component>
@@ -182,13 +181,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1653402597542</updated>
-    </task>
-    <task id="LOCAL-00002" summary="added a folder">
-      <created>1653403325426</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1653403325426</updated>
     </task>
     <task id="LOCAL-00003" summary="adding config for Odirve and some small changes to servo.py, kinematics and the can comunication fixing issues seen after doing testing">
       <created>1654767989931</created>
@@ -526,7 +518,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669237430188</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="made changes to current control to make testing for simulation possible - main now only outputs angles from walking and there is no need for any inputs">
+      <created>1669300207605</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1669300207605</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -541,7 +540,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added way to set current limit. And small changes to can speed testing." />
     <MESSAGE value="added walking.py that is based on alterin a sin curve and sending that to the kinematics.py. Also some imporvements to force measurement were made." />
     <MESSAGE value="fixed kinematics and walking after real world testing" />
     <MESSAGE value="added walking parameters to config file and seperated fct for stance and flight" />
@@ -566,6 +564,7 @@
     <MESSAGE value="add yaw pich and ajustments for cordinate frames.&#10;Also added matlab files" />
     <MESSAGE value="simulatio" />
     <MESSAGE value="simulation" />
-    <option name="LAST_COMMIT_MESSAGE" value="simulation" />
+    <MESSAGE value="made changes to current control to make testing for simulation possible - main now only outputs angles from walking and there is no need for any inputs" />
+    <option name="LAST_COMMIT_MESSAGE" value="made changes to current control to make testing for simulation possible - main now only outputs angles from walking and there is no need for any inputs" />
   </component>
 </project>
