@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="477a793e-8cf6-4fb7-9de7-23aaff3ff473" name="Changes" comment="simulation">
-      <change afterPath="$PROJECT_DIR$/simulation/quadruped_simulation/stl_asstes.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RPI_code/t.py" beforeDir="false" afterPath="$PROJECT_DIR$/RPI_code/t.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/quadruped_simulation/quadruped.xml" beforeDir="false" afterPath="$PROJECT_DIR$/simulation/quadruped_simulation/quadruped.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPI_code/configfile.ini" beforeDir="false" afterPath="$PROJECT_DIR$/RPI_code/configfile.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPI_code/kinematics_legs.py" beforeDir="false" afterPath="$PROJECT_DIR$/RPI_code/kinematics_legs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPI_code/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/RPI_code/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPI_code/walking.py" beforeDir="false" afterPath="$PROJECT_DIR$/RPI_code/walking.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,20 +51,20 @@
       <recent name="$PROJECT_DIR$/RPI_code" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.t">
-    <configuration name="2D_manipulator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.main (1)">
+    <configuration name="2D_manipulator (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="quadruped" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$USER_HOME$/.conda/envs/quadruped/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Documents/Uni/Master/mujoco examples/yt_pendel" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Downloads/2D_manipulator" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/Documents/Uni/Master/mujoco examples/yt_pendel/2D_manipulator.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/2D_manipulator/2D_manipulator.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -72,7 +73,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="diff_drive" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="quadruped" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -80,11 +81,32 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/simulation/test/yt_car" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RPI_code" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/simulation/test/yt_car/diff_drive.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RPI_code/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="quadruped" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Downloads/2D_manipulator" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/2D_manipulator/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -106,27 +128,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RPI_code/t.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="quadruped" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RPI_code" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RPI_code/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -157,19 +158,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.2D_manipulator" />
-      <item itemvalue="Python.diff_drive" />
-      <item itemvalue="Python.test" />
-      <item itemvalue="Python.walking" />
       <item itemvalue="Python.t" />
+      <item itemvalue="Python.2D_manipulator (1)" />
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.walking" />
+      <item itemvalue="Python.main (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.t" />
-        <item itemvalue="Python.2D_manipulator" />
-        <item itemvalue="Python.diff_drive" />
-        <item itemvalue="Python.test" />
+        <item itemvalue="Python.main (1)" />
         <item itemvalue="Python.walking" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.2D_manipulator (1)" />
+        <item itemvalue="Python.t" />
       </list>
     </recent_temporary>
   </component>
@@ -181,13 +182,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1653402597542</updated>
-    </task>
-    <task id="LOCAL-00001" summary="first tests with CAN comunication, servo controll, temprature readout and some kinematics">
-      <created>1653402965084</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1653402965084</updated>
     </task>
     <task id="LOCAL-00002" summary="added a folder">
       <created>1653403325426</created>
@@ -525,7 +519,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668698191694</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="simulation">
+      <created>1669237430188</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1669237430188</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

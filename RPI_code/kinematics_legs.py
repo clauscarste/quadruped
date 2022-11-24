@@ -1,7 +1,7 @@
 import math
 import numpy
 import numpy as np
-import can_comunication
+#import can_comunication                                                                                                         #uncomment
 
 
 # add roll_pich_yaw controll and ajust for the diferent orientation of the leg cordinate frames
@@ -137,14 +137,16 @@ def inverse_kinematics_legs(leg_id, x, y, z, leg_parameters, ofset, limit, inver
         print("force exeeded")
         return
 
-    motor_angle[0] = math.degrees(motor_angle[
-                                      0])   +30 #+10,+100,+140 are necesarry to ajust for the difference in the zero degree position of the motors that also represent the absolute limit in one direction. And the zero degree position of the kinematic model.
-    motor_angle[1] = math.degrees(motor_angle[1])   +120
-    motor_angle[2] = math.degrees(motor_angle[2])   -160
+    motor_angle[0] = math.degrees(motor_angle[                                                                             #uncomment
+                                      0])#   +30 #+10,+100,+140 are necesarry to ajust for the difference in the zero degree position of the motors that also represent the absolute limit in one direction. And the zero degree position of the kinematic model.
+    motor_angle[1] = math.degrees(motor_angle[1])#   +120
+    motor_angle[2] = math.degrees(motor_angle[2])#   -160
 
     #print(motor_angle[0]-30, motor_angle[1]-120, motor_angle[2]+160, "this is",leg_id)
-    for i in range(3*leg_id, 3+(3*leg_id)): #takes 3 of the 12motors that belong to the leg id
-        can_comunication.move_to(i, motor_angle[i-3*leg_id], ofset[i],limit[i],invert_axis[i]) #i-3*leg_id always gives 0,1,2 what equals the first secound and third entry from motor_angle
+    if leg_id == 1:
+        print(motor_angle[0], motor_angle[1], motor_angle[2])
+    #for i in range(3*leg_id, 3+(3*leg_id)): #takes 3 of the 12motors that belong to the leg id
+    #    can_comunication.move_to(i, motor_angle[i-3*leg_id], ofset[i],limit[i],invert_axis[i]) #i-3*leg_id always gives 0,1,2 what equals the first secound and third entry from motor_angle
 
 
 
@@ -163,7 +165,7 @@ def force_calculation(leg_id, leg_parameters,angle1,angle2,angle3):
     array_temp = 0
     current = np.array([0.0,0.0,0.0])
     for i in msg_axis_id:
-        temp =can_comunication.get_iq(i)[1]
+        temp =0#can_comunication.get_iq(i)[1]                                                                           #uncomment
         if i in [1,2,3,4,5,9]:
             temp = -temp
         current[array_temp] = temp
