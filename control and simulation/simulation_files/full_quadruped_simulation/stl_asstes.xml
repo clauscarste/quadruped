@@ -1,0 +1,23 @@
+<mujoco>
+    <asset>
+        <mesh file="front_alu_3.STL"/>
+        <mesh file="front_alu_1.STL"/>
+        <mesh file="back_alu_1.STL"/>
+        <mesh file="back_alu_2.STL"/>
+        <mesh file="battery.STL"/>
+        <mesh file="logic.STL"/>
+        <mesh file="case1.STL"/>
+        <mesh file="case2.STL"/>
+        <mesh file="logic2.STL"/>
+        <mesh file="electronics.STL"/>
+        <mesh file="encoder.STL"/>
+        <mesh file="gearbox_1.STL"/>
+        <mesh file="gearbox_3.STL"/>
+        <mesh file="gearbox1_spacer.STL"/>
+        <mesh file="gearbox2.STL"/>
+        <mesh file="lower_leg.STL"/>
+        <mesh file="upper_leg_belt.STL"/>
+        <mesh file="upper_leg.STL"/>
+        <mesh file="spacer_spine.STL"/>
+    </asset>
+</mujoco>

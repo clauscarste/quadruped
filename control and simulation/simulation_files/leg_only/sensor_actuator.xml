@@ -1,0 +1,15 @@
+<mujoco>
+    <sensor>
+
+    </sensor>
+
+    <actuator>
+    <motor name="0_0" joint="joint0_2"  />
+    <motor name="0_1" joint="joint2_2"/>
+
+    <motor name="motor_0_2" joint="joint3_2" />
+    <position name="position_0_2" joint="joint3_2" kp="0"/>
+    <velocity name="velocity_0_2" joint="joint3_2" kv="0"/>
+
+    </actuator>
+</mujoco>

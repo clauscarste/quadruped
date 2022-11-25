@@ -1,0 +1,98 @@
+<mujoco model="jaco2">
+    <compiler angle="radian" meshdir="meshes" balanceinertia="true"/>
+    <!-- asstes -->
+    <include file="stl_asstes.xml"/>
+    <asset>
+
+
+
+
+<!-- colors -->
+        <material name="aluminium" rgba="0.35 0.35 0.35 1"/>
+        <material name="petg" rgba="0.7 0.7 0.75 1"/>
+        <material name="carbon" rgba="0.05 0.05 0.05 1"/>
+        <material name="silicone" rgba="0.612 0.11 0.42 1"/>
+        <material name="pcb" rgba="0.253 0.41 0.202 1"/>
+
+    </asset>
+
+    <worldbody>
+
+ <light directional="true" pos="-0.5 0 3" dir="0 0 -1" />
+		            <geom type="box" size="0.01 0.01 1" material="aluminium"/>
+		                <body name = "chassis" pos="0 0 0.4" euler='0 0 0' >
+
+
+                <joint type="slide" axis="0 0 -1"/>
+
+
+                             <!-- leg 0 -->
+                        <body name="encoder_0_2" pos="0 -0.06 0" euler="1.570796 3.141592 0">
+                    <geom name="encoder_0_2" type="mesh" mesh="encoder" pos="0 0 0" material="pcb" />
+                    <inertial pos="0 0 0.006" mass="0.008" fullinertia="0.00000665976 0.000014054247 0.000014432848 -0.000000796234 -0.000003221775 -0.000000490008"/>
+                        <body name="gearbox_1_2" pos="0 0 -0.056" euler="0 0 0">
+                    <inertial pos="0 0 0.03062" mass="0.549677" fullinertia="0.0008966 0.0008969 0.0005599 -0.000000208093 0.000000039236 -0.000000146242"/>
+                    <geom name="gearbox_1_2" type="mesh" mesh="gearbox_1" pos="0 0 0" material="petg"/>
+                        <body name="gearbox1_spacer_2" pos="0 0.0 -0.012" euler="0 0 0">
+                    <geom name="gearbox1_spacer_2" type="mesh" mesh="gearbox1_spacer" pos="0 0 0" material="petg"/>
+                    <inertial pos="0 0 0.006" mass="0.008" fullinertia="0.00000665976 0.000014054247 0.000014432848 -0.000000796234 -0.000003221775 -0.000000490008"/>
+                        <body name="spacer_3_2" pos="0.002 0 -0.0003" euler="0 3.141592 0">
+                    <geom type="box" size="0.0001 0.00001 0.0001" rgba=".9 .9 .9 1"/>
+                    <inertial pos="0 0 0" mass="0.001" fullinertia="0.00000665976 0.000014054247 0.000014432848 -0.000000796234 -0.000003221775 -0.000000490008"/>
+
+                    <joint name="joint0_2" axis="0 0 -1" pos="0 0 0" limited="true" range="-3.5 3.5"/>
+
+                        <body name="gearbox2_2" pos="0.001 0 0" euler="3.141592 0 0">
+                    <geom name="gearbox2_2" type="mesh" mesh="gearbox2" pos="0 0 0" material="petg" />
+                    <inertial pos="-0.003597 0 -0.0571" mass="0.549677" fullinertia="0.002354 0.002182 0.0003883 0.000000138325 -0.0001131 -0.00000158513"/>
+                        <body name="encoder_1_2" pos="-0.0298 0 -0.0571" euler="0 -1.5707963 0 ">
+                    <geom name="encoder_1_2" type="mesh" mesh="encoder" pos="0 0 0" material="pcb" />
+                    <inertial pos="0 0 0.006" mass="0.008" fullinertia="0.00000665976 0.000014054247 0.000014432848 -0.000000796234 -0.000003221775 -0.000000490008"/>
+                        <body name="spacer_0_2" pos="0 0 -0.1242" euler="0 0 0">
+                    <geom type="box" size="0.0001 0.00001 0.0001" rgba=".9 .9 .9 1"/>
+                    <inertial pos="0 0 0" mass="0.001" fullinertia="0.00000665976 0.000014054247 0.000014432848 -0.000000796234 -0.000003221775 -0.000000490008"/>
+
+
+                        <body name="gearbox_3_2" pos="0 0 0" euler="3.141592 0 1.570796">
+                    <geom name="gearbox_3_2" type="mesh" mesh="gearbox_3" pos="0 0 0" material="petg"/>
+                    <inertial pos="0 0 0.03062" mass="0.549677" fullinertia="0.0008966 0.0008969 0.0005599 -0.000000208093 0.000000039236 -0.000000146242"/>
+
+                    <joint name="joint2_2" axis="0 0 -1" pos="0 0 0" limited="true" range="-3.3 3.3"/>
+
+                        <body name="upper_leg_2" pos="0 0 0.023" euler="0 0 0">
+                    <geom name="upper_leg_2" type="mesh" mesh="upper_leg" pos="0 0 0" material="aluminium"/>
+                    <inertial pos="-0.065247 0 -0.012792" mass="0.113615" fullinertia="0.000037213733 0.0008028 0.0007791 0.000000319788 -0.000092327798 0.000000061466"/>
+                         <body name="upper_leg_belt_2" pos="0 0 0" euler="0 0 0">
+                    <geom name="upper_leg_belt_2" type="mesh" mesh="upper_leg_belt" pos="0 0 0" material="carbon"/>
+                    <inertial pos="-0.077 0 -0.012" mass="0.03" fullinertia="0.000037213733 0.0008028 0.0007791 0.000000319788 -0.000092327798 0.000000061466"/>
+                        <body name="spacer_1_2" pos="-0.1567 0 -0.021" euler="0 3.141592 0">
+                    <geom type="box" size="0.0001 0.00001 0.0001" rgba=".9 .9 .9 1"/>
+                    <inertial pos="0 0 0" mass="0.001" fullinertia="0.00000665976 0.000014054247 0.000014432848 -0.000000796234 -0.000003221775 -0.000000490008"/>
+
+                    <joint name="joint3_2" axis="0 0 -1" pos="0 0 0" limited="true" range="-2.5 2.5"/>
+
+                        <body name="lower_leg_2" pos="0 0 0" euler="0 0 0">
+                    <geom name="lower_leg_2" type="mesh" mesh="lower_leg" pos="0 0 0" material="aluminium" />
+                    <inertial pos="0.0733980 0.0000000 -0.0084740" mass="0.0445630" fullinertia="0.0000060 0.0003640 0.0003596 0.0000002 0.0000276 0.0000000"/>
+
+                        </body>
+                        </body>
+                        </body>
+                        </body>
+                        </body>
+                        </body>
+                        </body>
+                        </body>
+                        </body>
+                        </body>
+                        </body>
+		                </body>
+
+
+</body>
+    </worldbody>
+
+<include file="sensor_actuator.xml"/>
+
+
+</mujoco>
