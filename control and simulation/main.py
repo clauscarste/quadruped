@@ -98,7 +98,14 @@ def main_loop():
 
     # set motor closed loop
     can_comunication.setall_closed(closed_loop_attempt)
-
+    #Set motor to inital positon
+    for i in range(4):
+        kinematics_legs.inverse_kinematics_legs(i, motor_inital_x[i], motor_inital_y[i], motor_inital_z[i], leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
+                                ym, zm, robot_length,robot_with)
+    time.sleep(2)
+    for i in range(4):
+        kinematics_legs.inverse_kinematics_legs(i, motor_inital_x[i], -0.25, motor_inital_z[i], leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
+                                ym, zm, robot_length,robot_with)
 
     while save_operation == True:
          # chck for save operation (temprature and battery voltage)
@@ -107,13 +114,12 @@ def main_loop():
             can_comunication.setall_idle()
             print("not save")
          ###place walking or jumping or spine movement calls here.
-        walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
-        walking.one_step_at_a_time(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
+        walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
+                                  acceleration_stance, deceleration_stance, speed_flight, acceleration_flight,
+                                  deceleration_flight,
+                                  yaw, pich, roll, xm, ym, zm, robot_length, robot_with, leg_parameters, ofset, limit,
+                                  invert_axis, leg_config)
 
-    #Set motor to inital positon
-    for i in range(4):
-        kinematics_legs.inverse_kinematics_legs(i, motor_inital_x[i], motor_inital_y[i], motor_inital_z[i], leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
-                                ym, zm, robot_length,robot_with)
 
 
     ##Testing fuctionality
@@ -136,9 +142,9 @@ def main_loop():
 
 
     #test walking sequence
-    walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
-                         acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,
-                         yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
+    #walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
+     #                    acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,
+      #                   yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
 
 
     #Test Jump
@@ -166,3 +172,50 @@ def main_loop():
 
 #######for real world ######
 #main_loop()
+"""
+config_obj = configparser.ConfigParser()
+config_obj.read("/Users/claus/PycharmProjects/quadruped/control and simulation/configfile.ini")
+
+save_operation_limits = config_obj["save_operation_limits"]
+servo_config = config_obj["servo_config"]
+motor_config = config_obj["motor_config"]
+can_retry_amount = config_obj["can_retry_amount"]
+
+    # Temprature and Voltage limits of motors and battery
+save_operation = True
+temprature_limit = float(save_operation_limits["temprature_limit"])
+battery_voltage_lower_limit = float(save_operation_limits["battery_voltage_lower_limit"])
+battery_voltage_upper_limit = float(save_operation_limits["battery_voltage_upper_limit"])
+
+    # servo_initial_angles and ofset (negative defined)
+    # Motor parameters
+motor_inital_x = list(map(float, (motor_config["motor_inital_x"]).split()))
+motor_inital_y = list(map(float, (motor_config["motor_inital_y"]).split()))
+motor_inital_z = list(map(float, (motor_config["motor_inital_z"]).split()))
+ofset = list(map(float, (motor_config["ofset"]).split()))
+limit = list(map(float, (motor_config["limit"]).split()))
+invert_axis = (list(map(int, (motor_config["invert_axis"]).split())))
+leg_parameters = list(map(float, (motor_config["leg_parameters"]).split()))
+robot_length = float(motor_config["robot_length"])
+robot_with = float(motor_config["robot_with"])
+contact_f = float(motor_config["contact_f"])
+
+leg_config = float(motor_config["leg_config"])
+step_lentgh = float(motor_config["step_lentgh"])
+stance_max_height = float(motor_config["stance_max_height"])
+flight_max_heigth = float(motor_config["flight_max_heigth"])
+neutral_height = float(motor_config["neutral_height"])
+speed_stance = int(motor_config["speed_stance"])
+speed_flight = int(motor_config["speed_flight"])
+acceleration_stance = float(motor_config["acceleration_stance"])
+deceleration_stance = float(motor_config["deceleration_stance"])
+acceleration_flight = float(motor_config["acceleration_flight"])
+deceleration_flight = float(motor_config["deceleration_flight"])
+
+    # Number of times to retry after failing to send message over can bus
+closed_loop_attempt = int(can_retry_amount["closed_loop_attempt"])
+
+
+walking.ploting(walking.curve_stance(1,step_lentgh,stance_max_height,neutral_height,speed_stance,acceleration_stance,deceleration_stance))
+walking.ploting(walking.curve_flight(1,step_lentgh,flight_max_heigth,neutral_height,speed_flight,acceleration_flight,deceleration_flight))
+"""

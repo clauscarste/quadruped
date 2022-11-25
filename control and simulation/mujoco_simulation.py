@@ -17,7 +17,7 @@ t2.start()
 
 xml_path = 'simulation_files/leg_only/scene.xml' #xml file (assumes this is in the same folder as this file)
 simend = 20 #simulation time
-print_camera_config = 0 #set to 1 to print camera config
+print_camera_config = 1 #set to 1 to print camera config
                         #this is useful for initializing view of the model)
 
 # For callback functions
@@ -152,8 +152,8 @@ glfw.set_scroll_callback(window, scroll)
 
 # Example on how to set camera configuration
 #initialize the controller here. This function is called once, in the beginning
-cam.azimuth = 89.83044433593757 ; cam.elevation = -89.0 ; cam.distance =  5.04038754800176
-cam.lookat =np.array([ 0.0 , 0.0 , 0.0 ])
+cam.azimuth = 154.58669433593755 ; cam.elevation =  -40.60546875000001 ; cam.distance =  1.04038754800176
+cam.lookat =np.array([ -0.042281823710760245 , -0.08899197085290025 , 0.14095040418132013 ])
 
 #initialize the controller
 init_controller(model,data)
@@ -178,8 +178,11 @@ while not glfw.window_should_close(window):
     time_prev = time
 
     while (time - time_prev < 1.0/60.0):
-        data.qpos[0] = can_comunication.position_setpoint[1];
-        data.qpos[1] = can_comunication.position_setpoint[2];
+        data.qpos[0] = can_comunication.position_setpoint[0];
+        data.qpos[1] = can_comunication.position_setpoint[1];
+        data.qpos[2] = can_comunication.position_setpoint[2];
+        #data.qpos[2] = can_comunication.position_setpoint[1];
+        #data.qpos[3] = can_comunication.position_setpoint[2];
         #print(data.qpos[0])
         mj.mj_forward(model,data)
         time +=dt

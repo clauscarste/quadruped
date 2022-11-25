@@ -56,7 +56,6 @@ def set_idle(msg_axis_id):
     state[msg_axis_id] = 0
 
 def move_to(msg_axis_id,angle,ofsets,angle_limit,invert_axis):
-    print("moving axis",msg_axis_id,"to",angle)
     #check if angle is in bound - if its ouside bound bring it to bound border
     if angle > angle_limit:
         angle = angle_limit
@@ -70,6 +69,8 @@ def move_to(msg_axis_id,angle,ofsets,angle_limit,invert_axis):
     gear_ratio = 6
     ange_number = (angle / 360)*gear_ratio
     position_setpoint[msg_axis_id] = ange_number
+    if msg_axis_id == 1:
+        print("real",ange_number,"angle",angle)
 
 def clear_errors(msg_axis_id, data=[], format=''):
     pass

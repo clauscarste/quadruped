@@ -137,10 +137,10 @@ def inverse_kinematics_legs(leg_id, x, y, z, leg_parameters, ofset, limit, inver
     motor_angle[1] = math.atan2(z, math.sqrt(x * x + y * y - leg_parameters[0] * leg_parameters[0])) - math.atan2(
         leg_parameters[2] * math.sin(motor_angle[2]), leg_parameters[1] + leg_parameters[2] * math.cos(motor_angle[2]))
 
-    ##fore detection part
-    if contact_detection(leg_id, 10, leg_parameters, motor_angle[0], motor_angle[1], motor_angle[2]):
-        print("force exeeded")
-        return
+    ##fore detection part                                                                                                   #uncomment
+    #if contact_detection(leg_id, 10, leg_parameters, motor_angle[0], motor_angle[1], motor_angle[2]):
+    #    print("force exeeded")
+    #    return
 
     motor_angle[0] = math.degrees(motor_angle[                                                                             #uncomment
                                       0])#   +30 #+10,+100,+140 are necesarry to ajust for the difference in the zero degree position of the motors that also represent the absolute limit in one direction. And the zero degree position of the kinematic model.

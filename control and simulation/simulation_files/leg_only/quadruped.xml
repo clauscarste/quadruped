@@ -23,7 +23,7 @@
 		                <body name = "chassis" pos="0 0 0.4" euler='0 0 0' >
 
 
-                <joint type="slide" axis="0 0 -1"/>
+
 
 
                              <!-- leg 0 -->
@@ -40,7 +40,7 @@
                     <geom type="box" size="0.0001 0.00001 0.0001" rgba=".9 .9 .9 1"/>
                     <inertial pos="0 0 0" mass="0.001" fullinertia="0.00000665976 0.000014054247 0.000014432848 -0.000000796234 -0.000003221775 -0.000000490008"/>
 
-                    <joint name="joint0_2" axis="0 0 -1" pos="0 0 0" limited="true" range="-3.5 3.5"/>
+                    <joint name="joint0_2" axis="0 0 -1" pos="0 0 0" />
 
                         <body name="gearbox2_2" pos="0.001 0 0" euler="3.141592 0 0">
                     <geom name="gearbox2_2" type="mesh" mesh="gearbox2" pos="0 0 0" material="petg" />
@@ -57,7 +57,7 @@
                     <geom name="gearbox_3_2" type="mesh" mesh="gearbox_3" pos="0 0 0" material="petg"/>
                     <inertial pos="0 0 0.03062" mass="0.549677" fullinertia="0.0008966 0.0008969 0.0005599 -0.000000208093 0.000000039236 -0.000000146242"/>
 
-                    <joint name="joint2_2" axis="0 0 -1" pos="0 0 0" limited="true" range="-3.3 3.3"/>
+                    <joint name="joint2_2" axis="0 0 1" pos="0 0 0"/>
 
                         <body name="upper_leg_2" pos="0 0 0.023" euler="0 0 0">
                     <geom name="upper_leg_2" type="mesh" mesh="upper_leg" pos="0 0 0" material="aluminium"/>
@@ -69,7 +69,7 @@
                     <geom type="box" size="0.0001 0.00001 0.0001" rgba=".9 .9 .9 1"/>
                     <inertial pos="0 0 0" mass="0.001" fullinertia="0.00000665976 0.000014054247 0.000014432848 -0.000000796234 -0.000003221775 -0.000000490008"/>
 
-                    <joint name="joint3_2" axis="0 0 -1" pos="0 0 0" limited="true" range="-2.5 2.5"/>
+                    <joint name="joint3_2" axis="0 0 -1" pos="0 0 0" />
 
                         <body name="lower_leg_2" pos="0 0 0" euler="0 0 0">
                     <geom name="lower_leg_2" type="mesh" mesh="lower_leg" pos="0 0 0" material="aluminium" />
