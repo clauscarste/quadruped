@@ -24,7 +24,7 @@ from simulation import can_comunication
 import configparser
 def main_loop():
     config_obj = configparser.ConfigParser()
-    config_obj.read("/Users/claus/PycharmProjects/quadruped/RPI_code/configfile.ini")
+    config_obj.read("/Users/claus/PycharmProjects/quadruped/control and simulation/configfile.ini")
 
     save_operation_limits = config_obj["save_operation_limits"]
     servo_config = config_obj["servo_config"]
