@@ -28,6 +28,10 @@ def dictionary():
     velocity_max_setpoint = [0,0,0,0,0,0,0,0,0,0,0,0]
     global current_max_setpoint
     current_max_setpoint = [0,0,0,0,0,0,0,0,0,0,0,0]
+    global gyrodata
+    gyrodata = [0,0,0,0,0,0]
+    global measured_force
+    measured_force = [0,0,0,0,0,0,0,0,0,0,0,0]
     ###         ###
 
 
@@ -49,7 +53,7 @@ def dictionary():
 
 
 def set_closed_loop(msg_axis_id,closed_loop_attempt):
-    print("axis",msg_axis_id," is now in closed loop")
+    #print("axis",msg_axis_id," is now in closed loop")
     state[msg_axis_id] = 1
 
 def set_idle(msg_axis_id):
@@ -69,8 +73,8 @@ def move_to(msg_axis_id,angle,ofsets,angle_limit,invert_axis):
     gear_ratio = 6
     ange_number = (angle / 360)*gear_ratio
     position_setpoint[msg_axis_id] = ange_number
-    if msg_axis_id == 1:
-        print("real",ange_number,"angle",angle)
+    #if msg_axis_id == 1:
+    #    print("real",ange_number,"angle",angle)
 
 def clear_errors(msg_axis_id, data=[], format=''):
     pass

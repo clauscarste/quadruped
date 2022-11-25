@@ -106,7 +106,7 @@ def main_loop():
     for i in range(4):
         kinematics_legs.inverse_kinematics_legs(i, motor_inital_x[i], -0.25, motor_inital_z[i], leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
                                 ym, zm, robot_length,robot_with)
-
+    time.sleep(2)
     while save_operation == True:
          # chck for save operation (temprature and battery voltage)
         if can_comunication.is_bus_voltage_in_limit(battery_voltage_lower_limit,battery_voltage_upper_limit) is False or temprature_readout.is_temp_in_limit(temprature_limit) is False:

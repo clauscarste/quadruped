@@ -17,7 +17,7 @@ t2.start()
 
 xml_path = 'simulation_files/leg_only/scene.xml' #xml file (assumes this is in the same folder as this file)
 simend = 20 #simulation time
-print_camera_config = 1 #set to 1 to print camera config
+print_camera_config = 0 #set to 1 to print camera config
                         #this is useful for initializing view of the model)
 
 # For callback functions
@@ -102,18 +102,26 @@ def mouse_move(window, xpos, ypos):
 
 
 #setter and getter from interface dictionary
-def sim_set_position_estimate(msg_axis_id, position_estimate):
-    can_comunication.position_estimate[msg_axis_id] = position_estimate
-def sim_set_velocity_estimate(msg_axis_id, velocity_estimate):
-    can_comunication.velocity_estimate[msg_axis_id] = velocity_estimate
-def sim_set_current_estimate(msg_axis_id, current_estimate):
-    can_comunication.current_estimate[msg_axis_id] = current_estimate
+def sim_set_position_estimate():
+    position_estimate = data.sensordata[0:3]
+    can_comunication.position_estimate = position_estimate
+def sim_set_velocity_estimate():
+    velocity_estimate = data.sensordata[3:6]
+    can_comunication.velocity_estimate = velocity_estimate
+def sim_set_current_estimate():
+    toruqe = data.sensordata[6:9]
+    current_estimate = 61.9797 - 4.5081*10**-6* np.sqrt(191083462427677 - 22182300000000*toruqe)
+    can_comunication.current_estimate = current_estimate
 def sim_get_limits(msg_axis_id):
     return [can_comunication.velocity_max_setpoint[msg_axis_id], can_comunication.current_max_setpoint[msg_axis_id]]
 def sim_get_state(msg_axis_id):
     return can_comunication.state[msg_axis_id]
 def sim_get_position(msg_axis_id):
     return can_comunication.position_setpoint[msg_axis_id]
+def sim_set_gyro(gryo_data):
+    return can_comunication.gyrodata
+def sim_set_measured_force(force_data):
+    return can_comunication.measured_force
 
 
 def scroll(window, xoffset, yoffset):
@@ -162,7 +170,7 @@ init_controller(model,data)
 mj.set_mjcb_control(controller)
 
 N = 500
-q0_start = 1.57;
+q0_start = 0;
 q1_start = 0;
 
 
@@ -173,14 +181,20 @@ data.qpos[1] = q1_start
 i = 0;
 time = 0
 dt = 0.001;
+poi = np.linspace(0,3,N)
 
 while not glfw.window_should_close(window):
     time_prev = time
 
     while (time - time_prev < 1.0/60.0):
-        data.qpos[0] = can_comunication.position_setpoint[0];
-        data.qpos[1] = can_comunication.position_setpoint[1];
-        data.qpos[2] = can_comunication.position_setpoint[2];
+        data.qpos[0] = 0#can_comunication.position_setpoint[0];
+        data.qpos[1] = 0#can_comunication.position_setpoint[1];
+        data.qpos[2] = poi[i]#can_comunication.position_setpoint[2];
+
+
+        print(data.sensordata[6:9], "data")
+        #sim_set_position_estimate()
+        #print(can_comunication.position_estimate, "can")
         #data.qpos[2] = can_comunication.position_setpoint[1];
         #data.qpos[3] = can_comunication.position_setpoint[2];
         #print(data.qpos[0])
