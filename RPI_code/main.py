@@ -1,18 +1,25 @@
-# libaries
+
+#import can_thread                                                                                                #uncomment
+
+#import kinematics_spine                #not implemented in simulation and not used in real word currently
+
+#general imports
 from __future__ import division
-
-# created .py files
 import time
-
 import numpy as np
-#import temprature_readout                                                                                                #uncomment
-#import can_comunication                                                                                                #uncomment
 import kinematics_legs
 import walking
-#import force                                                                                                #uncomment
-#import can_thread                                                                                                #uncomment
-#import jumping                                                                                                #uncomment
-#import kinematics_spine                                                                                                #uncomment
+import jumping
+
+#############################  uncomment real world and simulation here and in the kinematics_legs.py  ################
+#for real world testing
+#from realworld import temprature_readout
+#from realworld import can_comunication
+
+#for simulation
+from simulation import temprature_readout
+from simulation import can_comunication
+can_comunication.dictionary()
 
 # Config File Import
 import configparser
@@ -79,9 +86,9 @@ roll= 0
 
 ######Config end #######
 
-"""
+
 # Servo setup to zero position
-kinematics_spine.inverse_kinematics_spine(0,0,distance_center_of_spine_to_rope_m,servo_ofset,max_angle,spine_length,pully_radius,norma_rope_length)
+#kinematics_spine.inverse_kinematics_spine(0,0,distance_center_of_spine_to_rope_m,servo_ofset,max_angle,spine_length,pully_radius,norma_rope_length)
 
 # test that can works and encoders give good reading - also fill in libary
 for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]:
@@ -107,7 +114,7 @@ while save_operation == True:
      ###place walking or jumping or spine movement calls here.
     walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
     walking.one_step_at_a_time(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
-"""
+
 #Set motor to inital positon
 for i in range(4):
     kinematics_legs.inverse_kinematics_legs(i, motor_inital_x[i], motor_inital_y[i], motor_inital_z[i], leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,

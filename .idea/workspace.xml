@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="477a793e-8cf6-4fb7-9de7-23aaff3ff473" name="Changes" comment="adding intrface from current control to simulation">
+    <list default="true" id="477a793e-8cf6-4fb7-9de7-23aaff3ff473" name="Changes" comment="adding all features that the can comunication.py and the can thread.py have to the siminterface.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RPI_code/siminterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/RPI_code/siminterface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation/leg_only/manipulator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPI_code/can_comunication.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPI_code/force.py" beforeDir="false" afterPath="$PROJECT_DIR$/RPI_code/force.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPI_code/kinematics_legs.py" beforeDir="false" afterPath="$PROJECT_DIR$/RPI_code/kinematics_legs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPI_code/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/RPI_code/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPI_code/siminterface.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPI_code/t.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPI_code/temprature_readout.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPI_code/threadingg.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +55,7 @@
       <recent name="$PROJECT_DIR$/RPI_code" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.main (1)">
     <configuration name="dataoo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="quadruped" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -164,9 +170,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main (1)" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.dataoo" />
-        <item itemvalue="Python.main (1)" />
         <item itemvalue="Python.walking" />
         <item itemvalue="Python.main" />
       </list>
@@ -180,13 +186,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1653402597542</updated>
-    </task>
-    <task id="LOCAL-00004" summary="solved problems with can bus and added mpu and first walking code">
-      <created>1655287971337</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1655287971337</updated>
     </task>
     <task id="LOCAL-00005" summary="added helper funktion for setting up ofsets and made some changes to can">
       <created>1655294447345</created>
@@ -524,7 +523,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669306750740</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="adding all features that the can comunication.py and the can thread.py have to the siminterface.py">
+      <created>1669366861987</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1669366861987</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -539,7 +545,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed kinematics and walking after real world testing" />
     <MESSAGE value="added walking parameters to config file and seperated fct for stance and flight" />
     <MESSAGE value="changes can to use a seperate thread" />
     <MESSAGE value="fixed thread problems after real world testing" />
@@ -564,6 +569,7 @@
     <MESSAGE value="simulation" />
     <MESSAGE value="made changes to current control to make testing for simulation possible - main now only outputs angles from walking and there is no need for any inputs" />
     <MESSAGE value="adding intrface from current control to simulation" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding intrface from current control to simulation" />
+    <MESSAGE value="adding all features that the can comunication.py and the can thread.py have to the siminterface.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding all features that the can comunication.py and the can thread.py have to the siminterface.py" />
   </component>
 </project>
