@@ -99,10 +99,6 @@ def main_loop():
     # set motor closed loop
     can_comunication.setall_closed(closed_loop_attempt)
 
-    #Set motor to inital positon
-    for i in range(4):
-        kinematics_legs.inverse_kinematics_legs(i, motor_inital_x[i], motor_inital_y[i], motor_inital_z[i], leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
-                                ym, zm, robot_length,robot_with)
 
     while save_operation == True:
          # chck for save operation (temprature and battery voltage)

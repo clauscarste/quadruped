@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="477a793e-8cf6-4fb7-9de7-23aaff3ff473" name="Changes" comment="adding all features that the can comunication.py and the can thread.py have to the siminterface.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPI_code/kinematics_legs.py" beforeDir="false" afterPath="$PROJECT_DIR$/RPI_code/kinematics_legs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RPI_code/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/RPI_code/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -179,13 +180,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1653402597542</updated>
-    </task>
-    <task id="LOCAL-00006" summary="small fix">
-      <created>1655318821763</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1655318821763</updated>
     </task>
     <task id="LOCAL-00007" summary="- added automatic retry if can comunication fails&#10;- changes to kinematics &#10;- added all variables in config section in main &#10;- changed the baud rate of the Odrive in the manual config txt">
       <created>1655392830378</created>
@@ -523,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669370219023</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="adding all features that the can comunication.py and the can thread.py have to the siminterface.py">
+      <created>1669374675273</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1669374675273</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
