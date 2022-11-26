@@ -104,7 +104,15 @@ def main_loop():
                                 ym, zm, robot_length,robot_with)
     time.sleep(2)
     for i in range(4):
-        kinematics_legs.inverse_kinematics_legs(i, motor_inital_x[i], -0.25, motor_inital_z[i], leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
+        kinematics_legs.inverse_kinematics_legs(i, motor_inital_x[i], 0.2, motor_inital_z[i], leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
+                                ym, zm, robot_length,robot_with)
+    time.sleep(2)
+    for i in range(4):
+        kinematics_legs.inverse_kinematics_legs(i, motor_inital_x[i], motor_inital_y[i], motor_inital_z[i], leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
+                                ym, zm, robot_length,robot_with)
+    time.sleep(2)
+    for i in range(4):
+        kinematics_legs.inverse_kinematics_legs(i, motor_inital_x[i], 0.2, motor_inital_z[i], leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
                                 ym, zm, robot_length,robot_with)
     time.sleep(2)
     while save_operation == True:
@@ -114,11 +122,11 @@ def main_loop():
             can_comunication.setall_idle()
             print("not save")
          ###place walking or jumping or spine movement calls here.
-        walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
-                                  acceleration_stance, deceleration_stance, speed_flight, acceleration_flight,
-                                  deceleration_flight,
-                                  yaw, pich, roll, xm, ym, zm, robot_length, robot_with, leg_parameters, ofset, limit,
-                                  invert_axis, leg_config)
+        #walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
+        #                          acceleration_stance, deceleration_stance, speed_flight, acceleration_flight,
+        #                          deceleration_flight,
+        #                          yaw, pich, roll, xm, ym, zm, robot_length, robot_with, leg_parameters, ofset, limit,
+        #                          invert_axis, leg_config)
 
 
 

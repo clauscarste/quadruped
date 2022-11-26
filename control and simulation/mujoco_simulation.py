@@ -118,10 +118,28 @@ def sim_get_state(msg_axis_id):
     return can_comunication.state[msg_axis_id]
 def sim_get_position(msg_axis_id):
     return can_comunication.position_setpoint[msg_axis_id]
-def sim_set_gyro(gryo_data):
-    return can_comunication.gyrodata
+def sim_set_gyro():
+    quat = np.array([data.qpos[3], data.qpos[4], data.qpos[5],data.qpos[6]])  # always this way if the first joint is the free joint that is the main bosy
+    euler = quat2euler(quat)
+    can_comunication.gyrodata = [euler,data.sensordata[3:6]]
 def sim_set_measured_force(force_data):
-    return can_comunication.measured_force
+    can_comunication.measured_force = data.sensordata[3:6]
+
+def quat2euler(quat_mujoco):
+    #mujocoy quat is constant,x,y,z,
+    #scipy quaut is x,y,z,constant
+    quat_scipy = np.array([quat_mujoco[3],quat_mujoco[0],quat_mujoco[1],quat_mujoco[2]])
+
+    r = R.from_quat(quat_scipy)
+    euler = r.as_euler('xyz', degrees=True)
+
+    return euler
+
+
+
+
+
+
 
 
 def scroll(window, xoffset, yoffset):

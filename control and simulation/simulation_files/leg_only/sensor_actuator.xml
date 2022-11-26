@@ -17,7 +17,12 @@
         <jointvel joint="joint0_2"/>
         <jointvel joint="joint2_2"/>
         <jointvel joint="joint3_2"/>
-        <force site="abc"/>
+        <torque site="torque_sensor_2_0"/>
+        <torque site="torque_sensor_2_1"/>
+        <torque site="torque_sensor_2_2"/>
+        <force site="forcesensor_2"/>
+        <gyro site="gimbal"/>
+
 
 
 
