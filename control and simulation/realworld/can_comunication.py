@@ -60,7 +60,7 @@ def move_to(msg_axis_id,angle,ofsets,angle_limit,invert_axis):
     #calculating angle with offset
     if angle > angle_limit:
         angle = angle_limit
-    if invert_axis: #inversion is there to make axis behave like defined
+    if invert_axis: #inversion and offset is there to make axis behave like defined
         angle = -angle
     angle = angle - ofsets
 

@@ -1,30 +1,25 @@
 <mujoco>
     <sensor>
 
+        <jointpos name="jointpos1" joint="joint1" />
+        <jointpos name="jointpos2" joint="joint2" />
+
+
+        <jointvel name="jointvel1" joint="joint1" />
+        <jointvel name="jointvel2" joint="joint2" />
+
+
+        <torque name="torqu1" site="torq1" />
+        <torque name="torqu2" site="torq2" />
+
+
+
     </sensor>
 
     <actuator>
-    <motor name="0_0" joint="joint0_2"  />
-    <motor name="0_1" joint="joint2_2"/>
-    <motor name="0_2" joint="joint3_2" />
 
+       <motor name="torque2" joint="joint1"  gear="1" ctrllimited="false" ctrlrange="-100 100" forcelimited = "true" forcerange = "-6 6"/>
+       <motor name="torque3" joint="joint2"  gear="1" ctrllimited="false" ctrlrange="-100 100" forcelimited = "true" forcerange = "-6 6"/>
 
     </actuator>
-    <sensor>
-        <jointpos joint="joint0_2"/>
-        <jointpos joint="joint2_2"/>
-        <jointpos joint="joint3_2"/>
-        <jointvel joint="joint0_2"/>
-        <jointvel joint="joint2_2"/>
-        <jointvel joint="joint3_2"/>
-        <torque site="torque_sensor_2_0"/>
-        <torque site="torque_sensor_2_1"/>
-        <torque site="torque_sensor_2_2"/>
-        <force site="forcesensor_2"/>
-        <gyro site="gimbal"/>
-
-
-
-
-    </sensor>
 </mujoco>

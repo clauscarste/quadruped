@@ -75,6 +75,9 @@ def main_loop():
     # Number of times to retry after failing to send message over can bus
     closed_loop_attempt = int(can_retry_amount["closed_loop_attempt"])
 
+    #dynamic values changed by joystick / keyboard
+
+
     #fixed values for now
     xm = 0
     ym = 0
@@ -86,7 +89,9 @@ def main_loop():
     ######Config end #######
 
 
-    # Servo setup to zero position
+
+    #### Inital steps after startup####
+    # Spine setup to zero position
     #kinematics_spine.inverse_kinematics_spine(0,0,distance_center_of_spine_to_rope_m,servo_ofset,max_angle,spine_length,pully_radius,norma_rope_length)
 
     # test that can works and encoders give good reading - also fill in libary
@@ -95,38 +100,87 @@ def main_loop():
     for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]:
         print(can_comunication.get_encoder_estimate(i), "     this is ", i)
 
-
     # set motor closed loop
     can_comunication.setall_closed(closed_loop_attempt)
     #Set motor to inital positon
-    for i in range(4):
-        kinematics_legs.inverse_kinematics_legs(i, motor_inital_x[i], motor_inital_y[i], motor_inital_z[i], leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
-                                ym, zm, robot_length,robot_with)
-    time.sleep(2)
-    for i in range(4):
-        kinematics_legs.inverse_kinematics_legs(i, motor_inital_x[i], 0.2, motor_inital_z[i], leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
-                                ym, zm, robot_length,robot_with)
-    time.sleep(2)
-    for i in range(4):
-        kinematics_legs.inverse_kinematics_legs(i, motor_inital_x[i], motor_inital_y[i], motor_inital_z[i], leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
-                                ym, zm, robot_length,robot_with)
-    time.sleep(2)
-    for i in range(4):
-        kinematics_legs.inverse_kinematics_legs(i, motor_inital_x[i], 0.2, motor_inital_z[i], leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
-                                ym, zm, robot_length,robot_with)
-    time.sleep(2)
+
+
+
+    ###### Main loop ######
     while save_operation == True:
          # chck for save operation (temprature and battery voltage)
         if can_comunication.is_bus_voltage_in_limit(battery_voltage_lower_limit,battery_voltage_upper_limit) is False or temprature_readout.is_temp_in_limit(temprature_limit) is False:
             save_operation = False
             can_comunication.setall_idle()
             print("not save")
-         ###place walking or jumping or spine movement calls here.
-        #walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
-        #                          acceleration_stance, deceleration_stance, speed_flight, acceleration_flight,
-        #                          deceleration_flight,
-        #                          yaw, pich, roll, xm, ym, zm, robot_length, robot_with, leg_parameters, ofset, limit,
-        #                          invert_axis, leg_config)
+
+        if can_comunication.walk == True and can_comunication.currently_walking == False:
+            can_comunication.currently_walking = True
+            can_comunication.walk = False
+        if can_comunication.walk == True and can_comunication.currently_walking:
+            can_comunication.currently_walking = False
+            can_comunication.walk = False
+        if can_comunication.jump == True:
+            can_comunication.jump = False
+            jumping.jump()
+        if can_comunication.lower == True:
+            can_comunication.lower = False
+            jumping.jump()
+        if can_comunication.set_all_motors_idle == True:
+            can_comunication.set_all_motors_idle = False
+            can_comunication.setall_idle()
+        if can_comunication.set_all_motors_closed_loop == True:
+            can_comunication.set_all_motors_closed_loop = False
+            can_comunication.setall_closed(closed_loop_attempt)
+        if can_comunication.increase_speed == True:
+            can_comunication.increase_speed = False
+            sepped_balance = sepped_balance + 1
+        if can_comunication.decrease_speed == True:
+            can_comunication.decrease_speed = False
+            sepped_balance = sepped_balance - 1
+        if can_comunication.incease_left == True:
+            can_comunication.incease_left = False
+            left_right_balance = left_right_balance - 1
+        if can_comunication.incease_right == True:
+            can_comunication.incease_right = False
+            left_right_balance = left_right_balance + 1
+        ## implement speed and direction ### with left_right_balance and sepped_balance
+
+        if can_comunication.currently_walking == True:
+            walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
+                                      acceleration_stance, deceleration_stance, speed_flight, acceleration_flight,
+                                      deceleration_flight,
+                                      yaw, pich, roll, xm, ym, zm, robot_length, robot_with, leg_parameters, ofset, limit,
+                                      invert_axis, leg_config)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

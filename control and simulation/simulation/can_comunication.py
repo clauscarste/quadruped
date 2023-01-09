@@ -3,14 +3,7 @@
 
 import numpy as np
 import time
-N = 500
-q0_start = 0;
-q0_end = 1;
-q1_start = -1;
-q1_end = 10;
-q0_0 = np.linspace(q0_start,q0_end,N)
-q1_1 = [0,0.1,0.2,1,2,3,4,5,6,7,8,9,10,1,0.1,0.2,0.3]
-qqqq = q1_1
+
 
 def dictionary():
     ###Dictionary###
@@ -32,7 +25,33 @@ def dictionary():
     gyrodata = [0,0,0,0,0,0]
     global measured_force
     measured_force = [0,0,0,0,0,0,0,0,0,0,0,0]
-    ###         ###
+    global kpkv
+    kpkv = [10,1]
+    ###         ####
+    global walk
+    walk = False
+    global jump
+    jump = False
+    global lower
+    lower = False
+    global set_all_motors_idle
+    set_all_motors_idle = False
+    global set_all_motors_closed_loop
+    set_all_motors_closed_loop = False
+    global increase_speed
+    increase_speed = False
+    global decrease_speed
+    decrease_speed = False
+    global incease_left
+    incease_left = False
+    global incease_right
+    incease_right = False
+    global currently_walking
+    currently_walking = False
+    global left_right_balance
+    left_right_balance = 0
+    global sepped_balance
+    sepped_balance = 0
 
 
 
@@ -63,8 +82,8 @@ def move_to(msg_axis_id,angle,ofsets,angle_limit,invert_axis):
     #check if angle is in bound - if its ouside bound bring it to bound border
     if angle > angle_limit:
         angle = angle_limit
-    #if invert_axis: #inversion is there to make axis behave like defined
-    #    angle = -angle
+    if invert_axis: #inversion is there to make axis behave like defined
+        angle = -angle
     #angle = angle - ofsets
     if state[msg_axis_id] == 0:
         print("axis",msg_axis_id," is idle and just recived a command to move to",angle, "therefore it will stay at the current position")
@@ -73,8 +92,7 @@ def move_to(msg_axis_id,angle,ofsets,angle_limit,invert_axis):
     gear_ratio = 6
     ange_number = (angle / 360)*gear_ratio
     position_setpoint[msg_axis_id] = ange_number
-    #if msg_axis_id == 1:
-    #    print("real",ange_number,"angle",angle)
+    #print("real",ange_number,"axis",msg_axis_id)
 
 def clear_errors(msg_axis_id, data=[], format=''):
     pass
@@ -93,7 +111,6 @@ def is_bus_voltage_in_limit(battery_voltage_lower_limit,battery_voltage_upper_li
 
 def can_get_voltage(data=[], format='', RTR=True):
     return 20 #static vlaue for the simulation
-
 
 def get_encoder_estimate(msg_axis_id, data=[], format='', RTR=True):
     a = position_estimate[msg_axis_id]

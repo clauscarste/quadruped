@@ -11,11 +11,10 @@ import main
 can_comunication.dictionary()
 # create new threads
 t2 = Thread(target=main.main_loop)
-#t3 = Thread(target=plot.main_loop)
 # start the threads
 t2.start()
 ##      ##
-xml_path = 'simulation_files/leg_only/scene.xml'   # xml file (assumes this is in the same folder as this file)
+xml_path = 'simulation_files/full_quadruped_simulation/scene.xml'   # xml file (assumes this is in the same folder as this file)
 
 #xml_path = '2D_simple_pendulum.xml' #xml file (assumes this is in the same folder as this file)
 simend = 30 #simulation time
@@ -44,27 +43,25 @@ def controller(model, data):
     #torque control;
     #kp = can_comunication.kpkv[0]
     #kv = can_comunication.kpkv[1]
-    kp = 5
-    kv = 0.4
-    motor_number = [0]
+    kp = 10
+    kv = 0.1
+    motor_number = [0,1,2,3,4,5,6,7,8,9,10,11]
     for motor_number_i in motor_number:
         if state[motor_number_i] == 1:
             data.ctrl[motor_number_i] = -kp * (data.qpos[motor_number_i] - can_comunication.position_setpoint[motor_number_i] ) - kv * data.qvel[motor_number_i]  # position control
-            data.ctrl[motor_number_i] = -kp * (
-                        data.qpos[motor_number_i] - can_comunication.position_setpoint[1]) - kv * \
-                                        data.qvel[0]  # position control
+
 
 
 #setter and getter from interface dictionary
 def sim_set_position_estimate():
-    position_estimate = aa = [data.sensordata[i] for i in [0, 1]]
+    position_estimate = aa = [data.sensordata[i] for i in [0, 1,2,5,16,17,30,31,32]]
     can_comunication.position_estimate = position_estimate
 def sim_set_velocity_estimate():
-    velocity_estimate = [data.sensordata[i] for i in [2,3]]
+    velocity_estimate = [data.sensordata[i] for i in [3,4,5,18,19,20,33,34,35]]
     can_comunication.velocity_estimate = velocity_estimate
 def sim_set_current_estimate():
-    toruqe = [data.sensordata[i] for i in [6,9]]
-    current_estimate = toruqe
+    toruqe = [data.sensordata[i] for i in [8,11,14,23,26,29,38,41,44]]
+    current_estimate = toruqe #must be x5
     can_comunication.current_estimate = current_estimate
 def sim_get_limits(msg_axis_id):
     return [can_comunication.velocity_max_setpoint[msg_axis_id], can_comunication.current_max_setpoint[msg_axis_id]]
@@ -103,32 +100,6 @@ def keyboard(window, key, scancode, act, mods):
     if act == glfw.PRESS and key == glfw.KEY_BACKSPACE:
         mj.mj_resetData(model, data)
         mj.mj_forward(model, data)
-
-    if (act == glfw.PRESS and key == glfw.KEY_W):
-        print("jumop")
-        can_comunication.jump = True
-    if (act == glfw.PRESS and key == glfw.KEY_A):
-        print("start walking")
-        can_comunication.walk = True
-    if (act == glfw.PRESS and key == glfw.KEY_S):
-        print("lower")
-        can_comunication.lower = True
-    if (act == glfw.PRESS and key == glfw.KEY_DOWN):
-        can_comunication.decrease_speed = True
-    if (act == glfw.PRESS and key == glfw.KEY_UP):
-        can_comunication.increase_speed = True
-    if (act == glfw.PRESS and key == glfw.KEY_LEFT):
-        can_comunication.incease_left = True
-    if (act == glfw.PRESS and key == glfw.KEY_RIGHT):
-        can_comunication.incease_right = True
-    if (act == glfw.PRESS and key == glfw.KEY_PERIOD):
-        print("all axis set to closed loop")
-        can_comunication.set_all_motors_closed_loop = True
-    if (act == glfw.PRESS and key == glfw.KEY_COMMA):
-        print("all axis set to idle")
-        can_comunication.set_all_motors_idle = True
-
-
 
 def mouse_button(window, button, act, mods):
     # update button state
@@ -224,7 +195,11 @@ glfw.set_cursor_pos_callback(window, mouse_move)
 glfw.set_mouse_button_callback(window, mouse_button)
 glfw.set_scroll_callback(window, scroll)
 
-
+# Example on how to set camera configuration
+# cam.azimuth = 90
+# cam.elevation = -45
+# cam.distance = 2
+# cam.lookat = np.array([0.0, 0.0, 0])
 cam.azimuth = 150.97898897533568 ; cam.elevation = -20.67500000000001 ; cam.distance =  0.7945107348931741
 cam.lookat =np.array([ 0.17870268808457349 , -0.09927015165543089 , 0.5920492806038485 ])
 
@@ -232,6 +207,9 @@ cam.lookat =np.array([ 0.17870268808457349 , -0.09927015165543089 , 0.5920492806
 #inital
 set_torque_servo(0, 1)
 set_torque_servo(1, 1)
+set_torque_servo(2, 1)
+data.qpos[0] = 0
+
 
 
 #initialize the controller

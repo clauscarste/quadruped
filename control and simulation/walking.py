@@ -126,7 +126,7 @@ def walk_stance(leg_id, step_lentgh, stance_max_height, neutral_height, speed_st
     position = curve_stance(leg_id, step_lentgh, stance_max_height, neutral_height, speed_stance, acceleration_stance,
                             deceleration_stance)
     for i in range(len(position[0])-1,0, -1):
-        time.sleep(0.05)
+        time.sleep(0.01)
         kinematics_legs.inverse_kinematics_legs(leg_id, position[1][i], position[0][i], 0.1, leg_parameters, ofset,
                                                 limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                                                 robot_length,robot_with)
@@ -138,7 +138,7 @@ def walk_flight(leg_id, step_lentgh, flight_max_heigth, neutral_height, speed_fl
     position = curve_flight(leg_id, step_lentgh, flight_max_heigth, neutral_height, speed_flight, acceleration_flight,
                             deceleration_flight)
     for i in range(len(position[0])-1,0, -1):
-        time.sleep(0.05)
+        time.sleep(0.01)
         kinematics_legs.inverse_kinematics_legs(leg_id, position[1][i], position[0][i], 0.1, leg_parameters, ofset,
                                                 limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                                                 robot_length,robot_with)
@@ -159,7 +159,7 @@ def step(stance1,stance2,flight1,flight2,flight_max_heigth,acceleration_flight,d
     #    for a in [4,10]:
     #        if can_thread.loop_state[a] != 0x8:                                                                        #uncomment
     #            can_comunication.set_closed_loop(a,2)
-        time.sleep(0.5)
+        time.sleep(0.1)
         kinematics_legs.inverse_kinematics_legs(stance1, position1[1][i], position1[0][i], 0.1, leg_parameters, ofset,
                                                 limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm,
                                                 robot_length,robot_with)
