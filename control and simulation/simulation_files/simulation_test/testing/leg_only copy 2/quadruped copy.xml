@@ -1,0 +1,45 @@
+<!-- https://mujoco.readthedocs.io/en/latest/overview.html?highlight=hello.xml#examples -->
+<mujoco>
+  <option gravity = "0 0 -9.81" viscosity="1">
+    <flag contact="enable" />
+  </option >
+    <include file="stl_asstes.xml"/>
+    <asset>
+
+        <material name="aluminium" rgba="0.35 0.35 0.35 1"/>
+        <material name="petg" rgba="0.7 0.7 0.75 1"/>
+        <material name="carbon" rgba="0.05 0.05 0.05 1"/>
+        <material name="silicone" rgba="0.612 0.11 0.42 1"/>
+        <material name="pcb" rgba="0.253 0.41 0.202 1"/>
+    </asset>
+
+   <worldbody>
+      <light diffuse="0 0 0" pos="0 0 2" dir="0 0 -1"/>
+
+
+      <body name="chassis1" pos="0 0 2.6" euler="90 0 90">
+         <joint name="joint0" type="hinge" axis = "0 0 1" pos = "0 0 0.5"/>
+         <geom type="cylinder" size="0.02 0.5" mass = "0" rgba="1 1 1 1"/>
+         <geom type="box" size="0.1 0.2 0.1" pos = "0 0 -0.5" rgba="0 0 0.2 1" mass = "0.3"/>
+
+       <body name="chassis2" pos="-0.5 0 -0.5" euler="0 90 0">
+         <joint name="joint1" type="hinge" axis = "0 1 0" pos = "0 0 0.5"/>
+         <geom type="cylinder" size="0.02 0.5" mass = "0" rgba="1 1 1 1"/>
+         <geom type="box" size="0.1 0.2 0.1" pos = "0 0 -0.5" rgba="0 0 0.2 1" mass = "0.3"/>
+             <body name="chassis3" pos="0 0 -1" euler="0 0 0">
+         <joint name="joint2" type="hinge" axis = "0 1 0" pos = "0 0 0.5"/>
+         <geom type="cylinder" size="0.02 0.5" mass = "0" rgba="1 1 1 1"/>
+         <geom type="box" size="0.1 0.2 0.1" pos = "0 0 -0.5" rgba="0 0 0.2 1" mass = "0.3"/>
+      </body>
+       </body>
+       </body>
+             </body>
+                               </body>
+       </body>
+       </body>
+   </worldbody>
+
+<include file="sensor_actuator.xml"/>
+
+
+</mujoco>

@@ -1,6 +1,6 @@
-<!-- https://mujoco.readthedocs.io/en/latest/overview.html?highlight=hello.xml#examples -->
+<!-- https://mujoco.readthedocs.io/en/latest/overview.html?highlight=hello.xml#examples  <joint name="j" type="free"/>-->
 <mujoco>
-  <option gravity = "0 0 -9.81" viscosity="1">
+  <option gravity = "0 0 -9.81" viscosity="0.1">
     <flag contact="enable" />
   </option >
     <include file="stl_asstes.xml"/>
@@ -16,12 +16,11 @@
    <worldbody>
 
 		            <geom type="box" size="0.01 0.01 0.01" rgba=".9 .9 .9 1"/>
-		                <body name = "chassis" pos="0 0 0.4" euler='0 0 0'>
+		                <body name = "chassis" pos="0 0 0.1" euler='0 0 0'>
                         </body>
 
-                        <body name="electronics" pos="0 0 1" euler="-180 0 180">
-
-
+                        <body name="electronics" pos="0 0 0.33" euler="-180 0 180">
+<joint name="j" type="free"/>
                     <geom name="electronics" type="mesh" mesh="electronics" pos="0 0 0" material="pcb"/>
                     <inertial pos="0.052 0 -0.019" mass="0.217" fullinertia="0.0002606 0.001278 0.001213 0.000004437742 0.0001681 -0.0000333683"/>
                         <body name="front_alu_1" pos="0.141 0 0.004" euler="0 180 0">

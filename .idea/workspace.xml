@@ -5,26 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="477a793e-8cf6-4fb7-9de7-23aaff3ff473" name="Changes" comment="-">
-      <change afterPath="$PROJECT_DIR$/control and simulation/mujoco_simulation2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/control and simulation/plot.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/control and simulation/ps4controler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/configfile.ini" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/configfile.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/control and simulation/jumping.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/jumping.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/control and simulation/kinematics_legs.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/kinematics_legs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/control and simulation/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/mujoco_simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/mujoco_simulation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/realworld/can_comunication.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/realworld/can_comunication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation/can_comunication.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation/can_comunication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/lower_leg.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/lower_leg.stl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/control and simulation/mujoco_simulation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/control and simulation/mujoco_simulation2.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/quadruped.xml" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/quadruped.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/sensor_actuator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/sensor_actuator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/stl_asstes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/stl_asstes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only/meshes/lower_leg.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only/meshes/lower_leg.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only/quadruped.xml" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only/quadruped.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only/sensor_actuator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only/sensor_actuator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only/stl_asstes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only/stl_asstes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/walking.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/walking.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only/scene.xml" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only/scene.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +54,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -219,14 +208,19 @@
       <workItem from="1671097031858" duration="23896000" />
       <workItem from="1671457702991" duration="1912000" />
       <workItem from="1671530394371" duration="11551000" />
-      <workItem from="1673166800570" duration="38807000" />
-    </task>
-    <task id="LOCAL-00014" summary="changes can to use a seperate thread">
-      <created>1656149355387</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1656149355387</updated>
+      <workItem from="1673166800570" duration="53160000" />
+      <workItem from="1673445103329" duration="1734000" />
+      <workItem from="1673454175663" duration="14107000" />
+      <workItem from="1673545850968" duration="6032000" />
+      <workItem from="1673558656707" duration="8036000" />
+      <workItem from="1674136664208" duration="598000" />
+      <workItem from="1674146876633" duration="385000" />
+      <workItem from="1674148038570" duration="243000" />
+      <workItem from="1674151575643" duration="1306000" />
+      <workItem from="1674157934789" duration="302000" />
+      <workItem from="1674199217237" duration="821000" />
+      <workItem from="1674227918007" duration="5031000" />
+      <workItem from="1674549658057" duration="8245000" />
     </task>
     <task id="LOCAL-00015" summary="fixed thread problems after real world testing">
       <created>1656153627045</created>
@@ -564,7 +558,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669503312155</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="-">
+      <created>1673287630726</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1673287630731</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

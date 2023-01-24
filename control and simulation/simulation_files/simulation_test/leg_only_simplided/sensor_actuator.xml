@@ -1,0 +1,22 @@
+<mujoco>
+    <sensor>
+
+        <jointpos name="jointpos1" joint="joint1" />
+
+
+        <jointvel name="jointvel1" joint="joint1" />
+
+
+        <torque name="torqu1" site="torq1" />
+
+
+
+    </sensor>
+
+    <actuator>
+
+       <motor name="torque2" joint="joint1"  gear="1" ctrllimited="true" ctrlrange="-10 10" forcelimited = "true" forcerange = "-2.3 2.3"/>
+     <position name="position_servo" joint="joint1" kp="0"/>
+     <velocity name="velocity_servo" joint="joint1" kv="0"/>
+    </actuator>
+</mujoco>

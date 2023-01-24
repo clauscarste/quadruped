@@ -113,7 +113,8 @@ def main_loop():
             save_operation = False
             can_comunication.setall_idle()
             print("not save")
-
+        ##temporary override to always start walking
+        can_comunication.currently_walking = True
         if can_comunication.walk == True and can_comunication.currently_walking == False:
             can_comunication.currently_walking = True
             can_comunication.walk = False
@@ -147,41 +148,16 @@ def main_loop():
         ## implement speed and direction ### with left_right_balance and sepped_balance
 
         if can_comunication.currently_walking == True:
-            walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
+            """walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
                                       acceleration_stance, deceleration_stance, speed_flight, acceleration_flight,
                                       deceleration_flight,
                                       yaw, pich, roll, xm, ym, zm, robot_length, robot_with, leg_parameters, ofset, limit,
-                                      invert_axis, leg_config)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                      invert_axis, leg_config)"""
+            upper = -0.2
+            land = -0.15
+            lower = -0.15
+            delay = 4
+            jumping.jump(land,upper,lower,delay,leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm, robot_length, robot_with)
 
 
     ##Testing fuctionality

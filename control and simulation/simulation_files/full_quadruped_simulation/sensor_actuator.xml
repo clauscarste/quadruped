@@ -54,21 +54,33 @@
     </sensor>
 
     <actuator>
-     <motor name="torque1" joint="joint0"  gear="1" ctrllimited="false" ctrlrange="-100 100" forcelimited = "true" forcerange = "-100 100"/>
-       <motor name="torque2" joint="joint1"  gear="1" ctrllimited="false" ctrlrange="-100 100" forcelimited = "true" forcerange = "-100 100"/>
-       <motor name="torque3" joint="joint2"  gear="1" ctrllimited="false" ctrlrange="-100 100" forcelimited = "true" forcerange = "-100 100"/>
+             <position name="position_servo1" joint="joint0" kp="0"/>
+            <velocity name="velocity_servo1" joint="joint0" kv="0"/>
+             <position name="position_servo2" joint="joint1" kp="0"/>
+             <velocity name="velocity_servo2" joint="joint1" kv="0"/>
+             <position name="position_servo3" joint="joint2" kp="0"/>
+            <velocity name="velocity_servo3" joint="joint2" kv="0"/>
 
-             <motor name="torque10" joint="joint00"  gear="1" ctrllimited="false" ctrlrange="-100 100" forcelimited = "true" forcerange = "-100 100"/>
-       <motor name="torque20" joint="joint10"  gear="1" ctrllimited="false" ctrlrange="-100 100" forcelimited = "true" forcerange = "-100 100"/>
-       <motor name="torque30" joint="joint20"  gear="1" ctrllimited="false" ctrlrange="-100 100" forcelimited = "true" forcerange = "-100 100"/>
+                 <position name="position_servo10" joint="joint00" kp="0"/>
+            <velocity name="velocity_servo10" joint="joint00" kv="0"/>
+             <position name="position_servo20" joint="joint10" kp="0"/>
+             <velocity name="velocity_servo20" joint="joint10" kv="0"/>
+             <position name="position_servo30" joint="joint20" kp="0"/>
+            <velocity name="velocity_servo30" joint="joint20" kv="0"/>
 
-             <motor name="torque11" joint="joint01"  gear="1" ctrllimited="false" ctrlrange="-100 100" forcelimited = "true" forcerange = "-100 100"/>
-       <motor name="torque21" joint="joint11"  gear="1" ctrllimited="false" ctrlrange="-100 100" forcelimited = "true" forcerange = "-100 100"/>
-       <motor name="torque31" joint="joint21"  gear="1" ctrllimited="false" ctrlrange="-100 100" forcelimited = "true" forcerange = "-100 100"/>
+                         <position name="position_servo11" joint="joint01" kp="0"/>
+            <velocity name="velocity_servo11" joint="joint01" kv="0"/>
+             <position name="position_servo21" joint="joint11" kp="0"/>
+             <velocity name="velocity_servo21" joint="joint11" kv="0"/>
+             <position name="position_servo31" joint="joint21" kp="0"/>
+            <velocity name="velocity_servo31" joint="joint21" kv="0"/>
 
-             <motor name="torque12" joint="joint02"  gear="1" ctrllimited="false" ctrlrange="-100 100" forcelimited = "true" forcerange = "-100 100"/>
-       <motor name="torque22" joint="joint12"  gear="1" ctrllimited="false" ctrlrange="-100 100" forcelimited = "true" forcerange = "-100 100"/>
-       <motor name="torque32" joint="joint22"  gear="1" ctrllimited="false" ctrlrange="-100 100" forcelimited = "true" forcerange = "-100 100"/>
+                         <position name="position_servo12" joint="joint02" kp="0"/>
+            <velocity name="velocity_servo12" joint="joint02" kv="0"/>
+             <position name="position_servo22" joint="joint12" kp="0"/>
+             <velocity name="velocity_servo22" joint="joint12" kv="0"/>
+             <position name="position_servo32" joint="joint22" kp="0"/>
+            <velocity name="velocity_servo32" joint="joint22" kv="0"/>
 
     </actuator>
 </mujoco>
