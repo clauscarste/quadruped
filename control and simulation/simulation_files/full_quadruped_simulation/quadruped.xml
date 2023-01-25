@@ -1,6 +1,6 @@
 <!-- https://mujoco.readthedocs.io/en/latest/overview.html?highlight=hello.xml#examples  <joint name="j" type="free"/>-->
 <mujoco>
-  <option gravity = "0 0 -9.81" viscosity="0.1">
+  <option gravity = "0 0 -9.81" viscosity="0">
     <flag contact="enable" />
   </option >
     <include file="stl_asstes.xml"/>

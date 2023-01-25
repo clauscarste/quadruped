@@ -43,16 +43,15 @@ def controller(model, data):
     #torque control;
     #kp = can_comunication.kpkv[0]
     #kv = can_comunication.kpkv[1]
-    kp = 10
-    kv = 0.1
-    motor_number = [0,1,2,3,4,5,6,7,8,9,10,11]
+    kp = 1
+    kv = 0.01
+    motor_number = [0]
     for motor_number_i in motor_number:
-        set_torque_servo(motor_number_i, 1)
-        data.qpos[0] = 0
         if state[motor_number_i] == 1:
-            data.ctrl[motor_number_i] = -kp * (data.qpos[motor_number_i] - can_comunication.position_setpoint[motor_number_i] ) - kv * data.qvel[motor_number_i]  # position control
-
-
+            set_torque_servo(motor_number_i, 1)
+            data.ctrl[motor_number_i] = -kp * (
+                        data.qpos[motor_number_i] - 2 * can_comunication.position_setpoint[1]) - kv * data.qvel[
+                                            motor_number_i]  # position control
 
 #setter and getter from interface dictionary
 def sim_set_position_estimate():

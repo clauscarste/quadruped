@@ -17,7 +17,7 @@ t2.start()
 ##      ##
 xml_path = 'simulation_files/leg_only/scene.xml'   # xml file (assumes this is in the same folder as this file)
 
-simend = 30 #simulation time
+simend = 60 #simulation time
 print_camera_config = 0 #set to 1 to print camera config
                         #this is useful for initializing view of the model)
 
@@ -37,7 +37,6 @@ def controller(model, data):
     sim_set_position_estimate()
     #sim_set_gyro()
     sim_set_current_estimate()
-    sim_set_measured_force()
     state = sim_get_state()
     #put the controller here. This function is called inside the simulation.
     #pass
@@ -61,15 +60,15 @@ def controller(model, data):
     #data.ctrl[0] = -100*(data.qvel[0]-0.5) #speed control]
     #data.ctrl[0] = -100*(data.qpos[0]-10*can_comunication.position_setpoint[1]) -10*data.qvel[0] #position control
 
-    kp = 100
-    kv = 10
+    kp = 25
+    kv = 5
+    set_torque_servo(0, 1)
+    set_torque_servo(1, 1)
     motor_number = [0]
     for motor_number_i in motor_number:
-        if state[motor_number_i] == 1:
-            set_torque_servo(motor_number_i, 1)
-            data.ctrl[motor_number_i] = -kp * (
-                        data.qpos[motor_number_i] - 2 * can_comunication.position_setpoint[1]) - kv * data.qvel[
-                                            motor_number_i]  # position control
+        print(data.qvel)
+        data.ctrl[motor_number_i] = -kp*(data.qpos[motor_number_i]-3*can_comunication.position_setpoint[1]) -kv*data.qvel[motor_number_i] #position control
+            #data.ctrl[motor_number_i] = -kp * (data.qpos[motor_number_i+7] - can_comunication.position_setpoint[1]) - kv * data.qvel[motor_number_i+6]  # position control
 
 def sim_set_position_estimate():
     position_estimate = 0
@@ -87,12 +86,7 @@ def sim_get_state():
     return can_comunication.state
 def sim_get_position(msg_axis_id):
     return can_comunication.position_setpoint[msg_axis_id]
-def sim_set_gyro():
-    quat = np.array([data.qpos[3], data.qpos[4], data.qpos[5],data.qpos[6]])  # always this way if the first joint is the free joint that is the main bosy
-    euler = quat2euler(quat)
-    can_comunication.gyrodata = [euler,data.sensordata[1]]
-def sim_set_measured_force():
-    can_comunication.measured_force = data.sensordata[1]
+
 
 
 
@@ -267,6 +261,7 @@ while not glfw.window_should_close(window):
 
     while (data.time - time_prev < 1.0/60.0):
         mj.mj_step(model, data)
+        #print(round(data.sensordata[2],2))
 
     if (data.time>=simend):
         break;

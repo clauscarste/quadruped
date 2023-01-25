@@ -11,6 +11,12 @@ import kinematics_legs
 import walking
 import jumping
 
+import datetime as dt
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+
+
+
 #############################  uncomment real world and simulation here and in the kinematics_legs.py  ################
 #for real world testing
 #from realworld import temprature_readout
@@ -22,6 +28,44 @@ from simulation import can_comunication
 #can_comunication.dictionary()
 # Config File Import
 import configparser
+
+
+# Create figure for plotting
+fig = plt.figure()
+ax = fig.add_subplot(1, 1, 1)
+xs = []
+ys = []
+# This function is called periodically from FuncAnimation
+def get_measured_force():
+    return can_comunication.measured_force
+
+def animate(i, xs, ys):
+    force = get_measured_force()
+    # Read temperature (Celsius) from TMP102
+    temp_c = force[1]
+
+    # Add x and y to lists
+    xs.append(dt.datetime.now().strftime('%H:%M:%S.%f'))
+    ys.append(temp_c)
+
+    # Limit x and y lists to 20 items
+    xs = xs[-20:]
+    ys = ys[-20:]
+
+        # Draw x and y lists
+    ax.clear()
+    ax.plot(xs, ys)
+
+    # Format plot
+    plt.xticks(rotation=45, ha='right')
+    plt.subplots_adjust(bottom=0.30)
+    plt.title('TMP102 Temperature over Time')
+    plt.ylabel('Temperature (deg C)')
+
+    ani = animation.FuncAnimation(fig, animate, fargs=(xs, ys), interval=1000)
+def startanimation():
+    # Set up plot to call animate() function periodically
+    plt.show()
 def main_loop():
     config_obj = configparser.ConfigParser()
     config_obj.read("/Users/claus/PycharmProjects/quadruped/control and simulation/configfile.ini")
@@ -148,18 +192,19 @@ def main_loop():
         ## implement speed and direction ### with left_right_balance and sepped_balance
 
         if can_comunication.currently_walking == True:
-            """walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
+
+            walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
                                       acceleration_stance, deceleration_stance, speed_flight, acceleration_flight,
                                       deceleration_flight,
                                       yaw, pich, roll, xm, ym, zm, robot_length, robot_with, leg_parameters, ofset, limit,
-                                      invert_axis, leg_config)"""
-            upper = -0.2
-            land = -0.15
-            lower = -0.15
+                                      invert_axis, leg_config)
+            """
+            upper = -0.25
+            land = -0.12
+            lower = -0.12
             delay = 4
             jumping.jump(land,upper,lower,delay,leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm, robot_length, robot_with)
-
-
+ """
     ##Testing fuctionality
 
     #setting closed and idle

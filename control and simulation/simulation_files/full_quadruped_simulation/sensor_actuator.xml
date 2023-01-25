@@ -12,7 +12,7 @@
         <torque name="torqu1" site="torq1" />
         <torque name="torqu2" site="torq2" />
 
-                <jointpos name="jointposs0" joint="joint00" />
+        <jointpos name="jointposs0" joint="joint00" />
         <jointpos name="jointpos10" joint="joint10" />
         <jointpos name="jointpos20" joint="joint20" />
 
@@ -29,7 +29,7 @@
         <jointpos name="jointpos21" joint="joint21" />
 
         <jointvel name="jointvell1" joint="joint01" />
-        <jointvel name="jointvel11" joint="joint11" />
+        <jointvel name="jointve11" joint="joint11" />
         <jointvel name="jointvel21" joint="joint21" />
 
         <torque name="torqu01" site="torq01" />
