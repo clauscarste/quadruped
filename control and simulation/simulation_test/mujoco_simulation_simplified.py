@@ -15,7 +15,7 @@ t2 = Thread(target=main.main_loop)
 # start the threads
 t2.start()
 ##      ##
-xml_path = 'simulation_files/leg_only_simplided/scene.xml'   # xml file (assumes this is in the same folder as this file)
+xml_path = 'simulation_files/simplified_leg/scene.xml'   # xml file (assumes this is in the same folder as this file)
 
 simend = 30 #simulation time
 print_camera_config = 0 #set to 1 to print camera config

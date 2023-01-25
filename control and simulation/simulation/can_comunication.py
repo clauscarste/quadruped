@@ -26,7 +26,7 @@ def dictionary():
     global measured_force
     measured_force = [0,0,0,0,0,0,0,0,0,0,0,0]
     global kpkv
-    kpkv = [10,1]
+    kpkv = [20,0.1]
     ###         ####
     global walk
     walk = False
@@ -52,6 +52,11 @@ def dictionary():
     left_right_balance = 0
     global sepped_balance
     sepped_balance = 0
+    global swaitchgraph
+    swaitchgraph = 2
+    global showtorque
+    showtorque = True
+
 
 
 

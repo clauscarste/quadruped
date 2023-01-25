@@ -216,6 +216,19 @@ class CallBacks:
             can_comunication.set_all_motors_closed_loop = True
         elif key == glfw.KEY_COMMA:
             can_comunication.set_all_motors_idle = True
+        elif key == glfw.KEY_X:
+            print(can_comunication.showtorque)
+            if can_comunication.showtorque == True:
+                can_comunication.showtorque = False
+            else:
+                can_comunication.showtorque = True
+        elif key == glfw.KEY_L:
+
+            if can_comunication.swaitchgraph+1 == 12:
+                can_comunication.swaitchgraph = 0
+            else:
+                can_comunication.swaitchgraph = can_comunication.swaitchgraph+1
+            print("now showing axis", can_comunication.swaitchgraph)
         # Geom group visibility
         elif key in (
             glfw.KEY_0,

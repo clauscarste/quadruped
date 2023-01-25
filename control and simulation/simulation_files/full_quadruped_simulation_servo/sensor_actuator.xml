@@ -1,3 +1,5 @@
+
+
 <mujoco>
     <sensor>
         <jointpos name="jointpos" joint="joint0" />
@@ -44,9 +46,6 @@
         <jointvel name="jointvel12" joint="joint12" />
         <jointvel name="jointvel22" joint="joint22" />
 
-        <torque name="torqu02" site="torq02" />
-        <torque name="torqu12" site="torq12" />
-        <torque name="torqu22" site="torq22" />
 
 
 
@@ -54,7 +53,21 @@
     </sensor>
 
     <actuator>
-       <motor name="torque2" joint="joint1"  gear="1" ctrllimited="false" ctrlrange="-100 100" forcelimited = "true" forcerange = "-6 6"/>
 
+               <motor name="torque0" joint="joint0"  gear="1" ctrllimited="false" ctrlrange="-10 10" forcelimited = "true" forcerange = "-10 10"/>
+       <motor name="torque2" joint="joint1"  gear="1" ctrllimited="false" ctrlrange="-10 10" forcelimited = "true" forcerange = "-10 10"/>
+        <motor name="torque3" joint="joint2"  gear="1" ctrllimited="false" ctrlrange="-10 10" forcelimited = "true" forcerange = "-10 10"/>
+
+                       <motor name="torque00" joint="joint00"  gear="1" ctrllimited="false" ctrlrange="-10 10" forcelimited = "true" forcerange = "-10 10"/>
+       <motor name="torque20" joint="joint10"  gear="1" ctrllimited="false" ctrlrange="-10 10" forcelimited = "true" forcerange = "-10 10"/>
+        <motor name="torque30" joint="joint20"  gear="1" ctrllimited="false" ctrlrange="-10 10" forcelimited = "true" forcerange = "-10 10"/>
+
+                               <motor name="torque01" joint="joint01"  gear="1" ctrllimited="false" ctrlrange="-10 10" forcelimited = "true" forcerange = "-10 10"/>
+       <motor name="torque21" joint="joint11"  gear="1" ctrllimited="false" ctrlrange="-10 10" forcelimited = "true" forcerange = "-10 10"/>
+        <motor name="torque31" joint="joint21"  gear="1" ctrllimited="false" ctrlrange="-10 10" forcelimited = "true" forcerange = "-10 10"/>
+
+                       <motor name="torque02" joint="joint02"  gear="1" ctrllimited="false" ctrlrange="-10 10" forcelimited = "true" forcerange = "-10 10"/>
+       <motor name="torque22" joint="joint12"  gear="1" ctrllimited="false" ctrlrange="-10 10" forcelimited = "true" forcerange = "-10 10"/>
+        <motor name="torque32" joint="joint22"  gear="1" ctrllimited="false" ctrlrange="-10 10" forcelimited = "true" forcerange = "-10 10"/>
     </actuator>
 </mujoco>

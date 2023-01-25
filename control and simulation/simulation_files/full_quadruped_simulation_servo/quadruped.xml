@@ -1,6 +1,7 @@
 <!-- https://mujoco.readthedocs.io/en/latest/overview.html?highlight=hello.xml#examples -->
 <mujoco>
-  <option gravity = "0 0 -9.81" viscosity="1">
+
+  <option gravity = "0 0 -9.81" viscosity="0.00002" apirate = "100" impratio = "3">
     <flag contact="enable" />
   </option >
     <include file="stl_asstes.xml"/>
@@ -74,7 +75,7 @@
                     <inertial pos="0 0 0" mass="0.001" fullinertia="0.00000665976 0.000014054247 0.000014432848 -0.000000796234 -0.000003221775 -0.000000490008"/>
 
                      <site name="torq0" pos="0 0 0" size="0.0001" rgba="0 0 0 1"/>
-                            <joint name = "joint0" type="hinge" axis="0 0 -1"/>
+                            <joint name="joint0" axis="0 0 -1" pos="-0.000 -0.00 0" limited = "true" range = "-90 90"/>
 
                     <body name="gearbox2_2" pos="-0.004 0 0" euler="0 0 0">
                     <geom name="gearbox2_2" type="mesh" mesh="gearbox2" pos="0 0 0" material="petg" />
@@ -86,7 +87,7 @@
                     <geom type="box" size="0.0001 0.00001 0.0001" rgba=".9 .9 .9 1"/>
                     <inertial pos="0 0 0" mass="0.001" fullinertia="0.00000665976 0.000014054247 0.000014432848 -0.000000796234 -0.000003221775 -0.000000490008"/>
                             <site name="torq1" pos="0 0 0" size="0.0001" rgba="0 0 0 1"/>
-                            <joint name = "joint1" type="hinge" axis="0 0 -1"/>
+                            <joint name="joint1" axis="0 0 -1" pos="0 0 0" limited = "true" range = "-120 120"/>
 
                         <body name="gearbox_3_2" pos="0 0 -0.002" euler="0 180 0">
                     <geom name="gearbox_3_2" type="mesh" mesh="gearbox_3" pos="0 0 0" material="petg"/>
@@ -101,7 +102,7 @@
                     <geom type="box" size="0.0001 0.00001 0.0001" rgba=".9 .9 .9 1"/>
                     <inertial pos="0 0 0" mass="0.001" fullinertia="0.00000665976 0.000014054247 0.000014432848 -0.000000796234 -0.000003221775 -0.000000490008"/>
                         <site name="torq2" pos="0 0 0" size="0.0001" rgba="0 0 0 1"/>
-                             <joint name = "joint2" type="hinge" axis="0 0 -1"/>
+                             <joint name="joint2" axis="0 0 -1" pos="0 0 0" limited = "true" range = "-150 150"/>
 
                         <body name="lower_leg_2" pos="0 0 0" euler="0 180 0">
                     <geom name="lower_leg_2" type="mesh" mesh="lower_leg" pos="0 0 0" material="aluminium" />

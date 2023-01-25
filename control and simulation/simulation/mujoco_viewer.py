@@ -5,6 +5,7 @@ import numpy as np
 import time
 from simulation.callbacks import CallBacks
 
+from simulation import can_comunication
 
 class MujocoViewer:
     def __init__(self, model, data):
@@ -322,6 +323,7 @@ class MujocoViewer:
             self.set_x_label(
                 xname=f"time/div: {self._time_per_div}s"
                 + f" total: {self.model.opt.timestep * self._num_pnts}"
+                + f" showing axis: see terminal"
             )
 
     def set_graph_name(self, name: str):

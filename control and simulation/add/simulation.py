@@ -25,7 +25,7 @@ t2.start()
 
 
 print()
-xml_path = 'simulation_files/leg_only_simplided/scene.xml'   # xml file (assumes this is in the same folder as this file)
+xml_path = 'simulation_files/simplified_leg/scene.xml'   # xml file (assumes this is in the same folder as this file)
 dirname = os.path.dirname(__file__)
 abspath = os.path.join(dirname + "/" + xml_path)
 xml_path = abspath
