@@ -359,14 +359,7 @@
       <workItem from="1674157934789" duration="302000" />
       <workItem from="1674199217237" duration="821000" />
       <workItem from="1674227918007" duration="5031000" />
-      <workItem from="1674549658057" duration="43055000" />
-    </task>
-    <task id="LOCAL-00017" summary="added acceleration for interpolation">
-      <created>1656419840656</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1656419840656</updated>
+      <workItem from="1674549658057" duration="47712000" />
     </task>
     <task id="LOCAL-00018" summary="added dual can support">
       <created>1656490829325</created>
@@ -704,7 +697,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674657653052</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="-">
+      <created>1674666280201</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1674666280202</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -199,22 +199,31 @@ class CallBacks:
             ] = self._wire_frame
         # controler KEYS
         elif key == glfw.KEY_A:
+            print("jump")
             can_comunication.jump = True
         elif key == glfw.KEY_Q:
+            print("walk")
             can_comunication.walk = True
         elif key == glfw.KEY_Y:
+            print("lower")
             can_comunication.lower = True
         elif key == glfw.KEY_DOWN:
+            print("decrease_speed")
             can_comunication.decrease_speed = True
         elif key == glfw.KEY_UP:
+            print("increase_speed")
             can_comunication.increase_speed = True
         elif key == glfw.KEY_LEFT:
+            print("turn_left")
             can_comunication.incease_left = True
         elif key == glfw.KEY_RIGHT:
+            print("turn_right")
             can_comunication.incease_right = True
         elif key == glfw.KEY_PERIOD:
+            print("stop - motors on")
             can_comunication.set_all_motors_closed_loop = True
         elif key == glfw.KEY_COMMA:
+            print("stop - motors off")
             can_comunication.set_all_motors_idle = True
         elif key == glfw.KEY_X:
             print(can_comunication.showtorque)

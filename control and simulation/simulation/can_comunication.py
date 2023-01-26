@@ -26,7 +26,7 @@ def dictionary():
     global measured_force
     measured_force = [0,0,0,0,0,0,0,0,0,0,0,0]
     global kpkv
-    kpkv = [20,0.1]
+    kpkv = [0,0]
     ###         ####
     global walk
     walk = False

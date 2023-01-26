@@ -1,72 +1,39 @@
-
-#import can_thread                                                                                                #uncomment
-
-#import kinematics_spine                #not implemented in simulation and not used in real word currently
-
 #general imports
 from __future__ import division
 import time
 import numpy as np
 import kinematics_legs
 import walking
+#import kinematics_spine                #not implemented in simulation and not used in real word currently
 import jumping
 
 import datetime as dt
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
-
-
 #############################  uncomment real world and simulation here and in the kinematics_legs.py  ################
 #for real world testing
-#from realworld import temprature_readout
-#from realworld import can_comunication
-
+"""
+from realworld import temprature_readout
+from realworld import can_comunication
+can_comunication.dictionary()
+"""
 #for simulation
 from simulation import temprature_readout
 from simulation import can_comunication
-#can_comunication.dictionary()
+
+#############################  uncomment real world and simulation here and in the kinematics_legs.py  ################
+
+
 # Config File Import
 import configparser
+#Config file reading is done in main loop
 
-
-# Create figure for plotting
-fig = plt.figure()
-ax = fig.add_subplot(1, 1, 1)
-xs = []
-ys = []
-# This function is called periodically from FuncAnimation
 def get_measured_force():
     return can_comunication.measured_force
 
-def animate(i, xs, ys):
-    force = get_measured_force()
-    # Read temperature (Celsius) from TMP102
-    temp_c = force[1]
-
-    # Add x and y to lists
-    xs.append(dt.datetime.now().strftime('%H:%M:%S.%f'))
-    ys.append(temp_c)
-
-    # Limit x and y lists to 20 items
-    xs = xs[-20:]
-    ys = ys[-20:]
-
-        # Draw x and y lists
-    ax.clear()
-    ax.plot(xs, ys)
-
-    # Format plot
-    plt.xticks(rotation=45, ha='right')
-    plt.subplots_adjust(bottom=0.30)
-    plt.title('TMP102 Temperature over Time')
-    plt.ylabel('Temperature (deg C)')
-
-    ani = animation.FuncAnimation(fig, animate, fargs=(xs, ys), interval=1000)
-def startanimation():
-    # Set up plot to call animate() function periodically
-    plt.show()
 def main_loop():
+    #config file reading
     config_obj = configparser.ConfigParser()
     config_obj.read("/Users/claus/PycharmProjects/quadruped/control and simulation/configfile.ini")
 
@@ -100,6 +67,7 @@ def main_loop():
     limit = list(map(float, (motor_config["limit"]).split()))
     invert_axis = (list(map(int, (motor_config["invert_axis"]).split())))
     leg_parameters = list(map(float, (motor_config["leg_parameters"]).split()))
+    can_comunication.kpkv = list(map(float, (motor_config["kpkv"]).split()))
     robot_length = float(motor_config["robot_length"])
     robot_with = float(motor_config["robot_with"])
     contact_f = float(motor_config["contact_f"])
@@ -118,8 +86,7 @@ def main_loop():
 
     # Number of times to retry after failing to send message over can bus
     closed_loop_attempt = int(can_retry_amount["closed_loop_attempt"])
-
-    #dynamic values changed by joystick / keyboard
+    ### # end of config file reading
 
 
     #fixed values for now
@@ -129,10 +96,6 @@ def main_loop():
     yaw = 0
     pich= 0
     roll= 0
-
-    ######Config end #######
-
-
 
     #### Inital steps after startup####
     # Spine setup to zero position
@@ -146,11 +109,16 @@ def main_loop():
 
     # set motor closed loop
     can_comunication.setall_closed(closed_loop_attempt)
+
     #Set motor to inital positon
+    upper = -0.25
+    land = -0.25
+    lower = -0.25
+    delay = 0.1
+    jumping.jump(land, upper, lower, delay, leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm,
+                 ym, zm, robot_length, robot_with)
 
-
-
-    ###### Main loop ######
+    ###### Main loop based on keyboard input ######
     while save_operation == True:
          # chck for save operation (temprature and battery voltage)
         if can_comunication.is_bus_voltage_in_limit(battery_voltage_lower_limit,battery_voltage_upper_limit) is False or temprature_readout.is_temp_in_limit(temprature_limit) is False:
@@ -158,7 +126,7 @@ def main_loop():
             can_comunication.setall_idle()
             print("not save")
         ##temporary override to always start walking
-        can_comunication.currently_walking = True
+        #can_comunication.currently_walking = True
         if can_comunication.walk == True and can_comunication.currently_walking == False:
             can_comunication.currently_walking = True
             can_comunication.walk = False
@@ -197,20 +165,23 @@ def main_loop():
         ## implement speed and direction ### with left_right_balance and sepped_balance
 
         if can_comunication.currently_walking == True:
-            """
+
             walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
                                       acceleration_stance, deceleration_stance, speed_flight, acceleration_flight,
                                       deceleration_flight,
                                       yaw, pich, roll, xm, ym, zm, robot_length, robot_with, leg_parameters, ofset, limit,
                                       invert_axis, leg_config)
-            """
+                
+
+        else:
             upper = -0.25
             land = -0.25
             lower = -0.25
             delay = 0.1
             jumping.jump(land,upper,lower,delay,leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm, robot_length, robot_with)
 
-    ##Testing fuctionality
+
+    ##Testing other fuctionality
 
     #setting closed and idle
     #can_comunication.set_closed_loop(3,2)
@@ -219,29 +190,12 @@ def main_loop():
     #can_comunication.setall_idle()
     #can_comunication.setall_closed(5)
 
-
     #Plot walking curve
     #walking.ploting(walking.curve_stance(1,step_lentgh,stance_max_height,neutral_height,speed_stance,acceleration_stance,deceleration_stance))
     #walking.ploting(walking.curve_flight(1,step_lentgh,flight_max_heigth,neutral_height,speed_flight,acceleration_flight,deceleration_flight))
 
-
     #test inverse kinematics
     #print(kinematics_legs.yaw_pich_roll(yaw, pich, roll, xm, ym, zm, robot_length,robot_with, leg_id, x, y, z))
-
-
-    #test walking sequence
-    #walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
-     #                    acceleration_stance, deceleration_stance, speed_flight, acceleration_flight, deceleration_flight,
-      #                   yaw, pich, roll, xm, ym, zm, robot_length,robot_with,leg_parameters, ofset, limit, invert_axis, leg_config)
-
-
-    #Test Jump
-    #upper = -0.2999
-    #land = -0.2
-    #lower = -0.1
-    #delay = 0.01
-    #jumping.jump(land,upper,lower,delay,leg_parameters, ofset, limit, invert_axis, leg_config, yaw, pich, roll, xm, ym, zm, robot_length, robot_with)
-
 
     #Test force response
     #for i in np.arange(-0.15, -0.299, -0.001):
