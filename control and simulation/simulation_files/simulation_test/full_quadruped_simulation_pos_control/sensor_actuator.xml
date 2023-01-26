@@ -1,0 +1,86 @@
+<mujoco>
+    <sensor>
+        <jointpos name="jointpos" joint="joint0" />
+        <jointpos name="jointpos1" joint="joint1" />
+        <jointpos name="jointpos2" joint="joint2" />
+
+        <jointvel name="jointvel" joint="joint0" />
+        <jointvel name="jointvel1" joint="joint1" />
+        <jointvel name="jointvel2" joint="joint2" />
+
+        <torque name="torqu0" site="torq0" />
+        <torque name="torqu1" site="torq1" />
+        <torque name="torqu2" site="torq2" />
+
+        <jointpos name="jointposs0" joint="joint00" />
+        <jointpos name="jointpos10" joint="joint10" />
+        <jointpos name="jointpos20" joint="joint20" />
+
+        <jointvel name="jointvell0" joint="joint00" />
+        <jointvel name="jointvel10" joint="joint10" />
+        <jointvel name="jointvel20" joint="joint20" />
+
+        <torque name="torqu00" site="torq00" />
+        <torque name="torqu10" site="torq01" />
+        <torque name="torqu20" site="torq20" />
+
+                <jointpos name="jointposs1" joint="joint01" />
+        <jointpos name="jointpos11" joint="joint11" />
+        <jointpos name="jointpos21" joint="joint21" />
+
+        <jointvel name="jointvell1" joint="joint01" />
+        <jointvel name="jointve11" joint="joint11" />
+        <jointvel name="jointvel21" joint="joint21" />
+
+        <torque name="torqu01" site="torq01" />
+        <torque name="torqu11" site="torq11" />
+        <torque name="torqu21" site="torq21" />
+
+                <jointpos name="jointposs2" joint="joint02" />
+        <jointpos name="jointpos12" joint="joint12" />
+        <jointpos name="jointpos22" joint="joint22" />
+
+        <jointvel name="jointvell2" joint="joint02" />
+        <jointvel name="jointvel12" joint="joint12" />
+        <jointvel name="jointvel22" joint="joint22" />
+
+        <torque name="torqu02" site="torq02" />
+        <torque name="torqu12" site="torq12" />
+        <torque name="torqu22" site="torq22" />
+
+
+
+
+    </sensor>
+
+    <actuator>
+             <position name="position_servo1" joint="joint0" kp="0"/>
+            <velocity name="velocity_servo1" joint="joint0" kv="0"/>
+             <position name="position_servo2" joint="joint1" kp="0"/>
+             <velocity name="velocity_servo2" joint="joint1" kv="0"/>
+             <position name="position_servo3" joint="joint2" kp="0"/>
+            <velocity name="velocity_servo3" joint="joint2" kv="0"/>
+
+                 <position name="position_servo10" joint="joint00" kp="0"/>
+            <velocity name="velocity_servo10" joint="joint00" kv="0"/>
+             <position name="position_servo20" joint="joint10" kp="0"/>
+             <velocity name="velocity_servo20" joint="joint10" kv="0"/>
+             <position name="position_servo30" joint="joint20" kp="0"/>
+            <velocity name="velocity_servo30" joint="joint20" kv="0"/>
+
+                         <position name="position_servo11" joint="joint01" kp="0"/>
+            <velocity name="velocity_servo11" joint="joint01" kv="0"/>
+             <position name="position_servo21" joint="joint11" kp="0"/>
+             <velocity name="velocity_servo21" joint="joint11" kv="0"/>
+             <position name="position_servo31" joint="joint21" kp="0"/>
+            <velocity name="velocity_servo31" joint="joint21" kv="0"/>
+
+                         <position name="position_servo12" joint="joint02" kp="0"/>
+            <velocity name="velocity_servo12" joint="joint02" kv="0"/>
+             <position name="position_servo22" joint="joint12" kp="0"/>
+             <velocity name="velocity_servo22" joint="joint12" kv="0"/>
+             <position name="position_servo32" joint="joint22" kp="0"/>
+            <velocity name="velocity_servo32" joint="joint22" kv="0"/>
+
+    </actuator>
+</mujoco>

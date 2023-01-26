@@ -1,0 +1,86 @@
+<!-- https://mujoco.readthedocs.io/en/latest/overview.html?highlight=hello.xml#examples -->
+<mujoco>
+  <option gravity = "0 0 -9.81" viscosity="1">
+    <flag contact="enable" />
+  </option >
+    <include file="stl_asstes.xml"/>
+    <asset>
+
+        <material name="aluminium" rgba="0.35 0.35 0.35 1"/>
+        <material name="petg" rgba="0.7 0.7 0.75 1"/>
+        <material name="carbon" rgba="0.05 0.05 0.05 1"/>
+        <material name="silicone" rgba="0.612 0.11 0.42 1"/>
+        <material name="pcb" rgba="0.253 0.41 0.202 1"/>
+    </asset>
+
+   <worldbody>
+
+              <body name="chassis2" pos="0 0 0" euler="0 0 0">
+         <geom type="box" size="0.005 0.005 0.005" pos = "0 0 0" rgba="0 0 0.2 1" mass = "0.3"/>
+       </body>
+
+                        <body name="encoder_0_2" pos="0 0 0.5" euler="90 90 90">
+
+                            <joint type="free"/>
+
+                        <geom type="box" size="0.01 0.01 0.01" pos = "0 0 0" rgba="0 0 0.2 1" euler="0 0 0"/>
+                    <inertial pos="0 0 0.006" mass="0.008" fullinertia="0.00000665976 0.000014054247 0.000014432848 -0.000000796234 -0.000003221775 -0.000000490008"/>
+                        <body name="gearbox_1_2" pos="0 0 -0.022" euler="0 0 0">
+                    <inertial pos="0 0 0.03062" mass="0.549677" fullinertia="0.0008966 0.0008969 0.0005599 -0.000000208093 0.000000039236 -0.000000146242"/>
+                        <geom type="box" size="0.01 0.01 0.01" pos = "0 0 0" rgba="0 0 0.2 1" />
+                        <body name="gearbox1_spacer_2" pos="0 0.0 -0.022" euler="0 0 0">
+                    <geom type="box" size="0.01 0.01 0.01" pos = "0 0 0" rgba="0 0 0.2 1"/>
+                    <inertial pos="0 0 0.006" mass="0.008" fullinertia="0.00000665976 0.000014054247 0.000014432848 -0.000000796234 -0.000003221775 -0.000000490008"/>
+                        <body name="spacer_3_2" pos="0 0 0" euler="0 0 0">
+                    <geom type="box" size="0.0001 0.00001 0.0001" rgba=".9 .9 .9 1"/>
+                    <inertial pos="0 0 0" mass="0.001" fullinertia="0.00000665976 0.000014054247 0.000014432848 -0.000000796234 -0.000003221775 -0.000000490008"/>
+
+
+                    <body name="gearbox2_2" pos="-0. 0 -0.042" euler="0 0 0">
+                    <geom type="box" size="0.01 0.03 0.03" pos = "0 0 0" rgba="0 0 0.2 1"/>
+                    <inertial pos="-0.003597 0 -0.0571" mass="0.549677" fullinertia="0.002354 0.002182 0.0003883 0.000000138325 -0.0001131 -0.00000158513"/>
+                        <body name="encoder_1_2" pos="-0.021 0 -0." euler="0 -90 0 ">
+                    <geom type="box" size="0.01 0.01 0.01" pos = "0 0 0" rgba="0.3 0 0.2 1"/>
+                    <inertial pos="0 0 0.006" mass="0.008" fullinertia="0.00000665976 0.000014054247 0.000014432848 -0.000000796234 -0.000003221775 -0.000000490008"/>
+                        <body name="spacer_0_2" pos="0 0 -0.042" euler="0 0 0">
+                    <geom type="box" size="0.0001 0.00001 0.0001" rgba=".9 .9 .9 1"/>
+                    <inertial pos="0 0 0" mass="0.001" fullinertia="0.00000665976 0.000014054247 0.000014432848 -0.000000796234 -0.000003221775 -0.000000490008"/>
+
+                            <site name="torq1" pos="0 0 0" size="0.0001" rgba="0 0 0 1"/>
+                            <joint name="joint1" axis="0 0 -1" pos="0 0 0" limited = "false" range = "-120 120"/>
+
+                        <body name="gearbox_3_2" pos="0 0 -0.002" euler="0 180 0">
+                    <geom type="box" size="0.03 0.03 0.01" pos = "0 0 0" rgba="0 0.3 0.2 1"/>
+                    <inertial pos="0 0 0.03062" mass="0.549677" fullinertia="0.0008966 0.0008969 0.0005599 -0.000000208093 0.000000039236 -0.000000146242"/>
+                        <body name="upper_leg_2" pos="0. -0.06 0.02" euler="0 180 90">
+                    <geom type="box" size="0.09 0.01 0.01" pos = "0 0 0" rgba="0 1 0.2 1"/>
+                    <inertial pos="-0.065247 0 -0.012792" mass="0.113615" fullinertia="0.000037213733 0.0008028 0.0007791 0.000000319788 -0.000092327798 0.000000061466"/>
+
+                        <body name="spacer_1_2" pos="-0.09 0 -0.022" euler="0 0 0">
+                    <geom type="box" size="0.0001 0.00001 0.0001" rgba=".9 .9 .9 1"/>
+                    <inertial pos="0 0 0" mass="0.001" fullinertia="0.00000665976 0.000014054247 0.000014432848 -0.000000796234 -0.000003221775 -0.000000490008"/>
+
+                    <joint name="joint2" axis="0 0 -1" pos="0 0 0" limited = "false" range = "-120 120"/>
+                        <body name="lower_leg_2" pos="-0.09 0 0" euler="0 180 0">
+                    <geom type="box" size="0.09 0.01 0.01" pos = "0 0 0" rgba="0.1 0.1 0.2 1"/>
+                    <inertial pos="0.0733980 0.0000000 -0.0084740" mass="0.0445630" fullinertia="0.0000060 0.0003640 0.0003596 0.0000002 0.0000276 0.0000000"/>
+
+
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+
+   </worldbody>
+
+<include file="sensor_actuator.xml"/>
+
+
+</mujoco>
