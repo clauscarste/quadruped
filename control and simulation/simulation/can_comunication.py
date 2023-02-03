@@ -27,6 +27,8 @@ def dictionary():
     gyrodata = [0,0,0,0,0,0,0,0,0] #angle xyz , angular velocity xzy , angular acceleration xyz
     global measured_force
     measured_force = [0,0,0,0,0,0,0,0,0,0,0,0]
+    global torque_setpoint
+    torque_setpoint = [0,0,0,0,0,0,0,0,0,0,0,0]
     global kpkv
     kpkv = [0,0]
     ###         ####

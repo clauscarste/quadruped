@@ -29,7 +29,7 @@
     <actuator>
 
                <motor name="torque0" joint="joint0"  gear="1" ctrllimited="false" ctrlrange="-10 10" forcelimited = "true" forcerange = "-10 10"/>
-       <motor name="torque2" joint="joint1"  gear="1" ctrllimited="false" ctrlrange="-10 10" forcelimited = "true" forcerange = "-10 10"/>
+       <motor name="torque2" joint="joint1"  gear="1" ctrllimited="false" ctrlrange="-10 10" forcelimited = "true" forcerange = "-100 100"/>
         <motor name="torque3" joint="joint2"  gear="1" ctrllimited="false" ctrlrange="-10 10" forcelimited = "true" forcerange = "-10 10"/>
 
                        <motor name="torque00" joint="joint00"  gear="1" ctrllimited="false" ctrlrange="-10 10" forcelimited = "true" forcerange = "-10 10"/>

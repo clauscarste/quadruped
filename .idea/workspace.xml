@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="477a793e-8cf6-4fb7-9de7-23aaff3ff473" name="Changes" comment="-">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/force.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation/force.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/kinematics_legs.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/kinematics_legs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/control and simulation/simulation/can_comunication.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation/can_comunication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation/mujoco_viewer.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation/mujoco_viewer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation_servo/quadruped.xml" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation_servo/quadruped.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation_servo/sensor_actuator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation_servo/sensor_actuator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/control and simulation/simulation_mujoco.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_mujoco.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,14 +219,7 @@
       <workItem from="1674199217237" duration="821000" />
       <workItem from="1674227918007" duration="5031000" />
       <workItem from="1674549658057" duration="47712000" />
-      <workItem from="1675433668777" duration="9417000" />
-    </task>
-    <task id="LOCAL-00018" summary="added dual can support">
-      <created>1656490829325</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1656490829325</updated>
+      <workItem from="1675433668777" duration="12168000" />
     </task>
     <task id="LOCAL-00019" summary="added dual can support">
       <created>1656490866373</created>
@@ -571,7 +557,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674666280202</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="-">
+      <created>1675443620076</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1675443620077</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

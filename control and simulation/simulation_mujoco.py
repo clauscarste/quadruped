@@ -85,6 +85,7 @@ def set_torque_servo(actuator_no, flag):
         model.actuator_gainprm[actuator_no, 0] = 1
 
 while True:
+    pos_control = False
     sim_set_velocity_estimate()
     sim_set_position_estimate()
     sim_set_gyro()
@@ -101,7 +102,11 @@ while True:
     for motor_number_i in motor_number:
         if can_comunication.state[motor_number_i] == 1:
             set_torque_servo(motor_number_i, 1)
-            data.ctrl[motor_number_i] = -kp * (data.qpos[motor_number_i+7]-(can_comunication.position_setpoint[motor_number_i])) - kv * data.qvel[motor_number_i+6]  # position control
+            if pos_control == True:
+                data.ctrl[motor_number_i] = -kp * (data.qpos[motor_number_i+7]-(can_comunication.position_setpoint[motor_number_i])) - kv * data.qvel[motor_number_i+6]  # position control
+            else:
+                data.ctrl[motor_number_i] = can_comunication.torque_setpoint[motor_number_i]
+                #data.ctrl[motor_number_i] = 10
 
     mujoco.mj_step(model, data)
     viewer.render()
