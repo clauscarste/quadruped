@@ -35,7 +35,7 @@ def get_measured_force():
 def main_loop():
     #config file reading
     config_obj = configparser.ConfigParser()
-    config_obj.read("/Users/claus/PycharmProjects/quadruped/control and simulation/configfile.ini")
+    config_obj.read("/Users/claus/pyc/quadruped/control and simulation/configfile.ini")
 
     save_operation_limits = config_obj["save_operation_limits"]
     servo_config = config_obj["servo_config"]

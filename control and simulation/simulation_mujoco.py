@@ -1,13 +1,11 @@
-import math
 import mujoco
-import os
 from simulation.mujoco_viewer import MujocoViewer
+from scipy.spatial.transform import Rotation as R
 
-from mujoco.glfw import glfw
 import numpy as np
 from threading import Thread
-import time
-import os, sys
+import os
+from simulation import force
 
 ##laod interface to current controller ##
 from simulation import can_comunication
@@ -15,7 +13,6 @@ import main
 can_comunication.dictionary()
 # create new threads
 t2 = Thread(target=main.main_loop)
-#t3 = Thread(target=plot.main_loop)
 # start the threads
 t2.start()
 
@@ -37,6 +34,8 @@ viewer = MujocoViewer(model, data)
 viewer.add_graph_line(line_name="torque", line_data=0.0)
 viewer.add_graph_line(line_name="position", line_data=0.0)
 viewer.add_graph_line(line_name="comanded_position", line_data=0.0)
+viewer.add_graph_line(line_name="measured_force", line_data=0.0)
+viewer.add_graph_line(line_name="calc_force", line_data=0.0)
 x_div = 10
 y_div = 10
 viewer.set_grid_divisions(x_div=x_div, y_div=y_div, x_axis_time=0.5)
@@ -46,15 +45,15 @@ viewer.callbacks._paused = True
 t = 0
 
 def sim_set_position_estimate():
-    position_estimate = aa = [data.sensordata[i] for i in [0, 1,2,5,16,17,30,31,32]]
-    can_comunication.position_estimate = position_estimate
+    can_comunication.position_estimate = data.qpos[7:19]
+
 def sim_set_velocity_estimate():
-    velocity_estimate = [data.sensordata[i] for i in [3,4,5,18,19,20,33,34,35]]
-    can_comunication.velocity_estimate = velocity_estimate
+    can_comunication.velocity_estimate = data.qvel[6:18]
 def sim_set_current_estimate():
-    toruqe = [data.sensordata[i] for i in [8,11,14,23,26,29,38,41,44]] #53,56,59
+    toruqe = [data.sensordata[i] for i in [2,5,8,11,14,17,20,23,26,29,32,35]]
     current_estimate = toruqe #must be x5
     can_comunication.current_estimate = current_estimate
+
 def sim_get_limits(msg_axis_id):
     return [can_comunication.velocity_max_setpoint[msg_axis_id], can_comunication.current_max_setpoint[msg_axis_id]]
 def sim_get_state():
@@ -62,11 +61,12 @@ def sim_get_state():
 def sim_get_position(msg_axis_id):
     return can_comunication.position_setpoint[msg_axis_id]
 def sim_set_gyro():
-    quat = np.array([data.qpos[3], data.qpos[4], data.qpos[5],data.qpos[6]])  # always this way if the first joint is the free joint that is the main bosy
+    quat = np.array([data.qpos[3], data.qpos[4], data.qpos[5],data.qpos[6]])  # always this way if the first joint is the free joint that is the main body
     euler = quat2euler(quat)
-    can_comunication.gyrodata = [euler,data.sensordata[1]]
+    can_comunication.gyrodata[0:3] = euler
+    can_comunication.gyrodata[3:9] = data.sensordata[36:42]
 def sim_set_measured_force():
-    can_comunication.measured_force = data.sensordata[1]
+    can_comunication.measured_force = data.sensordata[42:45]
 
 def quat2euler(quat_mujoco):
     #mujocoy quat is constant,x,y,z,
@@ -87,7 +87,11 @@ def set_torque_servo(actuator_no, flag):
 while True:
     sim_set_velocity_estimate()
     sim_set_position_estimate()
-    #sim_set_gyro()
+    sim_set_gyro()
+    #print(data.sensordata[100])51
+    #print(can_comunication.measured_force)
+    #print(can_comunication.position_estimate[0:3])
+    can_comunication.force_estimate = force.force_calculation()
     sim_set_current_estimate()
     sim_set_measured_force()
     state = sim_get_state()
@@ -104,21 +108,45 @@ while True:
 
 
     axis = can_comunication.swaitchgraph
-    if can_comunication.showtorque == True:
+    showforce = True #cange to false to show torque and position
+    if showforce == False:
+        if can_comunication.showtorque == True:
+            viewer.update_graph_line(
+                line_name="torque",
+                line_data=can_comunication.current_estimate[axis],
+            )
+        else:
+            viewer.update_graph_line(
+                line_name="torque",
+                line_data=None,
+            )
         viewer.update_graph_line(
-            line_name="torque",
-            line_data=can_comunication.current_estimate[axis],
+            line_name="position",
+            line_data=can_comunication.position_estimate[axis],
         )
+        viewer.update_graph_line(
+            line_name="comanded_position",
+            line_data=can_comunication.position_setpoint[axis],
+        )
+        #for comparing measured force with calculted froce from torque
     else:
         viewer.update_graph_line(
             line_name="torque",
             line_data=None,
         )
-    viewer.update_graph_line(
-        line_name="position",
-        line_data=can_comunication.position_estimate[axis],
-    )
-    viewer.update_graph_line(
-        line_name="comanded_position",
-        line_data=can_comunication.position_setpoint[axis],
-    )
+        viewer.update_graph_line(
+            line_name="position",
+            line_data=None,
+        )
+        viewer.update_graph_line(
+            line_name="comanded_position",
+            line_data=None,
+        )
+        viewer.update_graph_line(
+            line_name="measured_force",
+            line_data=can_comunication.measured_force[2],
+        )
+        viewer.update_graph_line(
+            line_name="calc_force",
+            line_data=can_comunication.force_estimate[2],
+        )

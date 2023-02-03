@@ -213,6 +213,39 @@ class MujocoViewer:
         )
 
 
+
+
+
+        add_overlay(
+            topleft,
+            "[Q]-Walk",
+            "In progress" if can_comunication.walk else "-",
+        )
+        add_overlay(
+            topleft,
+            "[A]-jump",
+            "In progress" if can_comunication.jump else "-",
+        )
+        add_overlay(
+            topleft,
+            "[Y]-lower",
+            "In progress" if can_comunication.walk else "-",
+        )
+
+        add_overlay(
+            topleft,
+            "[X]-showtorque",
+            "showing" if can_comunication.showtorque else "not showing",
+        )
+        add_overlay(
+            topleft,
+            "[L]-switch graph",
+            "-" if can_comunication.showtorque else "-",
+        )
+
+
+
+
         add_overlay(
             topleft,
             "Referenc[e] frames",

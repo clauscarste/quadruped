@@ -17,12 +17,14 @@ def dictionary():
     velocity_estimate = [0,0,0,0,0,0,0,0,0,0,0,0]
     global current_estimate
     current_estimate = [0,0,0,0,0,0,0,0,0,0,0,0]
+    global force_estimate
+    force_estimate = [0,0,0,0,0,0,0,0,0,0,0,0]
     global velocity_max_setpoint
     velocity_max_setpoint = [0,0,0,0,0,0,0,0,0,0,0,0]
     global current_max_setpoint
     current_max_setpoint = [0,0,0,0,0,0,0,0,0,0,0,0]
     global gyrodata
-    gyrodata = [0,0,0,0,0,0]
+    gyrodata = [0,0,0,0,0,0,0,0,0] #angle xyz , angular velocity xzy , angular acceleration xyz
     global measured_force
     measured_force = [0,0,0,0,0,0,0,0,0,0,0,0]
     global kpkv
@@ -53,7 +55,7 @@ def dictionary():
     global sepped_balance
     sepped_balance = 0
     global swaitchgraph
-    swaitchgraph = 2
+    swaitchgraph = 0
     global showtorque
     showtorque = True
 

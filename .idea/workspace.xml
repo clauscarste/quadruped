@@ -5,152 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="477a793e-8cf6-4fb7-9de7-23aaff3ff473" name="Changes" comment="-">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/add/simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/add/simulation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/full_robot_with_pos_control.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_test/full_robot_with_pos_control.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/full_robot_with_torque_control.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_test/full_robot_with_torque_control.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/control and simulation/force.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation/force.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/control and simulation/kinematics_legs.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/kinematics_legs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/control and simulation/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/mujoco_simulation_simplified.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation/callbacks.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation/callbacks.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/control and simulation/simulation/can_comunication.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation/can_comunication.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/control and simulation/simulation/mujoco_viewer.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation/mujoco_viewer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/-59.659 -26.904 45.452.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/1223.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/47.041 -26.904 45.452.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/73.041 -23.904 5.852.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/Screenshot 2022-11-12 at 16.33.55.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/Screenshot 2022-11-12 at 17.13.55.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/Screenshot 2022-11-12 at 17.14.51.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/Screenshot 2022-11-12 at 17.16.23.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/Screenshot 2022-11-12 at 17.19.13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/Screenshot 2022-11-12 at 17.22.45.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/Screenshot 2022-11-12 at 17.25.14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/Screenshot 2022-11-12 at 18.41.52.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/Screenshot 2022-11-12 at 18.44.25.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/Screenshot 2022-11-12 at 18.44.53.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/Screenshot 2022-11-12 at 19.33.13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/Screenshot 2022-11-13 at 10.09.50.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/Screenshot 2022-11-13 at 10.13.20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/Screenshot 2022-11-13 at 10.16.14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/Screenshot 2022-11-13 at 10.17.14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/Screenshot 2022-11-13 at 10.17.50.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/Screenshot 2022-11-13 at 10.26.11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/Screenshot 2022-11-13 at 10.27.40.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/Screenshot 2022-11-13 at 10.32.48.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/Screenshot 2022-11-13 at 10.33.34.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/mesh_data_fusion360/Screenshot 2022-11-13 at 10.52.03.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/back_alu_1.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/back_alu_2.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/battery.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/case1.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/case2.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/electronics.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/encoder.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/front_alu_1.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/front_alu_3.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/gearbox1_spacer.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/gearbox2.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/gearbox_1.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/gearbox_3.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/logic.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/logic2.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/lower_leg.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/lower_leg7.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/spacer_spine.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/upper_leg.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/upper_leg8.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/upper_leg_belt.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/meshes/upper_leg_belt8.stl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/quadruped.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/scene.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/sensor_actuator.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation/stl_asstes.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation_servo/quadruped.xml" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation_servo/quadruped.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation_servo/sensor_actuator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/full_quadruped_simulation_servo/sensor_actuator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/backup/quadruped copy 2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/backup/quadruped copy 2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/backup/quadruped copy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/backup/quadruped copy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/backup/quadruped2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/backup/quadruped2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/manipulator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/manipulator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/-59.659 -26.904 45.452.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/-59.659 -26.904 45.452.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/1223.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/1223.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/47.041 -26.904 45.452.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/47.041 -26.904 45.452.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/73.041 -23.904 5.852.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/73.041 -23.904 5.852.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/Screenshot 2022-11-12 at 16.33.55.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/Screenshot 2022-11-12 at 16.33.55.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/Screenshot 2022-11-12 at 17.13.55.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/Screenshot 2022-11-12 at 17.13.55.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/Screenshot 2022-11-12 at 17.14.51.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/Screenshot 2022-11-12 at 17.14.51.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/Screenshot 2022-11-12 at 17.16.23.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/Screenshot 2022-11-12 at 17.16.23.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/Screenshot 2022-11-12 at 17.19.13.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/Screenshot 2022-11-12 at 17.19.13.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/Screenshot 2022-11-12 at 17.22.45.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/Screenshot 2022-11-12 at 17.22.45.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/Screenshot 2022-11-12 at 17.25.14.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/Screenshot 2022-11-12 at 17.25.14.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/Screenshot 2022-11-12 at 18.41.52.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/Screenshot 2022-11-12 at 18.41.52.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/Screenshot 2022-11-12 at 18.44.25.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/Screenshot 2022-11-12 at 18.44.25.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/Screenshot 2022-11-12 at 18.44.53.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/Screenshot 2022-11-12 at 18.44.53.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/Screenshot 2022-11-12 at 19.33.13.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/Screenshot 2022-11-12 at 19.33.13.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/Screenshot 2022-11-13 at 10.09.50.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/Screenshot 2022-11-13 at 10.09.50.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/Screenshot 2022-11-13 at 10.13.20.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/Screenshot 2022-11-13 at 10.13.20.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/Screenshot 2022-11-13 at 10.16.14.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/Screenshot 2022-11-13 at 10.16.14.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/Screenshot 2022-11-13 at 10.17.14.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/Screenshot 2022-11-13 at 10.17.14.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/Screenshot 2022-11-13 at 10.17.50.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/Screenshot 2022-11-13 at 10.17.50.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/Screenshot 2022-11-13 at 10.26.11.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/Screenshot 2022-11-13 at 10.26.11.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/Screenshot 2022-11-13 at 10.27.40.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/Screenshot 2022-11-13 at 10.27.40.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/Screenshot 2022-11-13 at 10.32.48.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/Screenshot 2022-11-13 at 10.32.48.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/Screenshot 2022-11-13 at 10.33.34.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/Screenshot 2022-11-13 at 10.33.34.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/mesh_data_fusion360/Screenshot 2022-11-13 at 10.52.03.png" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/mesh_data_fusion360/Screenshot 2022-11-13 at 10.52.03.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/back_alu_1.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/back_alu_1.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/back_alu_2.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/back_alu_2.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/battery.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/battery.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/case1.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/case1.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/case2.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/case2.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/electronics.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/electronics.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/encoder.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/encoder.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/front_alu_1.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/front_alu_1.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/front_alu_3.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/front_alu_3.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/gearbox1_spacer.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/gearbox1_spacer.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/gearbox2.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/gearbox2.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/gearbox_1.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/gearbox_1.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/gearbox_3.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/gearbox_3.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/logic.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/logic.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/logic2.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/logic2.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/lower_leg.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/lower_leg.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/lower_leg7.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/lower_leg7.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/spacer_spine.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/spacer_spine.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/upper_leg.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/upper_leg.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/upper_leg8.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/upper_leg8.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/upper_leg_belt.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/upper_leg_belt.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes/upper_leg_belt8.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes/upper_leg_belt8.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/back_alu_1.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/back_alu_1.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/back_alu_2.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/back_alu_2.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/battery.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/battery.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/case1.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/case1.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/case2.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/case2.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/electronics.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/electronics.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/encoder.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/encoder.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/front_alu_1.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/front_alu_1.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/front_alu_3.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/front_alu_3.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/gearbox1_spacer.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/gearbox1_spacer.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/gearbox2.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/gearbox2.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/gearbox22.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/gearbox22.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/gearbox_1.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/gearbox_1.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/gearbox_12.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/gearbox_12.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/gearbox_3.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/gearbox_3.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/logic.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/logic.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/logic2.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/logic2.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/lower_leg.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/lower_leg.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/lower_leg2.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/lower_leg2.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/lower_leg7.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/lower_leg7.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/spacer_spine.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/spacer_spine.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/upper_leg.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/upper_leg.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/upper_leg2.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/upper_leg2.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/upper_leg8.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/upper_leg8.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/upper_leg_belt.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/upper_leg_belt.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/meshes2/upper_leg_belt8.stl" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/meshes2/upper_leg_belt8.stl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/quadruped copy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/quadruped copy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/quadruped.xml" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/quadruped.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/scene.xml" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/scene.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/sensor_actuator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/sensor_actuator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_files/leg_only_simplided/stl_asstes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test/simplified_leg/stl_asstes.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/control and simulation/simulation_mujoco.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_mujoco.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/control and simulation/simulation_test/mujoco_simulation_simplified.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/simulation_test/mujoco_simulation_simplified.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/control and simulation/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/control and simulation/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,14 +62,14 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/control and simulation/simulation" />
       <recent name="$PROJECT_DIR$/control and simulation/simulation_test" />
       <recent name="$PROJECT_DIR$/control and simulation/simulation_files/simulation_test" />
       <recent name="$PROJECT_DIR$/control and simulation/realworld" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/RPI_code" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.ps4controller">
+  <component name="RunManager" selected="Python.test (1)">
     <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="quadruped" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -300,9 +165,10 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="$USER_HOME$/Library/Caches/JetBrains/PyCharm2022.3/demo/PyCharmLearningProject/venv/bin/python" />
+      <option name="SDK_NAME" value="Python 3.11 (PyCharmLearningProject)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/control and simulation" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
@@ -324,9 +190,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test (1)" />
         <item itemvalue="Python.ps4controller" />
         <item itemvalue="Python.plot" />
-        <item itemvalue="Python.test (1)" />
         <item itemvalue="Python.main (2)" />
         <item itemvalue="Python.main (1)" />
       </list>
@@ -360,6 +226,7 @@
       <workItem from="1674199217237" duration="821000" />
       <workItem from="1674227918007" duration="5031000" />
       <workItem from="1674549658057" duration="47712000" />
+      <workItem from="1675433668777" duration="9417000" />
     </task>
     <task id="LOCAL-00018" summary="added dual can support">
       <created>1656490829325</created>
@@ -752,6 +619,6 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/quadruped$ps4controller.coverage" NAME="ps4controller Coverage Results" MODIFIED="1673279923643" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/control and simulation" />
     <SUITE FILE_PATH="coverage/quadruped$plot.coverage" NAME="plot Coverage Results" MODIFIED="1673254022136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/control and simulation" />
-    <SUITE FILE_PATH="coverage/quadruped$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1673173162991" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/control and simulation" />
+    <SUITE FILE_PATH="coverage/quadruped$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1675437551496" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/control and simulation" />
   </component>
 </project>

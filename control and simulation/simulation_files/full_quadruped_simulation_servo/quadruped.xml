@@ -23,6 +23,7 @@
                         <body name="electronics" pos="0 0 0.3" euler="-180 0 180">
 <joint type="free"/>
 
+                    <site name="gyroacc" pos="0 0 0" size="0.0001" rgba="0 0 0 1"/>
                     <geom name="electronics" type="mesh" mesh="electronics" pos="0 0 0" material="pcb"/>
                     <inertial pos="0.052 0 -0.019" mass="0.217" fullinertia="0.0002606 0.001278 0.001213 0.000004437742 0.0001681 -0.0000333683"/>
                         <body name="front_alu_1" pos="0.141 0 0.004" euler="0 180 0">
@@ -296,7 +297,7 @@
                     <geom name="lower_leg_22" type="mesh" mesh="lower_leg" pos="0 0 0" material="aluminium" />
                     <inertial pos="0.0733980 0.0000000 -0.0084740" mass="0.0445630" fullinertia="0.0000060 0.0003640 0.0003596 0.0000002 0.0000276 0.0000000"/>
 
-
+                    <site name="force0" pos="0.17 0 -0.007" size="0.012" rgba="0 0 1 1"/>
 
                         </body>
                         </body>
