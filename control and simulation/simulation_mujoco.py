@@ -85,7 +85,7 @@ def set_torque_servo(actuator_no, flag):
         model.actuator_gainprm[actuator_no, 0] = 1
 
 while True:
-    pos_control = False
+    pos_control = True
     sim_set_velocity_estimate()
     sim_set_position_estimate()
     sim_set_gyro()
@@ -114,7 +114,7 @@ while True:
 
     axis = can_comunication.swaitchgraph
     showforce = True #cange to false to show torque and position
-    if showforce == False:
+    if showforce == True:
         if can_comunication.showtorque == True:
             viewer.update_graph_line(
                 line_name="torque",

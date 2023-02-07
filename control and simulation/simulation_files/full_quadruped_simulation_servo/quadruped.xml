@@ -1,7 +1,7 @@
 <!-- https://mujoco.readthedocs.io/en/latest/overview.html?highlight=hello.xml#examples -->
 <mujoco>
 
-  <option gravity = "0 0 -9.81" viscosity="0.00002" apirate = "100" impratio = "3">
+  <option gravity = "0 0 -9.81" viscosity="0.00002" apirate = "100" impratio = "10">
     <flag contact="enable" />
   </option >
     <include file="stl_asstes.xml"/>

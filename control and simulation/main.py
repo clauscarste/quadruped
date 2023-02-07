@@ -165,6 +165,11 @@ def main_loop():
         ## implement speed and direction ### with left_right_balance and sepped_balance
 
         if can_comunication.currently_walking == True:
+            #walking.one_step_at_a_time(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
+            #                   acceleration_stance, deceleration_stance, speed_flight, acceleration_flight,
+            #                   deceleration_flight,
+            #                   yaw, pich, roll, xm, ym, zm, robot_length, robot_with, leg_parameters, ofset, limit,
+            #                   invert_axis, leg_config)
 
             walking.walking_sequence(step_lentgh, stance_max_height, flight_max_heigth, neutral_height, speed_stance,
                                       acceleration_stance, deceleration_stance, speed_flight, acceleration_flight,
